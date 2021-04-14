@@ -13,3 +13,10 @@ public class InputController : MonoBehaviour
         keyInput.crawlPress = Input.GetKey(KeyCode.LeftShift);
     }
 }
+
+public struct KeyInput
+{
+    public Vector3 moveVec;
+    public bool shootPress;
+    public bool crawlPress;
+}
