@@ -32,6 +32,8 @@ public class EnemyController : MonoBehaviour, IDamageable, IFireable
     }
 
     [SerializeField] private BulletPattern weapon;
+    [SerializeField] private LayerMask playerBulletLayerMask;
+    private Collider2D hit;
 
     private ObjectPool pool;
 
@@ -41,6 +43,23 @@ public class EnemyController : MonoBehaviour, IDamageable, IFireable
 
         if (pool == null)
             Debug.LogError("Cannot find object pool");
+    }
+
+    private void FixedUpdate()
+    {
+        CheckForPlayerBullets();
+        HandleShooting();
+    }
+
+    private void CheckForPlayerBullets()
+    {
+        hit = Physics2D.OverlapCircle(transform.position, 1f, playerBulletLayerMask);
+
+        if (hit)
+        {
+            pool.ReturnObject(hit.gameObject);
+            TakeDamage(1);
+        }
     }
 
     private void OnEnable()
@@ -53,8 +72,15 @@ public class EnemyController : MonoBehaviour, IDamageable, IFireable
         pool.ReturnObject(this.gameObject);
     }
 
+    private void HandleShooting()
+    {
+        if (Time.time > shootCooldown)
+            Shoot(weapon);
+    }
+
     public void TakeDamage(int damage)
     {
+        Debug.Log("Ouch!");
         Health -= damage;
 
         if (health == 0)
@@ -63,6 +89,6 @@ public class EnemyController : MonoBehaviour, IDamageable, IFireable
 
     public void Shoot(BulletPattern weapon)
     {
-        throw new System.NotImplementedException();
+        weapon.SpawnBullets(transform.position, this);
     }
 }

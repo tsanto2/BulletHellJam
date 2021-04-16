@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be56a3ed7cd2bc84b8ef5f8e18f93480, type: 3}
+  m_Name: Test
+  m_EditorClassIdentifier: 
+  baseDirection: 180
+  baseSpread: 10
+  bulletMinSpawnDistance: 0.5
+  bulletMaxSpawnDistance: 0.5
+  baseOscillationType: 0
+  baseOscillationSpeed: 5
+  bulletPrefab: {fileID: 1492540044211201988, guid: e15eeeb9d931da2478e3de2f13269a3a,
+    type: 3}
+  bulletLifeTime: 6
+  bulletBaseSpeed: 3
+  bulletRotationSpeed: 0
+  shootDelay: 0.39999998
+  bulletTotal: 2
+  bulletOffset: 1
+  wrapAngles: 0
+  mirrorShootAngles: 0
+  spawnerOscillationSpeed: 0
+  incrementalSpeed: 0
+  incrementalRotation: 0

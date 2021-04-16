@@ -70,6 +70,8 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
     private InputController input;
     private Camera cam;
     
+    [SerializeField] private LayerMask enemyBulletLayerMask;
+    private Collider2D hit;
 
     private void Awake()
     {
@@ -115,6 +117,14 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
     {
         if (input.keyInput.shootPress && Time.time > shootCooldown)
             Shoot(weapon);
+    }
+
+    private void CheckForEnemyBullets()
+    {
+        hit = Physics2D.OverlapCircle(transform.position, 0.1f, enemyBulletLayerMask);
+
+        if (hit)
+            TakeDamage(1);
     }
 
     public void Shoot(BulletPattern weapon)

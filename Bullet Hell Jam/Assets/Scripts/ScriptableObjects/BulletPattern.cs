@@ -15,7 +15,7 @@ public class BulletPattern : ScriptableObject
 
     [Header("Base Stats")]
     [Range(0f, 360f), SerializeField] private float baseDirection = 90f;
-    [Range(1f, 360f), SerializeField] private float baseSpread = 90f;
+    [Range(0f, 360f), SerializeField] private float baseSpread = 90f;
     [Space]
     [Range(0f, 2f), SerializeField] private float bulletMinSpawnDistance = 1f;
     [Range(0f, 2f), SerializeField] private float bulletMaxSpawnDistance = 1f;
@@ -62,7 +62,7 @@ public class BulletPattern : ScriptableObject
 
     public float GetBaseSpawnAngle()
     {
-        float oscillationStep = Time.time * baseOscillationSpeed * (360f / baseSpread);
+        float oscillationStep = Time.time * baseOscillationSpeed * (360f / Mathf.Max(1f, baseSpread));
         float oscillationPoint = 0f;
         float oscillationAngle = 0f;
 
@@ -201,7 +201,7 @@ public class BulletPattern : ScriptableObject
     private void OnValidate()
     {
         baseOscillationSpeed = Mathf.Floor(baseOscillationSpeed / 1f) * 1f;
-        baseSpread = Mathf.Max(1f, Mathf.Floor(baseSpread / 5f) * 5f);
+        baseSpread = Mathf.Max(0f, Mathf.Floor(baseSpread / 5f) * 5f);
         spawnRadius = baseSpread / 2f;
 
         baseDirection = Mathf.Floor(baseDirection / 15f) * 15f;
