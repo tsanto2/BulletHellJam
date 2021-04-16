@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 91682451374851122}
   - component: {fileID: 1640828083724269385}
   - component: {fileID: 8643028492163881478}
-  m_Layer: 0
+  - component: {fileID: 237190377}
+  m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,9 +109,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthMax: 6
   energyMax: 6
+  weapon: {fileID: 11400000, guid: cd158c2870b47464491b004a54ea5f8b, type: 2}
+  enemyBulletLayerMask:
+    serializedVersion: 2
+    m_Bits: 512
+--- !u!114 &237190377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8529394294941818745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac1139c5520dac45b68d09184b3a04f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   moveSpeed: 5
   crawlSpeed: 2
-  minX: -8.5
-  maxX: 8.5
-  minY: -2.5
-  maxY: 3.5

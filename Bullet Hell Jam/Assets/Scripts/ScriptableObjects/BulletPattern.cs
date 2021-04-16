@@ -167,6 +167,7 @@ public class BulletPattern : ScriptableObject
             bullet.transform.position = spawnPos;
 
             float speedMultiplier = 1f + (incrementalSpeed * i);
+
             var comp = pool.componentCache[bullet];
 
             if (!mirrorShootAngles)

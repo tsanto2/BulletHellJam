@@ -47,13 +47,10 @@ public class EnemyMovement : MonoBehaviour
         if (!awake)
             return;
         
+        camController.CameraUpdatePosition(transform);
+
         if (Time.time >= moveStartTime)
-        {
             HandleMovement();
-            
-            if (movementBehaviour != MovementBehaviour.MoveForward)
-                camController.CameraUpdatePosition(transform);
-        }
     }
 
     private void OnBecameVisible()

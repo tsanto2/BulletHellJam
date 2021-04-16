@@ -1,9 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour, IDamageable, IFireable
 {
+    public static event Action<int> OnEnemyDeathScore;
+    public static event Action OnEnemyDeath;
+
     [SerializeField] private int healthMax;
     private int health;
     public int Health
@@ -31,6 +33,8 @@ public class EnemyController : MonoBehaviour, IDamageable, IFireable
         }
     }
 
+    [SerializeField] private int scoreValue;
+    
     [SerializeField] private BulletPattern weapon;
     [SerializeField] private LayerMask playerBulletLayerMask;
     private Collider2D hit;
@@ -96,6 +100,9 @@ public class EnemyController : MonoBehaviour, IDamageable, IFireable
     public void Die()
     {
         pool.ReturnObject(this.gameObject);
+
+        OnEnemyDeath?.Invoke();
+        OnEnemyDeathScore?.Invoke(scoreValue);
     }
 
     private void HandleShooting()
