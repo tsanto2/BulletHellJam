@@ -14,13 +14,18 @@ public class DeckManager : MonoBehaviour
     [SerializeField]
     private Card[] cardSOs;
 
+    // Change to private l8r
     public List<Card> deck;
 
     public List<Card> Deck { get { return deck; } }
 
-    private List<Card> availableCards;
+    public List<Card> availableCards;
 
-    private List<Card> discardedCards;
+    public List<Card> AvailableCards { get { return availableCards; } }
+
+    public List<Card> discardedCards;
+
+    public List<Card> DiscardedCards { get { return discardedCards; } }
 
     #endregion
 
@@ -101,6 +106,56 @@ public class DeckManager : MonoBehaviour
                     }
                     break;
             }
+        }
+    }
+
+    public Card DrawCard()
+    {
+        Card drawnCard = null;
+
+        if (availableCards.Count > 0) {
+            int randomIndex = Random.Range(0, availableCards.Count);
+
+            drawnCard = availableCards[randomIndex];
+
+            availableCards.RemoveAt(randomIndex);
+        }
+        else
+        {
+            ShuffleDeck();
+
+            int randomIndex = Random.Range(0, availableCards.Count);
+
+            drawnCard = availableCards[randomIndex];
+
+            availableCards.RemoveAt(randomIndex);
+        }
+        return drawnCard;
+    }
+
+    public void AddToDiscardPile(Card discardedCard)
+    {
+        discardedCards.Add(discardedCard);
+    }
+
+    public void ShuffleDeck()
+    {
+        // Maybe move this out so it's more generic
+        availableCards.Clear();
+
+        foreach(Card discardedCard in discardedCards)
+        {
+            availableCards.Add(discardedCard);
+        }
+
+        discardedCards.Clear();
+
+        for (int i = 0; i < availableCards.Count; i++)
+        {
+            Card temp = availableCards[i];
+            int randomIndex = Random.Range(i, availableCards.Count);
+            availableCards[i] = availableCards[randomIndex];
+            availableCards[randomIndex] = temp;
         }
     }
 

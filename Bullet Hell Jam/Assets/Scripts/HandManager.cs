@@ -14,16 +14,32 @@ public class HandManager : MonoBehaviour
     // Change back to private l8r
     public List<Card> hand;
 
-
+    private void Update()
+    {
+        // Just for testing :]
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            DiscardHand();
+            DrawHand();
+        }
+    }
 
     public void DrawHand()
     {
-        int[] drawnIndices = new int[4];
-
         for (int i=0; i<drawCount; i++)
         {
-
+            hand.Add(deckManager.DrawCard());
         }
+    }
+
+    public void DiscardHand()
+    {
+        for (int i=0; i<hand.Count; i++)
+        {
+            deckManager.AddToDiscardPile(hand[i]);
+        }
+
+        hand.Clear();
     }
 
 }
