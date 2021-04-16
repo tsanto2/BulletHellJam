@@ -12,6 +12,8 @@ public class InputController : MonoBehaviour
         keyInput.moveVec = new Vector3(moveX, moveY, 0f);
         keyInput.crawlPress = Input.GetKey(KeyCode.LeftShift);
 
+        keyInput.shootPress = Input.GetKey(KeyCode.Space);
+
         keyInput.slowmoPress = Input.GetKeyDown(KeyCode.LeftControl);
         keyInput.slowmoRelease = Input.GetKeyUp(KeyCode.LeftControl);
     }

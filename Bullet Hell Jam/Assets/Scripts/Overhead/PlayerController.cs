@@ -2,14 +2,14 @@
 using System;
 
 [RequireComponent(typeof(InputController))]
-public class PlayerController : MonoBehaviour, IDamageable
+public class PlayerController : MonoBehaviour, IDamageable, IFireable
 {
     #region Events
     public static event Action<int> OnPlayerHealthChange;
     public static event Action<int> OnPlayerEnergyChange;
     public static event Action<bool> OnPlayerActivateSlowmo;
     #endregion
-    
+
     [Header("Stats")]
     [SerializeField, Min(1)] private int healthMax;
     private int health;
@@ -51,7 +51,23 @@ public class PlayerController : MonoBehaviour, IDamageable
     [SerializeField] private float minY;
     [SerializeField] private float maxY;
 
+    [Header("Weapons")]
+    [SerializeField] private BulletPattern weapon;
+    private float shootCooldown;
+    public float ShootCooldown
+    {
+        get
+        {
+            return shootCooldown;
+        }
+        set
+        {
+            shootCooldown = Time.time + value;
+        }
+    }
+
     private InputController input;
+    
 
     private void Awake()
     {
@@ -63,10 +79,33 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     private void FixedUpdate()
     {
+        HandleMovement();
+        HandleShooting();
+    }
+
+    private void HandleMovement()
+    {
         if (input.keyInput.crawlPress)
             Move(crawlSpeed);
         else
             Move(moveSpeed);
+    }
+
+    private void HandleShooting()
+    {
+        if (input.keyInput.shootPress && Time.time > shootCooldown)
+        {
+            Shoot(weapon);
+        }
+    }
+
+    public void Shoot(BulletPattern weapon)
+    {
+        if (weapon == null)
+            return;
+
+        //shootCooldown += weapon.shootDelay;
+        weapon.SpawnBullets(transform.position, this);
     }
 
     private void Move(float speed)

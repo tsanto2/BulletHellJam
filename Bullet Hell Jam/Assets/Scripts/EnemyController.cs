@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour, IDamageable
+public class EnemyController : MonoBehaviour, IDamageable, IFireable
 {
     [SerializeField] private int healthMax;
     private int health;
@@ -18,11 +18,29 @@ public class EnemyController : MonoBehaviour, IDamageable
         }
     }
 
+    private float shootCooldown;
+    public float ShootCooldown
+    {
+        get
+        {
+            return shootCooldown;
+        }
+        set
+        {
+            shootCooldown = Time.time + value;
+        }
+    }
+
+    [SerializeField] private BulletPattern weapon;
+
     private ObjectPool pool;
 
     private void Start()
     {
         pool = FindObjectOfType<ObjectPool>();
+
+        if (pool == null)
+            Debug.LogError("Cannot find object pool");
     }
 
     private void OnEnable()
@@ -41,5 +59,10 @@ public class EnemyController : MonoBehaviour, IDamageable
 
         if (health == 0)
             Die();
+    }
+
+    public void Shoot(BulletPattern weapon)
+    {
+        throw new System.NotImplementedException();
     }
 }

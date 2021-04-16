@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Bullet Spawner", menuName = "ScriptableObjects/Spawner")]
-public class Spawner : ScriptableObject
+public class BulletPattern : ScriptableObject
 {
     public enum SpawnOscillation
     {
@@ -16,11 +14,12 @@ public class Spawner : ScriptableObject
     }
 
     [Header("Base Stats")]
-    public float lifetime = 5f;
     [Range(0f, 360f), SerializeField] private float baseDirection = 90f;
     [Range(1f, 360f), SerializeField] private float baseSpread = 90f;
-    [Range(0f, 2f), SerializeField] private float bulletSpawnDistance = 1f;
-
+    [Space]
+    [Range(0f, 2f), SerializeField] private float bulletMinSpawnDistance = 1f;
+    [Range(0f, 2f), SerializeField] private float bulletMaxSpawnDistance = 1f;
+    [Space]
     [SerializeField] private SpawnOscillation baseOscillationType;
     [Range(1, 720), SerializeField] private float baseOscillationSpeed = 45f;
 
@@ -36,7 +35,10 @@ public class Spawner : ScriptableObject
     [Range(1, 30), SerializeField] private int bulletTotal = 2;
     [Range(0f, 360), SerializeField] private float bulletOffset = 0f;
     [SerializeField] private bool wrapAngles;
-    [SerializeField] private bool mirrorShootAngles;
+
+    [SerializeField, Tooltip("If disabled, bullets will move directly away from spawn position")] 
+    private bool mirrorShootAngles;
+
     [SerializeField] private float spawnerOscillationSpeed;
     
     [Header("Incremental Spawn Adjustments")]
@@ -142,17 +144,23 @@ public class Spawner : ScriptableObject
         return positions;
     }
 
-    public void SpawnBullets(Vector3 startPosition)
+    public void SpawnBullets(Vector3 startPosition, IFireable fireable)
     {
+        if (fireable == null)
+            return;
+
         if (pool == null)
             pool = FindObjectOfType<ObjectPool>();
+
+        fireable.ShootCooldown = shootDelay;
 
         positions = GetSpawnPositions();
         bullets = pool.GetObject(bulletPrefab, bulletTotal);
 
         for (int i = 0; i < bulletTotal; i++)
         {
-            Vector3 spawnPos = startPosition + (positions[i] * bulletSpawnDistance);
+            float spawnDistance = Random.Range(bulletMinSpawnDistance, bulletMaxSpawnDistance);
+            Vector3 spawnPos = startPosition + (positions[i] * spawnDistance);
 
             GameObject bullet = bullets[i];
             bullet.transform.position = spawnPos;
@@ -203,10 +211,8 @@ public class Spawner : ScriptableObject
         positions = new Vector3[bulletTotal];
         bullets = new GameObject[bulletTotal];
         shootDelay = Mathf.Floor(shootDelay / 0.01f) * 0.01f;
-    }
 
-    private void OnDrawGizmos()
-    {
-        Debug.Log("Test");
+        bulletMinSpawnDistance = Mathf.Min(bulletMinSpawnDistance, bulletMaxSpawnDistance);
+        bulletMaxSpawnDistance = Mathf.Max(bulletMinSpawnDistance, bulletMaxSpawnDistance);
     }
 }

@@ -14,7 +14,7 @@ public class BulletController : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
     private Material material;
-    public Spawner spawner;
+    public BulletPattern weapon;
 
     private void Awake()
     {

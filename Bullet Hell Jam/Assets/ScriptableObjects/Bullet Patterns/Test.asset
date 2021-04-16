@@ -12,19 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be56a3ed7cd2bc84b8ef5f8e18f93480, type: 3}
   m_Name: Test
   m_EditorClassIdentifier: 
-  lifetime: 5
-  baseDirection: 90
-  baseSpread: 90
-  bulletSpawnDistance: 1
-  baseOscillationType: 0
-  baseOscillationSpeed: 45
+  baseDirection: 0
+  baseSpread: 1
+  bulletMinSpawnDistance: 0.5
+  bulletMaxSpawnDistance: 0.5
+  baseOscillationType: 1
+  baseOscillationSpeed: 1
   bulletPrefab: {fileID: 1492540044211201988, guid: da5958408dfe64b43ab7ed99332bebba,
     type: 3}
-  bulletBaseSpeed: 2
+  bulletBaseSpeed: 6
   bulletRotationSpeed: 0
-  shootDelay: 0.049999997
-  bulletTotal: 2
-  bulletOffset: 0
+  shootDelay: 0.099999994
+  bulletTotal: 5
+  bulletOffset: 5
   wrapAngles: 0
   mirrorShootAngles: 0
   spawnerOscillationSpeed: 0
