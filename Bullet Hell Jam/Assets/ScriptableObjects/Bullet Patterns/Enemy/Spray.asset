@@ -10,24 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be56a3ed7cd2bc84b8ef5f8e18f93480, type: 3}
-  m_Name: Shotgun
+  m_Name: Spray
   m_EditorClassIdentifier: 
-  baseDirection: 0
-  baseSpread: 45
-  bulletMinSpawnDistance: 0.25
-  bulletMaxSpawnDistance: 1.5
-  baseOscillationType: 1
-  baseOscillationSpeed: 1
-  bulletPrefab: {fileID: 1492540044211201988, guid: da5958408dfe64b43ab7ed99332bebba,
+  baseDirection: 180
+  baseSpread: 15
+  bulletMinSpawnDistance: 1
+  bulletMaxSpawnDistance: 1
+  baseOscillationType: 2
+  baseOscillationSpeed: 45
+  bulletPrefab: {fileID: 1492540044211201988, guid: e15eeeb9d931da2478e3de2f13269a3a,
     type: 3}
-  bulletLifeTime: 0.2
-  bulletBaseSpeed: 10
+  bulletLifeTime: 5
+  bulletBaseSpeed: 3
   bulletRotationSpeed: 0
-  shootDelay: 0.79999995
-  bulletTotal: 30
-  bulletOffset: 5
-  wrapAngles: 1
-  mirrorShootAngles: 0
+  shootDelay: 0.049999997
+  bulletTotal: 3
+  bulletOffset: 15
+  wrapAngles: 0
+  mirrorShootAngles: 1
   spawnerOscillationSpeed: 0
   incrementalSpeed: 0
   incrementalRotation: 0

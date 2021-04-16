@@ -38,7 +38,6 @@ public class EnemyController : MonoBehaviour, IDamageable, IFireable
     private ObjectPool pool;
     private SpriteRenderer spriteRenderer;
     private float scrollSpeed;
-
     private bool awake;
 
     private void Awake()
@@ -49,7 +48,7 @@ public class EnemyController : MonoBehaviour, IDamageable, IFireable
     private void Start()
     {
         pool = FindObjectOfType<ObjectPool>();
-        scrollSpeed = FindObjectOfType<CameraController>().scrollSpeed;
+        
 
         if (pool == null)
             Debug.LogError("Cannot find object pool");
@@ -67,21 +66,11 @@ public class EnemyController : MonoBehaviour, IDamageable, IFireable
             return;
 
         HandleShooting();
-        HandleAutoScroll();
+        
         CheckForPlayerBullets();
     }
 
-    private void OnBecameVisible()
-    {
-        Invoke("WakeUp", 2f);
-    }
-
-    private void HandleAutoScroll()
-    {
-        transform.position += Vector3.right * scrollSpeed * Time.fixedDeltaTime;
-    }
-
-    private void WakeUp()
+    public void WakeUp()
     {
         awake = true;
     }

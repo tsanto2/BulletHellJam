@@ -1,14 +1,21 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System;
 
 public class GameManager : MonoBehaviour
 {
     public static event Action OnTenSecondsPassed;
-    private WaitForSeconds tenSeconds = new WaitForSeconds(10f);
+    public static event Action<int> OnScoreChanged;
 
+    [Header("Slowmo")]
     [SerializeField] private float slowmoScale;
+    [SerializeField] private float slowmoDelay;
+    [SerializeField] private float slowmoMaxTime;
+    private float slowmoCooldown;
+    private float slowmoStartTime;
+    private bool isSlowmoActive;
+
+    private WaitForSeconds tenSeconds = new WaitForSeconds(10f);
     
     private InputController input;
 
@@ -20,10 +27,29 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (input.keyInput.slowmoPress)
+        HandleSlowmo();
+    }
+
+    private void HandleSlowmo()
+    {
+        if (input.keyInput.slowmoPress && Time.time >= slowmoCooldown)
+        {
             Time.timeScale = slowmoScale;
-        else if (input.keyInput.slowmoRelease)
+            slowmoStartTime = Time.time;
+            isSlowmoActive = true;
+            Debug.Log("Started slowmo at: " + Time.time);
+        }
+
+        if (!isSlowmoActive)
+            return;
+        
+        if (input.keyInput.slowmoRelease || Time.time >= slowmoStartTime + slowmoMaxTime)
+        {
             Time.timeScale = 1f;
+            slowmoCooldown = Time.time + slowmoDelay;
+            isSlowmoActive = false;
+            Debug.Log("Stopped slowmo at: " + Time.time);
+        }
     }
 
     IEnumerator TenSecondTimer()

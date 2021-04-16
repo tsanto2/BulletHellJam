@@ -91,6 +91,8 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
     {
         HandleMovement();
         ClampPositionToCamera();
+        
+        CheckForEnemyBullets();
         HandleShooting();
     }
 
@@ -124,7 +126,10 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
         hit = Physics2D.OverlapCircle(transform.position, 0.1f, enemyBulletLayerMask);
 
         if (hit)
+        {
+            ObjectPool.Instance.ReturnObject(hit.gameObject);
             TakeDamage(1);
+        }
     }
 
     public void Shoot(BulletPattern weapon)

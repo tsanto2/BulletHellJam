@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be56a3ed7cd2bc84b8ef5f8e18f93480, type: 3}
   m_Name: Helix
   m_EditorClassIdentifier: 
-  baseDirection: 15
+  baseDirection: 0
   baseSpread: 10
   bulletMinSpawnDistance: 1
   bulletMaxSpawnDistance: 1
@@ -21,7 +21,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1492540044211201988, guid: da5958408dfe64b43ab7ed99332bebba,
     type: 3}
   bulletLifeTime: 3
-  bulletBaseSpeed: 6
+  bulletBaseSpeed: 9
   bulletRotationSpeed: 0
   shootDelay: 0.049999997
   bulletTotal: 3
