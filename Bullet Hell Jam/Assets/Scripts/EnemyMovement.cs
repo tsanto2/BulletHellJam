@@ -14,15 +14,17 @@ public class EnemyMovement : MonoBehaviour
     }
 
     [SerializeField] private MovementBehaviour movementBehaviour;
+    [SerializeField] private float WakeUpDelay = 2f;
     [SerializeField] private float moveSpeed;
     [SerializeField] private float moveDelay;
+
+    private bool awake;
     private float moveStartTime;
 
-    private float scrollSpeed;
-    private bool awake;
-
     private EnemyController controller;
+
     private Camera cam;
+    private CamSettings camSettings;
 
     private void Awake()
     {
@@ -31,8 +33,8 @@ public class EnemyMovement : MonoBehaviour
 
     private void Start()
     {
-        scrollSpeed = FindObjectOfType<CameraController>().scrollSpeed;
         cam = Camera.main;
+        camSettings = cam.GetComponent<CameraController>().camSettings;
     }
 
     private void OnEnable()
@@ -48,17 +50,22 @@ public class EnemyMovement : MonoBehaviour
         HandleAutoScroll();
         
         if (Time.time >= moveStartTime)
+        {
             HandleMovement();
+            
+            if (movementBehaviour != MovementBehaviour.MoveForward)
+                ClampPositionToCamera();
+        }
     }
 
     private void OnBecameVisible()
     {
-        Invoke("WakeUp", 2f);
+        Invoke("WakeUp", WakeUpDelay);
     }
 
     private void HandleAutoScroll()
     {
-        transform.position += Vector3.right * scrollSpeed * Time.fixedDeltaTime;
+        transform.position += Vector3.right * camSettings.scrollSpeed * Time.fixedDeltaTime;
     }
 
     private void HandleMovement()
@@ -67,15 +74,13 @@ public class EnemyMovement : MonoBehaviour
         {
             case MovementBehaviour.StrafeDown:
             {
-                if (transform.position.y > -2f)
-                    transform.position += Vector3.down * moveSpeed * Time.fixedDeltaTime;
+                transform.position += Vector3.down * moveSpeed * Time.fixedDeltaTime;
                 break;
             }
 
             case MovementBehaviour.StrafeUp:
             {
-                if (transform.position.y < 2f)
-                    transform.position += Vector3.up * moveSpeed * Time.fixedDeltaTime;
+                transform.position += Vector3.up * moveSpeed * Time.fixedDeltaTime;
                 break;
             }
 
@@ -85,10 +90,18 @@ public class EnemyMovement : MonoBehaviour
 
                 if (cam.WorldToScreenPoint(transform.position).x < 0f)
                     ObjectPool.Instance.ReturnObject(this.gameObject);
-
                 break;
             }
         }
+    }
+
+    private void ClampPositionToCamera()
+    {
+        Vector3 camPosition = cam.transform.position;
+
+        float clampX = Mathf.Clamp(transform.position.x, camPosition.x + camSettings.minX, camPosition.x + camSettings.maxX);
+        float clampY = Mathf.Clamp(transform.position.y, camPosition.y + camSettings.minY, camPosition.y + camSettings.maxY);
+        transform.position = new Vector3(clampX, clampY);
     }
 
     private void WakeUp()

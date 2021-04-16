@@ -38,7 +38,9 @@ public class EnemyController : MonoBehaviour, IDamageable, IFireable
     private ObjectPool pool;
     private SpriteRenderer spriteRenderer;
     private float scrollSpeed;
+
     private bool awake;
+    private bool onScreen;
 
     private void Awake()
     {
@@ -58,16 +60,21 @@ public class EnemyController : MonoBehaviour, IDamageable, IFireable
     {
         health = healthMax;
         awake = false;
+        onScreen = false;
     }
 
     private void FixedUpdate()
     {
-        if (!awake)
-            return;
+        if (onScreen)
+            CheckForPlayerBullets();
 
-        HandleShooting();
-        
-        CheckForPlayerBullets();
+        if (awake)
+            HandleShooting();
+    }
+
+    private void OnBecameVisible()
+    {
+        onScreen = true;
     }
 
     public void WakeUp()
@@ -99,7 +106,6 @@ public class EnemyController : MonoBehaviour, IDamageable, IFireable
 
     public void TakeDamage(int damage)
     {
-        Debug.Log("Ouch!");
         Health -= damage;
 
         if (health == 0)

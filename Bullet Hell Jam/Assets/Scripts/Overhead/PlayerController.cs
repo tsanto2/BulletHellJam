@@ -41,17 +41,6 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
         }
     }
 
-    [Header("Movement")]
-    [SerializeField] private float moveSpeed;
-    [SerializeField] private float crawlSpeed;
-    private float scrollSpeed;
-
-    [Header("Misc")]
-    [SerializeField] private float minX;
-    [SerializeField] private float maxX;
-    [SerializeField] private float minY;
-    [SerializeField] private float maxY;
-
     [Header("Weapons")]
     [SerializeField] private BulletPattern weapon;
     private float shootCooldown;
@@ -68,7 +57,6 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
     }
 
     private InputController input;
-    private Camera cam;
     
     [SerializeField] private LayerMask enemyBulletLayerMask;
     private Collider2D hit;
@@ -81,38 +69,10 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
         Energy = energyMax;
     }
 
-    private void Start()
-    {
-        cam = Camera.main;
-        scrollSpeed = cam.GetComponent<CameraController>().scrollSpeed;
-    }
-
     private void FixedUpdate()
-    {
-        HandleMovement();
-        ClampPositionToCamera();
-        
+    {        
         CheckForEnemyBullets();
         HandleShooting();
-    }
-
-    private void HandleMovement()
-    {
-        transform.position += Vector3.right * scrollSpeed * Time.fixedDeltaTime;
-
-        if (input.keyInput.crawlPress)
-            Move(crawlSpeed);
-        else
-            Move(moveSpeed);
-    }
-
-    private void ClampPositionToCamera()
-    {
-        Vector3 camPosition = cam.transform.position;
-
-        float clampX = Mathf.Clamp(transform.position.x, camPosition.x + minX, camPosition.x + maxX);
-        float clampY = Mathf.Clamp(transform.position.y, camPosition.y + minY, camPosition.y + maxY);
-        transform.position = new Vector3(clampX, clampY);
     }
 
     private void HandleShooting()
@@ -138,11 +98,6 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
             return;
 
         weapon.SpawnBullets(transform.position, this);
-    }
-
-    private void Move(float speed)
-    {
-        transform.position += input.keyInput.moveVec.normalized * speed * Time.fixedDeltaTime;
     }
 
     public void TakeDamage(int damage)

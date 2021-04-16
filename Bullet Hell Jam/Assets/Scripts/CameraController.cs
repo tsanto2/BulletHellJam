@@ -4,8 +4,16 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    [Min(0.1f)]
-    public float scrollSpeed = 0.1f;
+    [Min(0.1f)] public float scrollSpeed = 0.1f;
+
+    public CamSettings camSettings = new CamSettings
+    {
+        minX = -8.5f,
+        maxX = 8.5f,
+        minY = -2.5f,
+        maxY = 3.5f,
+        scrollSpeed = 1.5f
+    };
 
     private void FixedUpdate()
     {
