@@ -4,12 +4,14 @@ using System;
 [RequireComponent(typeof(InputController))]
 public class PlayerController : MonoBehaviour, IDamageable
 {
+    #region Events
     public static event Action<int> OnPlayerHealthChange;
     public static event Action<int> OnPlayerEnergyChange;
     public static event Action<bool> OnPlayerActivateSlowmo;
-
+    #endregion
+    
     [Header("Stats")]
-    [SerializeField] private int healthMax;
+    [SerializeField, Min(1)] private int healthMax;
     private int health;
     public int Health
     {
@@ -24,7 +26,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         }
     }
 
-    [SerializeField] private int energyMax;
+    [SerializeField, Min(1)] private int energyMax;
     private int energy;
     public int Energy
     {
@@ -44,10 +46,10 @@ public class PlayerController : MonoBehaviour, IDamageable
     [SerializeField] private float crawlSpeed;
 
     [Header("Misc")]
+    [SerializeField] private float minX;
+    [SerializeField] private float maxX;
     [SerializeField] private float minY;
     [SerializeField] private float maxY;
-    [Space]
-    [SerializeField, Range(0f, 1f)] private float slowmoScale = 0.5f;
 
     private InputController input;
 
@@ -70,6 +72,10 @@ public class PlayerController : MonoBehaviour, IDamageable
     private void Move(float speed)
     {
         transform.position += input.keyInput.moveVec.normalized * speed * Time.fixedDeltaTime;
+
+        float clampX = Mathf.Clamp(transform.position.x, minX, maxX);
+        float clampY = Mathf.Clamp(transform.position.y, minY, maxY);
+        transform.position = new Vector3(clampX, clampY);
     }
 
     public void TakeDamage(int damage)
@@ -82,6 +88,6 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     public void Die()
     {
-        throw new NotImplementedException();
+        Debug.Log("Doug Dimmadome declares you dimma-dun-dead, son.");
     }
 }
