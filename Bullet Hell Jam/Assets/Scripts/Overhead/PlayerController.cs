@@ -44,6 +44,7 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
     [Header("Movement")]
     [SerializeField] private float moveSpeed;
     [SerializeField] private float crawlSpeed;
+    private float scrollSpeed;
 
     [Header("Misc")]
     [SerializeField] private float minX;
@@ -67,6 +68,7 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
     }
 
     private InputController input;
+    private Camera cam;
     
 
     private void Awake()
@@ -77,26 +79,42 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
         Energy = energyMax;
     }
 
+    private void Start()
+    {
+        scrollSpeed = Camera.main.GetComponent<CameraController>().scrollSpeed;
+        cam = Camera.main;
+    }
+
     private void FixedUpdate()
     {
         HandleMovement();
+        ClampPositionToCamera();
         HandleShooting();
     }
 
     private void HandleMovement()
     {
+        transform.position += Vector3.right * scrollSpeed * Time.fixedDeltaTime;
+
         if (input.keyInput.crawlPress)
             Move(crawlSpeed);
         else
             Move(moveSpeed);
     }
 
+    private void ClampPositionToCamera()
+    {
+        Vector3 camPosition = cam.transform.position;
+
+        float clampX = Mathf.Clamp(transform.position.x, camPosition.x + minX, camPosition.x + maxX);
+        float clampY = Mathf.Clamp(transform.position.y, camPosition.y + minY, camPosition.y + maxY);
+        transform.position = new Vector3(clampX, clampY);
+    }
+
     private void HandleShooting()
     {
         if (input.keyInput.shootPress && Time.time > shootCooldown)
-        {
             Shoot(weapon);
-        }
     }
 
     public void Shoot(BulletPattern weapon)
@@ -104,17 +122,12 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
         if (weapon == null)
             return;
 
-        //shootCooldown += weapon.shootDelay;
         weapon.SpawnBullets(transform.position, this);
     }
 
     private void Move(float speed)
     {
         transform.position += input.keyInput.moveVec.normalized * speed * Time.fixedDeltaTime;
-
-        float clampX = Mathf.Clamp(transform.position.x, minX, maxX);
-        float clampY = Mathf.Clamp(transform.position.y, minY, maxY);
-        transform.position = new Vector3(clampX, clampY);
     }
 
     public void TakeDamage(int damage)

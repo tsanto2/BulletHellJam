@@ -8,7 +8,7 @@ public class BulletController : MonoBehaviour
     public Vector3 moveVec;
     public float rotationSpeed;
     public float moveSpeed;
-    [SerializeField] private float lifetime;
+    public float lifetime;
     public ObjectPool pool;
     private bool active;
 

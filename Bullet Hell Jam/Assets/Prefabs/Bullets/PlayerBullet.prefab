@@ -97,9 +97,9 @@ MonoBehaviour:
   moveVec: {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   moveSpeed: 0
-  lifetime: 3
+  lifetime: 0.25
   pool: {fileID: 0}
-  spawner: {fileID: 0}
+  weapon: {fileID: 0}
 --- !u!58 &5718524100918461165
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -27,6 +27,7 @@ public class BulletPattern : ScriptableObject
 
     [Header("Bullet Stats")]
     [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private float bulletLifeTime;
     [SerializeField] private float bulletBaseSpeed;
     [Range(-30f, 30f), SerializeField] private float bulletRotationSpeed;
 
@@ -175,6 +176,7 @@ public class BulletPattern : ScriptableObject
 
             comp.rotationSpeed = bulletRotationSpeed;
             comp.moveSpeed = bulletBaseSpeed;
+            comp.lifetime = bulletLifeTime;
         }
     }
 
