@@ -15,7 +15,7 @@ public class DeckManager : MonoBehaviour
     private Card[] cardSOs;
 
     // Change to private l8r
-    public List<Card> deck;
+    private List<Card> deck;
 
     public List<Card> Deck { get { return deck; } }
 
@@ -33,6 +33,9 @@ public class DeckManager : MonoBehaviour
     #region MonoBehaviours
     private void Start()
     {
+        deck = new List<Card>();
+        discardedCards = new List<Card>();
+
         CompileBaseDeck();
 
         availableCards = deck;
