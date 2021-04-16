@@ -112,4 +112,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementBehaviour: 0
+  WakeUpDelay: 1.5
   moveSpeed: 0.5
+  moveDelay: 0
