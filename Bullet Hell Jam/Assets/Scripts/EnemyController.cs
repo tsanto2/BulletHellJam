@@ -36,19 +36,54 @@ public class EnemyController : MonoBehaviour, IDamageable, IFireable
     private Collider2D hit;
 
     private ObjectPool pool;
+    private SpriteRenderer spriteRenderer;
+    private float scrollSpeed;
+
+    private bool awake;
+
+    private void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
 
     private void Start()
     {
         pool = FindObjectOfType<ObjectPool>();
+        scrollSpeed = FindObjectOfType<CameraController>().scrollSpeed;
 
         if (pool == null)
             Debug.LogError("Cannot find object pool");
     }
 
+    private void OnEnable()
+    {
+        health = healthMax;
+        awake = false;
+    }
+
     private void FixedUpdate()
     {
-        CheckForPlayerBullets();
+        if (!awake)
+            return;
+
         HandleShooting();
+        HandleAutoScroll();
+        CheckForPlayerBullets();
+    }
+
+    private void OnBecameVisible()
+    {
+        Invoke("WakeUp", 2f);
+    }
+
+    private void HandleAutoScroll()
+    {
+        transform.position += Vector3.right * scrollSpeed * Time.fixedDeltaTime;
+    }
+
+    private void WakeUp()
+    {
+        awake = true;
     }
 
     private void CheckForPlayerBullets()
@@ -60,11 +95,6 @@ public class EnemyController : MonoBehaviour, IDamageable, IFireable
             pool.ReturnObject(hit.gameObject);
             TakeDamage(1);
         }
-    }
-
-    private void OnEnable()
-    {
-        health = healthMax;
     }
 
     public void Die()

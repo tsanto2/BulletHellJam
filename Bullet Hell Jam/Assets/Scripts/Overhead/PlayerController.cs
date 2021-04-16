@@ -83,8 +83,8 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
 
     private void Start()
     {
-        scrollSpeed = Camera.main.GetComponent<CameraController>().scrollSpeed;
         cam = Camera.main;
+        scrollSpeed = cam.GetComponent<CameraController>().scrollSpeed;
     }
 
     private void FixedUpdate()
