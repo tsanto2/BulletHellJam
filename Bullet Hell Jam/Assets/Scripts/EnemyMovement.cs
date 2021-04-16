@@ -9,16 +9,20 @@ public class EnemyMovement : MonoBehaviour
     {
         Freeze,
         StrafeUp,
-        StrafeDown
+        StrafeDown,
+        MoveForward
     }
 
     [SerializeField] private MovementBehaviour movementBehaviour;
     [SerializeField] private float moveSpeed;
+    [SerializeField] private float moveDelay;
+    private float moveStartTime;
 
     private float scrollSpeed;
     private bool awake;
 
     private EnemyController controller;
+    private Camera cam;
 
     private void Awake()
     {
@@ -28,6 +32,12 @@ public class EnemyMovement : MonoBehaviour
     private void Start()
     {
         scrollSpeed = FindObjectOfType<CameraController>().scrollSpeed;
+        cam = Camera.main;
+    }
+
+    private void OnEnable()
+    {
+        awake = false;
     }
 
     private void FixedUpdate()
@@ -36,7 +46,9 @@ public class EnemyMovement : MonoBehaviour
             return;
 
         HandleAutoScroll();
-        HandleMovement();
+        
+        if (Time.time >= moveStartTime)
+            HandleMovement();
     }
 
     private void OnBecameVisible()
@@ -61,19 +73,28 @@ public class EnemyMovement : MonoBehaviour
             }
 
             case MovementBehaviour.StrafeUp:
-                {
-                    if (transform.position.y < 2f)
-                        transform.position += Vector3.up * moveSpeed * Time.fixedDeltaTime;
-                    break;
-                }
+            {
+                if (transform.position.y < 2f)
+                    transform.position += Vector3.up * moveSpeed * Time.fixedDeltaTime;
+                break;
+            }
+
+            case MovementBehaviour.MoveForward:
+            {
+                transform.position += Vector3.left * moveSpeed * Time.fixedDeltaTime;
+
+                if (cam.WorldToScreenPoint(transform.position).x < 0f)
+                    ObjectPool.Instance.ReturnObject(this.gameObject);
+
+                break;
+            }
         }
     }
 
     private void WakeUp()
     {
         awake = true;
+        moveStartTime = Time.time + moveDelay;
         controller.WakeUp();
     }
-
-
 }

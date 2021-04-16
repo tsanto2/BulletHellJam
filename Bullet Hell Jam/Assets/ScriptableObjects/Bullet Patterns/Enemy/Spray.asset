@@ -23,7 +23,7 @@ MonoBehaviour:
   bulletLifeTime: 5
   bulletBaseSpeed: 3
   bulletRotationSpeed: 0
-  shootDelay: 0.049999997
+  shootDelay: 0.099999994
   bulletTotal: 3
   bulletOffset: 15
   wrapAngles: 0
