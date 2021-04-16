@@ -8,14 +8,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float moveSpeed;
     [SerializeField] private float crawlSpeed;
 
-    private Camera cam;
-    private CamSettings camSettings;
+    private CameraController cam;
     private InputController input;
 
     private void Start()
     {
-        cam = Camera.main;
-        camSettings = FindObjectOfType<CameraController>().camSettings;
+        cam = Camera.main.GetComponent<CameraController>();
 
         input = GetComponent<InputController>();
     }
@@ -23,22 +21,11 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         HandleMovement();
-        ClampPositionToCamera();
-    }
-
-    private void ClampPositionToCamera()
-    {
-        Vector3 camPosition = cam.transform.position;
-
-        float clampX = Mathf.Clamp(transform.position.x, camPosition.x + camSettings.minX, camPosition.x + camSettings.maxX);
-        float clampY = Mathf.Clamp(transform.position.y, camPosition.y + camSettings.minY, camPosition.y + camSettings.maxY);
-        transform.position = new Vector3(clampX, clampY);
+        cam.CameraUpdatePosition(transform);
     }
 
     private void HandleMovement()
     {
-        transform.position += Vector3.right * camSettings.scrollSpeed * Time.fixedDeltaTime;
-
         if (input.keyInput.crawlPress)
             Move(crawlSpeed);
         else

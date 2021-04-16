@@ -24,7 +24,7 @@ public class EnemyMovement : MonoBehaviour
     private EnemyController controller;
 
     private Camera cam;
-    private CamSettings camSettings;
+    private CameraController camController;
 
     private void Awake()
     {
@@ -34,7 +34,7 @@ public class EnemyMovement : MonoBehaviour
     private void Start()
     {
         cam = Camera.main;
-        camSettings = cam.GetComponent<CameraController>().camSettings;
+        camController = cam.GetComponent<CameraController>();
     }
 
     private void OnEnable()
@@ -46,26 +46,19 @@ public class EnemyMovement : MonoBehaviour
     {
         if (!awake)
             return;
-
-        HandleAutoScroll();
         
         if (Time.time >= moveStartTime)
         {
             HandleMovement();
             
             if (movementBehaviour != MovementBehaviour.MoveForward)
-                ClampPositionToCamera();
+                camController.CameraUpdatePosition(transform);
         }
     }
 
     private void OnBecameVisible()
     {
         Invoke("WakeUp", WakeUpDelay);
-    }
-
-    private void HandleAutoScroll()
-    {
-        transform.position += Vector3.right * camSettings.scrollSpeed * Time.fixedDeltaTime;
     }
 
     private void HandleMovement()
@@ -93,15 +86,6 @@ public class EnemyMovement : MonoBehaviour
                 break;
             }
         }
-    }
-
-    private void ClampPositionToCamera()
-    {
-        Vector3 camPosition = cam.transform.position;
-
-        float clampX = Mathf.Clamp(transform.position.x, camPosition.x + camSettings.minX, camPosition.x + camSettings.maxX);
-        float clampY = Mathf.Clamp(transform.position.y, camPosition.y + camSettings.minY, camPosition.y + camSettings.maxY);
-        transform.position = new Vector3(clampX, clampY);
     }
 
     private void WakeUp()
