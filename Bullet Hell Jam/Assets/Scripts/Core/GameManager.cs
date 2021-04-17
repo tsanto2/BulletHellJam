@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
@@ -33,6 +34,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float bossSpawnDelay;
     [SerializeField] private GameObject bossGameObject;
     private int enemyCount;
+
+    [Header("Audio")]
+    [SerializeField] private AudioMixerGroup bgmMixer;
+    [SerializeField] private float minLowpassFrequency;
 
     private int countdown = 10;
     public int Countdown { get { return countdown;  } }
@@ -157,13 +162,19 @@ public class GameManager : MonoBehaviour
 
     IEnumerator Pause(float targetValue, float time)
     {
+        float lowpass;
         while (Mathf.Abs(Time.timeScale - targetValue) > 0.1f)
         {
             Time.timeScale = Mathf.Lerp(Time.timeScale, targetValue, time);
+
+            lowpass = (Time.timeScale * (5000f - minLowpassFrequency));
+            bgmMixer.audioMixer.SetFloat("BgmLowpassCutoff", minLowpassFrequency + lowpass);
             yield return null;
         }
 
         Time.timeScale = targetValue;
+        lowpass = (Time.timeScale * (5000f - minLowpassFrequency));
+        bgmMixer.audioMixer.SetFloat("BgmLowpassCutoff", minLowpassFrequency + lowpass);
         pauseCoroutine = null;
     }
     

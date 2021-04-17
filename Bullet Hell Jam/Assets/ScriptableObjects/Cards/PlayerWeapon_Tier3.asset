@@ -18,4 +18,4 @@ MonoBehaviour:
   description: Activate Tier 3 Weapon.
   cardIcon: {fileID: 21300000, guid: 6bb5b4a5f3f6f2c4eabaf3309d0d0ff6, type: 3}
   cardBorder: {fileID: 21300000, guid: bcd4f2a0330772146a3f6a5cd9dbaf9b, type: 3}
-  bulletPattern: {fileID: 11400000, guid: cd158c2870b47464491b004a54ea5f8b, type: 2}
+  bulletPattern: {fileID: 11400000, guid: 2d24ad02ffae4114080e69c47ed6db36, type: 2}

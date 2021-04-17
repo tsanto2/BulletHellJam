@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ac54895d086108940b58f8fae8080f3a, type: 3}
-  m_Name: AbsorbBullets_Tier2
+  m_Name: AbsorbBullets_Tier3
   m_EditorClassIdentifier: 
   cardType: 3
   cardTier: 0
