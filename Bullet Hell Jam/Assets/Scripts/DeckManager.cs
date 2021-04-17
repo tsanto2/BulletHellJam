@@ -26,6 +26,9 @@ public class DeckManager : MonoBehaviour
     [SerializeField]
     private Card[] cardSOs;
 
+    [SerializeField]
+    private InputController input;
+
     // Change to private l8r
     private List<Card> deck;
 
@@ -45,6 +48,8 @@ public class DeckManager : MonoBehaviour
     // Change back to private l8r
     public List<Card> hand;
 
+    private bool isSlowMoTime = false;
+
     #endregion
 
 
@@ -53,17 +58,22 @@ public class DeckManager : MonoBehaviour
     private void OnEnable()
     {
         GameManager.OnTenSecondsPassed += RenewHand;
+        GameManager.OnSlowMoStarted += SlowMoStarted;
+        GameManager.OnSlowMoEnded += SlowMoEnded;
     }
 
     private void OnDisable()
     {
         GameManager.OnTenSecondsPassed -= RenewHand;
+        GameManager.OnSlowMoStarted -= SlowMoStarted;
+        GameManager.OnSlowMoEnded -= SlowMoEnded;
     }
 
     private void Start()
     {
         deck = new List<Card>();
         discardedCards = new List<Card>();
+        hand = new List<Card>();
 
         CompileBaseDeck();
 
@@ -74,7 +84,7 @@ public class DeckManager : MonoBehaviour
     private void Update()
     {
         // Just for testing :]
-        if (Input.GetKeyDown(KeyCode.J))
+        /*if (Input.GetKeyDown(KeyCode.J))
         {
             DiscardHand();
             DrawHand();
@@ -86,12 +96,44 @@ public class DeckManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.H) && hand.Count > 0)
         {
             SpendCard();
+        }*/
+
+        if (isSlowMoTime)
+        {
+            // Dont ask about these numbers and never speak of them again
+            if (input.keyInput.bottomFaceButtonPress && hand.Count > 0)
+            {
+                SpendCard(0);
+            }
+            if (input.keyInput.topFaceButtonPress && hand.Count > 1)
+            {
+                SpendCard(1);
+            }
+            if (input.keyInput.rightFaceButtonPress && hand.Count > 2)
+            {
+                SpendCard(2);
+            }
+            if (input.keyInput.leftFaceButtonPress && hand.Count > 3)
+            {
+                SpendCard(3);
+            }
         }
+
     }
 
     #endregion
 
     #region Helpers
+
+    private void SlowMoStarted()
+    {
+        isSlowMoTime = true;
+    }
+
+    private void SlowMoEnded()
+    {
+        isSlowMoTime = false;
+    }
 
     // Gnarly
     private void CompileBaseDeck()
@@ -238,10 +280,10 @@ public class DeckManager : MonoBehaviour
     }
 
     // Change this to spend specific card when we are actually spending cards.
-    public void SpendCard()
+    public void SpendCard(int spentIndex)
     {
         // Random for testing...
-        int spentIndex = Random.Range(0, hand.Count);
+        //int spentIndex = Random.Range(0, hand.Count);
 
         hand[spentIndex].Activate();
 
