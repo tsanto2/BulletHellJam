@@ -23,20 +23,9 @@ public class GameManager : MonoBehaviour
     private int score;
     private int combo;
     
-    [Header("Slowmo")]
-    [SerializeField] private float slowmoScale;
-    [SerializeField] private float slowmoDelay;
-    [SerializeField] private float slowmoMaxTime;
-    [SerializeField] private Image slowlmoCooldownImage;
-    [SerializeField] private Image slowmoMaxTimeImage;
-
-    private float slowmoCooldown;
-    private float slowmoStartTime;
-    private float slowmoStopTime;
-    private bool isSlowmoActive;
-
     [SerializeField] private float pauseTime = 0.03f;
     [SerializeField] private float minPitch = 0.3f;
+    private Coroutine pauseCoroutine;
     
     [Header("Boss")]
     [SerializeField] private float bossSpawnDelay;
@@ -45,15 +34,11 @@ public class GameManager : MonoBehaviour
 
     private InputController input;
     private Camera cam;
-    private Coroutine pauseCoroutine;
 
     private void Awake()
     {
         input = GetComponent<InputController>();
         StartCoroutine(TenSecondTimer());
-
-        if (slowmoMaxTimeImage != null)
-            slowmoMaxTimeImage.enabled = false;
     }
 
     private void Start()
@@ -87,7 +72,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        HandleSlowmo();
+        HandlePause();
 
         if (Time.time >= comboResetTime)
             ResetCombo();
@@ -142,49 +127,23 @@ public class GameManager : MonoBehaviour
 
     #region Slowmo Methods
 
-    private void HandleSlowmo()
+    private void HandlePause()
     {
-        if (!isSlowmoActive)
+        if (pauseCoroutine == null)
         {
-            //slowlmoCooldownImage.fillAmount = (Time.time - slowmoStopTime) / (slowmoCooldown - slowmoStopTime);
-            
-            if (input.keyInput.slowmoPress /*&& Time.time >= slowmoCooldown*/)
+            if (input.keyInput.slowmo && Time.timeScale == 1f)
             {
-                if (pauseCoroutine != null)
-                    StopCoroutine(pauseCoroutine);
-
-                pauseCoroutine = StartCoroutine(Pause(0f, pauseTime));
-                isSlowmoActive = true;
                 OnSlowMoStarted?.Invoke();
+                pauseCoroutine = StartCoroutine(Pause(0f, pauseTime));
             }
-                //StartSlowmo();
-                
-        }
-        else
-        {
-            //slowmoMaxTimeImage.fillAmount = 1 - ((Time.time - slowmoStartTime) / slowmoMaxTime);
 
-            if (input.keyInput.slowmoRelease /*|| Time.time >= slowmoStartTime + slowmoMaxTime*/)
+            if (!input.keyInput.slowmo && Time.timeScale == 0f)
             {
-                if (pauseCoroutine != null)
-                    StopCoroutine(pauseCoroutine);
-
-                pauseCoroutine = StartCoroutine(Pause(1f, pauseTime));
-                isSlowmoActive = false;
                 OnSlowMoEnded?.Invoke();
+                pauseCoroutine = StartCoroutine(Pause(1f, pauseTime));
             }
-                //StopSlowmo();
-        }
-    }
+        }   
 
-    private void StartSlowmo()
-    {
-        Time.timeScale = 0 /*slowmoScale*/;
-        //slowmoStartTime = Time.time;
-        isSlowmoActive = true;
-        //slowmoMaxTimeImage.enabled = true;
-        //slowlmoCooldownImage.enabled = false;
-        OnSlowMoStarted?.Invoke();
     }
 
     IEnumerator Pause(float targetValue, float time)
@@ -192,24 +151,11 @@ public class GameManager : MonoBehaviour
         while (Mathf.Abs(Time.timeScale - targetValue) > 0.1f)
         {
             Time.timeScale = Mathf.Lerp(Time.timeScale, targetValue, time);
-            //GetComponent<AudioSource>().pitch = minPitch + (Time.timeScale * (1f - minPitch));
             yield return null;
         }
 
         Time.timeScale = targetValue;
-        //GetComponent<AudioSource>().pitch = minPitch + (Time.timeScale * (1f - minPitch));
         pauseCoroutine = null;
-    }
-
-    private void StopSlowmo()
-    {
-        Time.timeScale = 1f;
-        //slowmoCooldown = Time.time + slowmoDelay;
-        isSlowmoActive = false;
-        //slowmoStopTime = Time.time;
-        //slowmoMaxTimeImage.enabled = false;
-        //slowlmoCooldownImage.enabled = true;
-        OnSlowMoEnded?.Invoke();
     }
     
     #endregion
@@ -217,9 +163,7 @@ public class GameManager : MonoBehaviour
     IEnumerator TenSecondTimer()
     {
         yield return tenSeconds;
-
         OnTenSecondsPassed?.Invoke();
-
         StartCoroutine(TenSecondTimer());
     }
 }
