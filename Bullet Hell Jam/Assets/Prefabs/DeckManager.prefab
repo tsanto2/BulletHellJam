@@ -52,6 +52,9 @@ MonoBehaviour:
   baseDeckAdvancedHpCardCount: 1
   baseDeckAdvancedEnergyCardCount: 1
   baseDeckAdvancedWeaponCardCount: 1
+  baseDeckBasicAbsorbCardCount: 1
+  baseDeckintermediateAbsorbCardCount: 1
+  baseDeckAdvancedAbsorbCardCount: 1
   cardSOs:
   - {fileID: 11400000, guid: 3ba886a3b4e964348b7c63a5096e6bb1, type: 2}
   - {fileID: 11400000, guid: 06ae01b77b2a86145b8864f3e1271374, type: 2}
@@ -59,6 +62,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d313fd994e9024b4da4b3438e0529d67, type: 2}
   - {fileID: 11400000, guid: fd7be8275cc96d340bf555a362d83030, type: 2}
   - {fileID: 11400000, guid: 00add830f859da345bed36be20ac83f0, type: 2}
+  - {fileID: 11400000, guid: ef0ba4b5b959a944d95651510464aa1e, type: 2}
+  - {fileID: 11400000, guid: bf0049c7c6077634a9353f93ec083b3d, type: 2}
+  - {fileID: 11400000, guid: 77cb14650d3dda04b99d684b4235e357, type: 2}
+  - {fileID: 11400000, guid: 519a8bf0db8d07248b860d17fe30c797, type: 2}
+  - {fileID: 11400000, guid: 770391f3e5356434fa3ff21a0473eb2d, type: 2}
+  - {fileID: 11400000, guid: dafa49cf861112d47bcaa09cd21d3e4d, type: 2}
+  input: {fileID: 0}
+  pc: {fileID: 0}
   availableCards: []
   discardedCards: []
   maxDrawCount: 4

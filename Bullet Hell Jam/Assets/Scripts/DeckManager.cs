@@ -21,7 +21,7 @@ public class DeckManager : MonoBehaviour
 
     // Gross but just for ease of balance testing
     [SerializeField]
-    private int baseDeckBasicHpCardCount, baseDeckBasicEnergyCardCount, baseDeckBasicWeaponCardCount, baseDeckIntermediateHpCardCount, baseDeckIntermediateEnergyCardCount, baseDeckIntermediateWeaponCardCount, baseDeckAdvancedHpCardCount, baseDeckAdvancedEnergyCardCount, baseDeckAdvancedWeaponCardCount;
+    private int baseDeckBasicHpCardCount, baseDeckBasicEnergyCardCount, baseDeckBasicWeaponCardCount, baseDeckIntermediateHpCardCount, baseDeckIntermediateEnergyCardCount, baseDeckIntermediateWeaponCardCount, baseDeckAdvancedHpCardCount, baseDeckAdvancedEnergyCardCount, baseDeckAdvancedWeaponCardCount, baseDeckBasicAbsorbCardCount, baseDeckintermediateAbsorbCardCount, baseDeckAdvancedAbsorbCardCount;
 
     [SerializeField]
     private Card[] cardSOs;
@@ -298,6 +298,12 @@ public class DeckManager : MonoBehaviour
                         deck.Add(cardSO);
                     }
                     break;
+                case CardType.basicAbsorb:
+                    for (int i = 0; i < baseDeckBasicAbsorbCardCount; i++)
+                    {
+                        deck.Add(cardSO);
+                    }
+                    break;
                 case CardType.intermediateHp:
                     for (int i = 0; i < baseDeckIntermediateHpCardCount; i++)
                     {
@@ -316,6 +322,12 @@ public class DeckManager : MonoBehaviour
                         deck.Add(cardSO);
                     }
                     break;
+                case CardType.intermediateAbsorb:
+                    for (int i = 0; i < baseDeckintermediateAbsorbCardCount; i++)
+                    {
+                        deck.Add(cardSO);
+                    }
+                    break;
                 case CardType.advancedHp:
                     for (int i = 0; i < baseDeckAdvancedHpCardCount; i++)
                     {
@@ -330,6 +342,12 @@ public class DeckManager : MonoBehaviour
                     break;
                 case CardType.advancedWeapon:
                     for (int i = 0; i < baseDeckAdvancedWeaponCardCount; i++)
+                    {
+                        deck.Add(cardSO);
+                    }
+                    break;
+                case CardType.advancedAbsorb:
+                    for (int i = 0; i < baseDeckAdvancedAbsorbCardCount; i++)
                     {
                         deck.Add(cardSO);
                     }

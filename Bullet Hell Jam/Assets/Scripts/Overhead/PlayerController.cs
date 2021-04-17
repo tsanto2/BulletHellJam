@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System;
+using System.Collections;
 
 [RequireComponent(typeof(InputController))]
 public class PlayerController : MonoBehaviour, IDamageable, IFireable
@@ -107,8 +108,6 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
 
         if (hit)
         {
-            //ObjectPool.Instance.ReturnObject(hit.gameObject);
-            //TakeDamage(1);
             bulletHitBehaviour.Perform(hit.gameObject);
         }
     }
@@ -147,4 +146,5 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
         // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         Debug.Log("Doug Dimmadome declares you dimma-dun-dead, son.");
     }
+
 }

@@ -13,12 +13,15 @@ public class AbilityManager : MonoBehaviour
         EnergyRegen.OnEnergyRegenCardActivated += ActivateEnergyRegen;
         HpRegen.OnHpRegenCardActivated += ActivateHpRegen;
         PlayerWeapon.OnHpRegenCardActivated += ActivateWeapon;
+        AbsorbBullets.OnAbsorbBulletsCardActivated += ActivateAbsorbBullets;
     }
 
     private void OnDisable()
     {
         EnergyRegen.OnEnergyRegenCardActivated -= ActivateEnergyRegen;
         HpRegen.OnHpRegenCardActivated -= ActivateHpRegen;
+        PlayerWeapon.OnHpRegenCardActivated -= ActivateWeapon;
+        AbsorbBullets.OnAbsorbBulletsCardActivated -= ActivateAbsorbBullets;
     }
 
     void ActivateEnergyRegen(int energyRegenAmount)
@@ -38,6 +41,11 @@ public class AbilityManager : MonoBehaviour
     void ActivateWeapon(BulletPattern bulletPattern)
     {
         pc.ChangeWeapon(bulletPattern);
+    }
+
+    void ActivateAbsorbBullets(float duration)
+    {
+        pc.ChangeBulletHitBehaviour(new AbsorbBulletBehaviour());
     }
 
 }
