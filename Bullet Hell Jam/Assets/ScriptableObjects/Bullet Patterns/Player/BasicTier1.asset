@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be56a3ed7cd2bc84b8ef5f8e18f93480, type: 3}
-  m_Name: Helix
+  m_Name: BasicTier1
   m_EditorClassIdentifier: 
   baseDirection: 0
   baseSpread: 0
@@ -20,12 +20,12 @@ MonoBehaviour:
   baseOscillationSpeed: 0
   bulletPrefab: {fileID: 1492540044211201988, guid: da5958408dfe64b43ab7ed99332bebba,
     type: 3}
-  bulletMinLifeTime: 5
-  bulletMaxLifeTime: 5
-  bulletMinBaseSpeed: 9
-  bulletMaxBaseSpeed: 9
+  bulletMinLifeTime: 2
+  bulletMaxLifeTime: 2
+  bulletMinBaseSpeed: 12
+  bulletMaxBaseSpeed: 12
   bulletRotationSpeed: 0
-  shootDelay: 0.099999994
+  shootDelay: 0.14
   bulletTotal: 1
   bulletOffset: 0
   wrapAngles: 0

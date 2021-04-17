@@ -81,11 +81,7 @@ public class ObjectPool : MonoBehaviour
             comp.pool = this;
 
             if (newObject.layer == 9)
-            {
-                Debug.Log("GET IN THE GOD DAMN LIST");
                 enemyBulletList.Add(newObject);
-
-            }
         }
 
         return newObject;
