@@ -6,10 +6,18 @@ public class CardDisplay : MonoBehaviour
 {
 
     [SerializeField]
-    private SpriteRenderer sr;
-    public void SetSprite(Sprite sprite)
+    private SpriteRenderer iconSR;
+
+    [SerializeField]
+    private SpriteRenderer backgroundSR;
+    public void SetIcon(Sprite sprite)
     {
-        sr.sprite = sprite;
+        iconSR.sprite = sprite;
+    }
+
+    public void SetBackground(Sprite sprite)
+    {
+        backgroundSR.sprite = sprite;
     }
 
 }

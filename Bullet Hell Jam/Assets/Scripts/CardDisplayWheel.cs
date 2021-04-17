@@ -85,7 +85,8 @@ public class CardDisplayWheel : MonoBehaviour
 
     private void BuildCard(Card card, int displayIndex)
     {
-        cardDisplays[displayIndex].SetSprite(card.cardIcon);
+        cardDisplays[displayIndex].SetIcon(card.cardIcon);
+        cardDisplays[displayIndex].SetBackground(card.cardBorder);
     }
 
 }
