@@ -6,7 +6,15 @@ public class CardDisplayWheel : MonoBehaviour
 {
 
     [SerializeField]
-    private CardDisplay[] cardDisplays;
+    private CardDisplay topCardDisplay;
+    [SerializeField]
+    private CardDisplay bottomCardDisplay;
+    [SerializeField]
+    private CardDisplay leftCardDisplay;
+    [SerializeField]
+    private CardDisplay rightCardDisplay;
+
+    private List<CardDisplay> cardDisplays;
 
     [SerializeField]
     private DeckManager deckManager;
@@ -25,6 +33,16 @@ public class CardDisplayWheel : MonoBehaviour
         DeckManager.OnHandUpdated -= UpdateCards;
         GameManager.OnSlowMoStarted -= OnSlowMoStarted;
         GameManager.OnSlowMoEnded -= OnSlowMoEnded;
+    }
+
+    private void Start()
+    {
+        cardDisplays = new List<CardDisplay>();
+
+        cardDisplays.Add(topCardDisplay);
+        cardDisplays.Add(bottomCardDisplay);
+        cardDisplays.Add(leftCardDisplay);
+        cardDisplays.Add(rightCardDisplay);
     }
 
     private void OnSlowMoStarted()
@@ -52,9 +70,9 @@ public class CardDisplayWheel : MonoBehaviour
     {
         if (isDisplaying)
         {
-            for (int i = 0; i < cardDisplays.Length; i++)
+            for (int i = 0; i < deckManager.hand.Count; i++)
             {
-                if (i < deckManager.hand.Count)
+                if (deckManager.hand[i] != null)
                 {
                     cardDisplays[i].gameObject.SetActive(true);
                     BuildCard(deckManager.hand[i], i);

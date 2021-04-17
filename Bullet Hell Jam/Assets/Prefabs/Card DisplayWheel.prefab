@@ -47,11 +47,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb3f154bf5defd249bd73261eda2d829, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardDisplays:
-  - {fileID: 7521148816714936453}
-  - {fileID: 4431610852304314347}
-  - {fileID: 7410619019672354869}
-  - {fileID: 2717655764638576110}
+  topCardDisplay: {fileID: 7521148816714936453}
+  bottomCardDisplay: {fileID: 4431610852304314347}
+  leftCardDisplay: {fileID: 2717655764638576110}
+  rightCardDisplay: {fileID: 7410619019672354869}
   deckManager: {fileID: 0}
 --- !u!1001 &1468538426898424652
 PrefabInstance:
@@ -64,6 +63,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CardDisplayTop
+      objectReference: {fileID: 0}
+    - target: {fileID: 1220235430364938418, guid: df93ce294bf25fc48943d61184420191,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4014679283248825219, guid: df93ce294bf25fc48943d61184420191,
         type: 3}
@@ -157,6 +161,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardDisplayRight
       objectReference: {fileID: 0}
+    - target: {fileID: 1220235430364938418, guid: df93ce294bf25fc48943d61184420191,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4014679283248825219, guid: df93ce294bf25fc48943d61184420191,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -249,6 +258,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardDisplayBottom
       objectReference: {fileID: 0}
+    - target: {fileID: 1220235430364938418, guid: df93ce294bf25fc48943d61184420191,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4014679283248825219, guid: df93ce294bf25fc48943d61184420191,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -340,6 +354,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CardDisplayLeft
+      objectReference: {fileID: 0}
+    - target: {fileID: 1220235430364938418, guid: df93ce294bf25fc48943d61184420191,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4014679283248825219, guid: df93ce294bf25fc48943d61184420191,
         type: 3}

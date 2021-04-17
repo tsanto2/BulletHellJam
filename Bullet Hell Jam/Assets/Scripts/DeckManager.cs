@@ -109,11 +109,11 @@ public class DeckManager : MonoBehaviour
             {
                 SpendCard(1);
             }
-            if (input.keyInput.rightFaceButtonPress && hand.Count > 2)
+            if (input.keyInput.leftFaceButtonPress && hand.Count > 2)
             {
                 SpendCard(2);
             }
-            if (input.keyInput.leftFaceButtonPress && hand.Count > 3)
+            if (input.keyInput.rightFaceButtonPress && hand.Count > 3)
             {
                 SpendCard(3);
             }
@@ -285,13 +285,16 @@ public class DeckManager : MonoBehaviour
         // Random for testing...
         //int spentIndex = Random.Range(0, hand.Count);
 
-        hand[spentIndex].Activate();
+        if (hand[spentIndex] != null)
+        {
+            hand[spentIndex].Activate();
 
-        AddToDiscardPile(hand[spentIndex]);
+            AddToDiscardPile(hand[spentIndex]);
 
-        hand.RemoveAt(spentIndex);
+            hand[spentIndex] = null;
 
-        OnHandUpdated?.Invoke();
+            OnHandUpdated?.Invoke();
+        }
     }
 
     public void DiscardHand()
