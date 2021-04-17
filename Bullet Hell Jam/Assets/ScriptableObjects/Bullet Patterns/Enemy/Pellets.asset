@@ -10,26 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be56a3ed7cd2bc84b8ef5f8e18f93480, type: 3}
-  m_Name: Shotgun
+  m_Name: Pellets
   m_EditorClassIdentifier: 
-  baseDirection: 200
-  baseSpread: 45
-  bulletMinSpawnDistance: 0
-  bulletMaxSpawnDistance: 1
+  baseDirection: 180
+  baseSpread: 0
+  bulletMinSpawnDistance: 0.5
+  bulletMaxSpawnDistance: 0.5
   baseOscillationType: 1
   baseOscillationSpeed: 0
   bulletPrefab: {fileID: 1492540044211201988, guid: e15eeeb9d931da2478e3de2f13269a3a,
     type: 3}
-  bulletMinLifeTime: 4
+  bulletMinLifeTime: 5
   bulletMaxLifeTime: 5
-  bulletMinBaseSpeed: 3
-  bulletMaxBaseSpeed: 4.5
+  bulletMinBaseSpeed: 5
+  bulletMaxBaseSpeed: 5
   bulletRotationSpeed: 0
-  shootDelay: 3
-  bulletTotal: 50
-  bulletOffset: 107
-  wrapAngles: 1
+  shootDelay: 1
+  bulletTotal: 1
+  bulletOffset: 0
+  wrapAngles: 0
   mirrorShootAngles: 0
   spawnerOscillationSpeed: 0
-  incrementalSpeed: -0.01
+  incrementalSpeed: 0
   incrementalRotation: 0

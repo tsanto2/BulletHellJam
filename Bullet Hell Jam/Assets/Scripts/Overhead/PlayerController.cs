@@ -116,6 +116,14 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
         weapon.SpawnBullets(transform.position, this);
     }
 
+    public void ChangeWeapon(BulletPattern weapon)
+    {
+        if (weapon == null)
+            return;
+                
+        this.weapon = weapon;
+    }
+
     public void TakeDamage(int damage)
     {
         Health -= damage;
