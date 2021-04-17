@@ -53,13 +53,13 @@ MonoBehaviour:
   baseDeckAdvancedEnergyCardCount: 1
   baseDeckAdvancedWeaponCardCount: 1
   cardSOs:
-  - {fileID: 11400000, guid: fce09cd0186c7a14bba481679696ff88, type: 2}
-  - {fileID: 11400000, guid: 2d563a5db54ee374ca809c16b3755a9f, type: 2}
-  - {fileID: 11400000, guid: d649bffdde150ca4ba4338a2f8389f4c, type: 2}
-  - {fileID: 11400000, guid: 0fcf0928f8d587d478ea244824c45744, type: 2}
-  - {fileID: 11400000, guid: 7bff1ed97b04e654e944f9038eb65f51, type: 2}
-  - {fileID: 11400000, guid: 8bd8ef0d0c23d8443a640c9c4d0e5d9e, type: 2}
-  - {fileID: 11400000, guid: cbab322a1ba299f46abe54b5e87ca0a5, type: 2}
-  - {fileID: 11400000, guid: a540d2bc893d9004fbd5834a280533b8, type: 2}
-  - {fileID: 11400000, guid: 4e255d9ace771f0488752928b3a6e528, type: 2}
-  deck: []
+  - {fileID: 11400000, guid: 3ba886a3b4e964348b7c63a5096e6bb1, type: 2}
+  - {fileID: 11400000, guid: 06ae01b77b2a86145b8864f3e1271374, type: 2}
+  - {fileID: 11400000, guid: eb004b2232ef5994cb425cf8972953b9, type: 2}
+  - {fileID: 11400000, guid: d313fd994e9024b4da4b3438e0529d67, type: 2}
+  - {fileID: 11400000, guid: fd7be8275cc96d340bf555a362d83030, type: 2}
+  - {fileID: 11400000, guid: 00add830f859da345bed36be20ac83f0, type: 2}
+  availableCards: []
+  discardedCards: []
+  maxDrawCount: 4
+  hand: []

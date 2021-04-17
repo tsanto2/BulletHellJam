@@ -16,16 +16,21 @@ public class CardDisplayWheel : MonoBehaviour
     private void OnEnable()
     {
         DeckManager.OnHandUpdated += UpdateCards;
+        GameManager.OnSlowMoStarted += OnSlowMoStarted;
+        GameManager.OnSlowMoEnded += OnSlowMoEnded;
     }
 
     private void OnDisable()
     {
         DeckManager.OnHandUpdated -= UpdateCards;
+        GameManager.OnSlowMoStarted -= OnSlowMoStarted;
+        GameManager.OnSlowMoEnded -= OnSlowMoEnded;
     }
 
     private void OnSlowMoStarted()
     {
         isDisplaying = true;
+        UpdateCards();
     }
 
     private void OnSlowMoEnded()

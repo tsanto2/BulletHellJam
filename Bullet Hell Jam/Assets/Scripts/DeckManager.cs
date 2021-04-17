@@ -68,6 +68,8 @@ public class DeckManager : MonoBehaviour
         CompileBaseDeck();
 
         availableCards = deck;
+
+        DrawHand();
     }
     private void Update()
     {
