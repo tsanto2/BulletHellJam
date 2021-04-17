@@ -12,6 +12,7 @@ public class AbilityManager : MonoBehaviour
     {
         EnergyRegen.OnEnergyRegenCardActivated += ActivateEnergyRegen;
         HpRegen.OnHpRegenCardActivated += ActivateHpRegen;
+        PlayerWeapon.OnHpRegenCardActivated += ActivateWeapon;
     }
 
     private void OnDisable()
@@ -30,6 +31,11 @@ public class AbilityManager : MonoBehaviour
     void ActivateHpRegen(int hpRegenAmount)
     {
         Debug.Log("Activating: Regenerating " + hpRegenAmount + " HP.");
+    }
+
+    void ActivateWeapon(BulletPattern bulletPattern)
+    {
+        pc.ChangeWeapon(bulletPattern);
     }
 
 }
