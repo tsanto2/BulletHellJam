@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2f24856c53b73f4abf01e280c90a9c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthMax: 10
+  healthMax: 5
   scoreValue: 50
   weapon: {fileID: 11400000, guid: 81121cf394f68da44b4109d3ebde9b8f, type: 2}
   playerBulletLayerMask:

@@ -39,8 +39,11 @@ public class EnemyMovement : MonoBehaviour
         if (!awake)
             return;
         
-        camController.CameraUpdatePosition(transform);
-
+        if (movementBehaviour != MovementBehaviour.MoveLeft &&
+            movementBehaviour != MovementBehaviour.MoveRight)
+        {
+            camController.CameraUpdatePosition(transform);
+        }
         if (Time.time >= moveStartTime)
             HandleMovement();
     }
@@ -71,7 +74,7 @@ public class EnemyMovement : MonoBehaviour
                 transform.position += Vector3.left * moveSpeed * Time.fixedDeltaTime;
 
                 if (cam.WorldToViewportPoint(transform.position).x < 0f)
-                    ObjectPool.Instance.ReturnObject(this.gameObject);
+                    controller.Die();
                 break;
             }
 
@@ -80,7 +83,7 @@ public class EnemyMovement : MonoBehaviour
                 transform.position += Vector3.right * moveSpeed * Time.fixedDeltaTime;
 
                 if (cam.WorldToViewportPoint(transform.position).x > 1f)
-                    ObjectPool.Instance.ReturnObject(this.gameObject);
+                        controller.Die();
                 break;
             }
         }
