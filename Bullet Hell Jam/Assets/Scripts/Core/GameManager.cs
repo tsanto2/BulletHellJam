@@ -49,10 +49,13 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        cam = Camera.main;
+
         foreach (var enemy in FindObjectsOfType<EnemyController>())
             enemyCount++;
-    
-        cam = Camera.main;
+
+        if (enemyCount == 0)
+            SpawnBoss();
     }
 
     private void OnEnable()

@@ -10,24 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be56a3ed7cd2bc84b8ef5f8e18f93480, type: 3}
-  m_Name: Spray
+  m_Name: Tendrils
   m_EditorClassIdentifier: 
   baseDirection: 180
-  baseSpread: 15
+  baseSpread: 45
   bulletMinSpawnDistance: 1
   bulletMaxSpawnDistance: 1
-  baseOscillationType: 2
-  baseOscillationSpeed: 1
+  baseOscillationType: 0
+  baseOscillationSpeed: 572
   bulletPrefab: {fileID: 1492540044211201988, guid: e15eeeb9d931da2478e3de2f13269a3a,
     type: 3}
-  bulletLifeTime: 5
-  bulletBaseSpeed: 3
+  bulletMinLifeTime: 5
+  bulletMaxLifeTime: 5
+  bulletMinBaseSpeed: 1
+  bulletMaxBaseSpeed: 1
   bulletRotationSpeed: 0
-  shootDelay: 0.29
-  bulletTotal: 5
+  shootDelay: 0.03
+  bulletTotal: 2
   bulletOffset: 15
   wrapAngles: 0
-  mirrorShootAngles: 0
+  mirrorShootAngles: 1
   spawnerOscillationSpeed: 0
-  incrementalSpeed: 0
+  incrementalSpeed: -0.167
   incrementalRotation: 0

@@ -10,26 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be56a3ed7cd2bc84b8ef5f8e18f93480, type: 3}
-  m_Name: Mines
+  m_Name: Shotgun
   m_EditorClassIdentifier: 
-  baseDirection: 0
-  baseSpread: 0
-  bulletMinSpawnDistance: 1
+  baseDirection: 210
+  baseSpread: 45
+  bulletMinSpawnDistance: 0
   bulletMaxSpawnDistance: 1
   baseOscillationType: 1
-  baseOscillationSpeed: 1
-  bulletPrefab: {fileID: 92464775212012027, guid: d47c1444e0824a94ea0e2c3fab958dbf,
+  baseOscillationSpeed: 0
+  bulletPrefab: {fileID: 1492540044211201988, guid: e15eeeb9d931da2478e3de2f13269a3a,
     type: 3}
-  bulletMinLifeTime: 15
-  bulletMaxLifeTime: 15
-  bulletMinBaseSpeed: 1
-  bulletMaxBaseSpeed: 1
+  bulletMinLifeTime: 4
+  bulletMaxLifeTime: 5
+  bulletMinBaseSpeed: 4.5
+  bulletMaxBaseSpeed: 5.5
   bulletRotationSpeed: 0
-  shootDelay: 2.5
-  bulletTotal: 1
-  bulletOffset: 0
-  wrapAngles: 0
+  shootDelay: 3
+  bulletTotal: 30
+  bulletOffset: 107
+  wrapAngles: 1
   mirrorShootAngles: 0
   spawnerOscillationSpeed: 0
-  incrementalSpeed: 0
+  incrementalSpeed: -0.03
   incrementalRotation: 0

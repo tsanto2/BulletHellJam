@@ -13,27 +13,34 @@ public class BulletPattern : ScriptableObject
         Random
     }
 
+    #region Fields
+
     [Header("Base Stats")]
-    [Range(0f, 360f), SerializeField] private float baseDirection = 90f;
+    [Range(0f, 360f), SerializeField] private float baseDirection = 0f;
     [Range(0f, 360f), SerializeField] private float baseSpread = 90f;
     [Space]
     [Range(0f, 2f), SerializeField] private float bulletMinSpawnDistance = 1f;
     [Range(0f, 2f), SerializeField] private float bulletMaxSpawnDistance = 1f;
     [Space]
     [SerializeField] private SpawnOscillation baseOscillationType;
-    [Range(1, 720), SerializeField] private float baseOscillationSpeed = 45f;
+    [Range(0f, 720f), SerializeField] private float baseOscillationSpeed = 45f;
 
     private float spawnRadius;
 
     [Header("Bullet Stats")]
     [SerializeField] private GameObject bulletPrefab;
-    [SerializeField] private float bulletLifeTime;
-    [SerializeField] private float bulletBaseSpeed;
+    [Space]
+    [SerializeField] private float bulletMinLifeTime = 5f;
+    [SerializeField] private float bulletMaxLifeTime = 5f;
+    [Space]
+    [SerializeField] private float bulletMinBaseSpeed = 3f;
+    [SerializeField] private float bulletMaxBaseSpeed = 3f;
+    [Space]
     [Range(-30f, 30f), SerializeField] private float bulletRotationSpeed;
 
     [Header("Spawner Stats")]
     [Range(0.02f, 3f)] public float shootDelay = 0.1f;
-    [Range(1, 30), SerializeField] private int bulletTotal = 2;
+    [Range(1, 50), SerializeField] private int bulletTotal = 1;
     [Range(0f, 360), SerializeField] private float bulletOffset = 0f;
     [SerializeField] private bool wrapAngles;
 
@@ -43,12 +50,14 @@ public class BulletPattern : ScriptableObject
     [SerializeField] private float spawnerOscillationSpeed;
     
     [Header("Incremental Spawn Adjustments")]
-    [Range(-0.1f, 0.1f), SerializeField] private float incrementalSpeed;
+    [Range(-0.3f, 0.3f), SerializeField] private float incrementalSpeed;
     [Range(-90f, 90f), SerializeField] private float incrementalRotation;    
 
     private float bulletSpread;
     private float spawnRotation;
     private float currentBaseAngle;
+
+    #endregion
 
     private Vector3[] positions;
     private GameObject[] bullets;
@@ -127,7 +136,7 @@ public class BulletPattern : ScriptableObject
         float minAngle;
 
         if (wrapAngles)
-            minAngle = baseDirection - (baseSpread / 2f);
+            minAngle = baseAngle - (baseSpread / 2f);
         else
             minAngle = baseAngle - (bulletSpread / 2f);
 
@@ -137,8 +146,12 @@ public class BulletPattern : ScriptableObject
             
             if (wrapAngles)
             {
-                deltaIncrement += baseAngle;
-                deltaIncrement %= baseSpread;
+                if (baseSpread > 0f)
+                {
+                    deltaIncrement += baseAngle;
+                    deltaIncrement %= baseSpread;
+                }
+                else deltaIncrement = 0f;
             }
 
             float spawnerAngle = (deltaIncrement + (spawnerOscillationSpeed * Time.time)) % (Mathf.Max(1f, bulletSpread) + 1f);
@@ -183,8 +196,8 @@ public class BulletPattern : ScriptableObject
                 comp.moveVec = Quaternion.AngleAxis(currentBaseAngle + 180f, Vector3.forward) * Vector3.left * speedMultiplier;
 
             comp.rotationSpeed = bulletRotationSpeed;
-            comp.moveSpeed = bulletBaseSpeed;
-            comp.lifetime = bulletLifeTime;
+            comp.moveSpeed = Random.Range(bulletMinBaseSpeed, bulletMaxBaseSpeed);
+            comp.lifetime = Random.Range(bulletMinLifeTime, bulletMaxLifeTime);
         }
     }
 
@@ -212,7 +225,7 @@ public class BulletPattern : ScriptableObject
         baseSpread = Mathf.Max(0f, Mathf.Floor(baseSpread / 5f) * 5f);
         spawnRadius = baseSpread / 2f;
 
-        baseDirection = Mathf.Floor(baseDirection / 15f) * 15f;
+        baseDirection = Mathf.Floor(baseDirection / 5f) * 5f;
 
         bulletRotationSpeed = Mathf.Floor(bulletRotationSpeed);
         bulletOffset = Mathf.Floor(bulletOffset / 1f) * 1f;
