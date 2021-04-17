@@ -32,7 +32,6 @@ public class DeckManager : MonoBehaviour
     [SerializeField]
     private PlayerController pc;
 
-    // Change to private l8r
     private List<Card> deck;
 
     public List<Card> Deck { get { return deck; } }
@@ -74,15 +73,7 @@ public class DeckManager : MonoBehaviour
 
     private void Start()
     {
-        deck = new List<Card>();
-        discardedCards = new List<Card>();
-        hand = new List<Card>();
-
-        CompileBaseDeck();
-
-        availableCards = deck;
-
-        DrawHand();
+        Init();
     }
     private void Update()
     {
@@ -107,7 +98,26 @@ public class DeckManager : MonoBehaviour
 
     #endregion
 
-    #region Helpers
+    #region Events
+    private void SlowMoStarted()
+    {
+        isSlowMoTime = true;
+    }
+
+    private void SlowMoEnded()
+    {
+        isSlowMoTime = false;
+    }
+
+    private void RenewHand()
+    {
+        DiscardHand();
+        DrawHand();
+    }
+
+    #endregion
+
+    #region Methods
 
     private void CheckSpendCard()
     {
@@ -133,19 +143,133 @@ public class DeckManager : MonoBehaviour
         }
     }
 
+    public Card DrawCard()
+    {
+        Card drawnCard = null;
+
+        if (availableCards.Count > 0) {
+            int randomIndex = Random.Range(0, availableCards.Count);
+
+            drawnCard = availableCards[randomIndex];
+
+            availableCards.RemoveAt(randomIndex);
+
+            OnHandUpdated?.Invoke();
+        }
+        else
+        {
+            ShuffleDeck();
+
+            int randomIndex = Random.Range(0, availableCards.Count);
+
+            drawnCard = availableCards[randomIndex];
+
+            availableCards.RemoveAt(randomIndex);
+
+            OnHandUpdated?.Invoke();
+        }
+        return drawnCard;
+    }
+
+    public void AddToDiscardPile(Card discardedCard)
+    {
+        discardedCards.Add(discardedCard);
+    }
+
+    public void ShuffleDeck()
+    {
+        // Maybe move this out so it's more generic
+        availableCards.Clear();
+
+        foreach(Card discardedCard in discardedCards)
+        {
+            availableCards.Add(discardedCard);
+        }
+
+        discardedCards.Clear();
+
+        // Probably doesnt need to actually be shuffled if we make sure we are drawing at random
+        for (int i = 0; i < availableCards.Count; i++)
+        {
+            Card temp = availableCards[i];
+            int randomIndex = Random.Range(i, availableCards.Count);
+            availableCards[i] = availableCards[randomIndex];
+            availableCards[randomIndex] = temp;
+        }
+
+        OnHandUpdated?.Invoke();
+    }
+
+    public void DrawHand()
+    {
+        int drawCount = maxDrawCount - hand.Count;
+
+        for (int i = 0; i < drawCount; i++)
+        {
+            Card drawnCard = DrawCard();
+            hand.Add(drawnCard);
+        }
+
+        OnHandUpdated?.Invoke();
+    }
+
+    public void SpendCard(int spentIndex)
+    {
+        // Random for testing...
+        //int spentIndex = Random.Range(0, hand.Count);
+
+        if (hand[spentIndex] != null && CanActivate(spentIndex))
+        {
+            pc.Energy -= hand[spentIndex].energyCost;
+
+            hand[spentIndex].Activate();
+
+            AddToDiscardPile(hand[spentIndex]);
+
+            hand[spentIndex] = null;
+
+            OnHandUpdated?.Invoke();
+        }
+    }
+
+    public void DiscardHand()
+    {
+        for (int i = 0; i < hand.Count; i++)
+        {
+            if (hand[i] != null)
+                AddToDiscardPile(hand[i]);
+        }
+
+        hand.Clear();
+
+        OnHandUpdated?.Invoke();
+    }
+
+    #endregion
+
+    #region Helpers
+
     private bool CanActivate(int cardIndex)
     {
 
         return hand[cardIndex].energyCost <= pc.Energy;
     }
-    private void SlowMoStarted()
-    {
-        isSlowMoTime = true;
-    }
 
-    private void SlowMoEnded()
+    #endregion
+
+    #region Initialization
+
+    private void Init()
     {
-        isSlowMoTime = false;
+        deck = new List<Card>();
+        discardedCards = new List<Card>();
+        hand = new List<Card>();
+
+        CompileBaseDeck();
+
+        availableCards = deck;
+
+        DrawHand();
     }
 
     // Gnarly
@@ -213,116 +337,6 @@ public class DeckManager : MonoBehaviour
                     break;
             }
         }
-    }
-
-    private void RenewHand()
-    {
-        DiscardHand();
-        DrawHand();
-    }
-
-    public Card DrawCard()
-    {
-        Card drawnCard = null;
-
-        if (availableCards.Count > 0) {
-            int randomIndex = Random.Range(0, availableCards.Count);
-
-            drawnCard = availableCards[randomIndex];
-
-            availableCards.RemoveAt(randomIndex);
-
-            OnHandUpdated?.Invoke();
-        }
-        else
-        {
-            ShuffleDeck();
-
-            int randomIndex = Random.Range(0, availableCards.Count);
-
-            drawnCard = availableCards[randomIndex];
-
-            availableCards.RemoveAt(randomIndex);
-
-            OnHandUpdated?.Invoke();
-        }
-        return drawnCard;
-    }
-
-    public void AddToDiscardPile(Card discardedCard)
-    {
-        discardedCards.Add(discardedCard);
-    }
-
-    public void ShuffleDeck()
-    {
-        // Maybe move this out so it's more generic
-        availableCards.Clear();
-
-        foreach(Card discardedCard in discardedCards)
-        {
-            availableCards.Add(discardedCard);
-        }
-
-        discardedCards.Clear();
-
-        // Probably doesnt need to actually be shuffled if we make sure we are drawing at random
-        for (int i = 0; i < availableCards.Count; i++)
-        {
-            Card temp = availableCards[i];
-            int randomIndex = Random.Range(i, availableCards.Count);
-            availableCards[i] = availableCards[randomIndex];
-            availableCards[randomIndex] = temp;
-        }
-
-        OnHandUpdated?.Invoke();
-    }
-
-    // Need to account for hand still having cards in it.
-    public void DrawHand()
-    {
-        int drawCount = maxDrawCount - hand.Count;
-
-        for (int i = 0; i < drawCount; i++)
-        {
-            Card drawnCard = DrawCard();
-            hand.Add(drawnCard);
-        }
-
-        OnHandUpdated?.Invoke();
-    }
-
-    // Change this to spend specific card when we are actually spending cards.
-    public void SpendCard(int spentIndex)
-    {
-        // Random for testing...
-        //int spentIndex = Random.Range(0, hand.Count);
-
-        if (hand[spentIndex] != null && CanActivate(spentIndex))
-        {
-            pc.Energy -= hand[spentIndex].energyCost;
-
-            hand[spentIndex].Activate();
-
-            AddToDiscardPile(hand[spentIndex]);
-
-            hand[spentIndex] = null;
-
-            OnHandUpdated?.Invoke();
-        }
-    }
-
-    public void DiscardHand()
-    {
-        for (int i = 0; i < hand.Count; i++)
-        {
-            if (hand[i] != null)
-                AddToDiscardPile(hand[i]);
-        }
-
-        hand.Clear();
-
-        OnHandUpdated?.Invoke();
     }
 
     #endregion
