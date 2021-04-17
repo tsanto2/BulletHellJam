@@ -16,6 +16,6 @@ MonoBehaviour:
   cardTier: 1
   energyCost: 2
   description: 
-  cardIcon: {fileID: 0}
-  cardBorder: {fileID: 0}
+  cardIcon: {fileID: 21300000, guid: 538fb0a0b4ae54841a4a5d7d515e1351, type: 3}
+  cardBorder: {fileID: 21300000, guid: f745f826eab07654a97bda48387636d4, type: 3}
   hpRegenAmount: 40

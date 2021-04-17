@@ -49,6 +49,17 @@ public class DeckManager : MonoBehaviour
 
 
     #region MonoBehaviours
+
+    private void OnEnable()
+    {
+        GameManager.OnTenSecondsPassed += RenewHand;
+    }
+
+    private void OnDisable()
+    {
+        GameManager.OnTenSecondsPassed -= RenewHand;
+    }
+
     private void Start()
     {
         deck = new List<Card>();
@@ -145,6 +156,12 @@ public class DeckManager : MonoBehaviour
                     break;
             }
         }
+    }
+
+    private void RenewHand()
+    {
+        DiscardHand();
+        DrawHand();
     }
 
     public Card DrawCard()
