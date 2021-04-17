@@ -13,21 +13,21 @@ MonoBehaviour:
   m_Name: Helix
   m_EditorClassIdentifier: 
   baseDirection: 0
-  baseSpread: 10
+  baseSpread: 35
   bulletMinSpawnDistance: 1
   bulletMaxSpawnDistance: 1
   baseOscillationType: 0
-  baseOscillationSpeed: 24
+  baseOscillationSpeed: 31
   bulletPrefab: {fileID: 1492540044211201988, guid: da5958408dfe64b43ab7ed99332bebba,
     type: 3}
   bulletLifeTime: 3
   bulletBaseSpeed: 9
   bulletRotationSpeed: 0
-  shootDelay: 0.049999997
-  bulletTotal: 3
-  bulletOffset: 15
+  shootDelay: 0.14
+  bulletTotal: 2
+  bulletOffset: 51
   wrapAngles: 0
-  mirrorShootAngles: 1
+  mirrorShootAngles: 0
   spawnerOscillationSpeed: 0
   incrementalSpeed: 0
   incrementalRotation: 0

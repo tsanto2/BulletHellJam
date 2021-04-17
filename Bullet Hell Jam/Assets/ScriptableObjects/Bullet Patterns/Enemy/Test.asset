@@ -13,19 +13,19 @@ MonoBehaviour:
   m_Name: Test
   m_EditorClassIdentifier: 
   baseDirection: 180
-  baseSpread: 10
+  baseSpread: 0
   bulletMinSpawnDistance: 0.5
   bulletMaxSpawnDistance: 0.5
   baseOscillationType: 0
-  baseOscillationSpeed: 5
+  baseOscillationSpeed: 1
   bulletPrefab: {fileID: 1492540044211201988, guid: e15eeeb9d931da2478e3de2f13269a3a,
     type: 3}
   bulletLifeTime: 6
   bulletBaseSpeed: 3
   bulletRotationSpeed: 0
   shootDelay: 0.29
-  bulletTotal: 2
-  bulletOffset: 1
+  bulletTotal: 1
+  bulletOffset: 0
   wrapAngles: 0
   mirrorShootAngles: 0
   spawnerOscillationSpeed: 0

@@ -35,30 +35,21 @@ public class EnemyController : MonoBehaviour, IDamageable, IFireable
 
     [SerializeField] private int scoreValue;
     
-    [SerializeField] private BulletPattern weapon;
+    [SerializeField] protected BulletPattern weapon;
     [SerializeField] private LayerMask playerBulletLayerMask;
     private Collider2D hit;
 
-    private ObjectPool pool;
     private SpriteRenderer spriteRenderer;
     private float scrollSpeed;
 
-    private bool awake;
+    protected bool awake;
     private bool onScreen;
 
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
-
-    private void Start()
-    {
-        pool = FindObjectOfType<ObjectPool>();
-        
-
-        if (pool == null)
-            Debug.LogError("Cannot find object pool");
-    }
+    
 
     private void OnEnable()
     {
@@ -67,7 +58,7 @@ public class EnemyController : MonoBehaviour, IDamageable, IFireable
         onScreen = false;
     }
 
-    private void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         if (onScreen)
             CheckForPlayerBullets();
@@ -92,14 +83,14 @@ public class EnemyController : MonoBehaviour, IDamageable, IFireable
 
         if (hit)
         {
-            pool.ReturnObject(hit.gameObject);
+            ObjectPool.Instance.ReturnObject(hit.gameObject);
             TakeDamage(1);
         }
     }
 
     public void Die()
     {
-        pool.ReturnObject(this.gameObject);
+        ObjectPool.Instance.ReturnObject(this.gameObject);
 
         OnEnemyDeath?.Invoke();
         OnEnemyDeathScore?.Invoke(scoreValue);

@@ -5,15 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(EnemyController))]
 public class EnemyMovement : MonoBehaviour
 {
-    private enum MovementBehaviour
-    {
-        Freeze,
-        StrafeUp,
-        StrafeDown,
-        MoveForward
-    }
-
-    [SerializeField] private MovementBehaviour movementBehaviour;
+    public MovementBehaviour movementBehaviour;
     [SerializeField] private float WakeUpDelay = 2f;
     [SerializeField] private float moveSpeed;
     [SerializeField] private float moveDelay;
@@ -80,6 +72,13 @@ public class EnemyMovement : MonoBehaviour
 
                 if (cam.WorldToScreenPoint(transform.position).x < 0f)
                     ObjectPool.Instance.ReturnObject(this.gameObject);
+                break;
+            }
+
+            case MovementBehaviour.PingPong:
+            {
+                float distance = 5f;
+                transform.position = new Vector3(transform.position.x, 1f + (Mathf.PingPong((Time.time - moveStartTime + (distance / 2f)) * moveSpeed, distance) - (distance / 2f)));
                 break;
             }
         }

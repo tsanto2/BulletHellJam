@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviour
     private float slowmoStopTime;
     private bool isSlowmoActive;
     
+    private int enemyCount;
+
     private InputController input;
 
     private void Awake()
@@ -42,10 +44,17 @@ public class GameManager : MonoBehaviour
         slowmoMaxTimeImage.enabled = false;
     }
 
+    private void Start()
+    {
+        foreach (var enemy in FindObjectsOfType<EnemyController>())
+            enemyCount++;
+    }
+
     private void OnEnable()
     {
         EnemyController.OnEnemyDeathScore += AddPoints;
         EnemyController.OnEnemyDeath += AddCombo;
+        EnemyController.OnEnemyDeath += DecreaseEnemyCount;
 
         combo = 0;
         score = 0;
@@ -58,6 +67,7 @@ public class GameManager : MonoBehaviour
     {
         EnemyController.OnEnemyDeathScore -= AddPoints;
         EnemyController.OnEnemyDeath -= AddCombo;
+        EnemyController.OnEnemyDeath -= DecreaseEnemyCount;
     }
 
     private void Update()
@@ -66,6 +76,12 @@ public class GameManager : MonoBehaviour
 
         if (Time.time >= comboResetTime)
             ResetCombo();
+    }
+
+    private void DecreaseEnemyCount()
+    {
+        enemyCount--;
+        Debug.Log(enemyCount);
     }
 
     private void AddPoints(int points)

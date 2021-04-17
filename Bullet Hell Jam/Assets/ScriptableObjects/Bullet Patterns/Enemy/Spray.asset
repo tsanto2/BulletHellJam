@@ -17,17 +17,17 @@ MonoBehaviour:
   bulletMinSpawnDistance: 1
   bulletMaxSpawnDistance: 1
   baseOscillationType: 2
-  baseOscillationSpeed: 45
+  baseOscillationSpeed: 1
   bulletPrefab: {fileID: 1492540044211201988, guid: e15eeeb9d931da2478e3de2f13269a3a,
     type: 3}
   bulletLifeTime: 5
   bulletBaseSpeed: 3
   bulletRotationSpeed: 0
-  shootDelay: 0.099999994
-  bulletTotal: 3
+  shootDelay: 0.29
+  bulletTotal: 5
   bulletOffset: 15
   wrapAngles: 0
-  mirrorShootAngles: 1
+  mirrorShootAngles: 0
   spawnerOscillationSpeed: 0
   incrementalSpeed: 0
   incrementalRotation: 0

@@ -62,7 +62,13 @@ public class BulletPattern : ScriptableObject
 
     public float GetBaseSpawnAngle()
     {
-        float oscillationStep = Time.time * baseOscillationSpeed * (360f / Mathf.Max(1f, baseSpread));
+        if (baseSpread == 0f)
+        {
+            currentBaseAngle = baseDirection;
+            return baseDirection;
+        }
+
+        float oscillationStep = Time.time * baseOscillationSpeed * (360f / baseSpread);
         float oscillationPoint = 0f;
         float oscillationAngle = 0f;
 
@@ -135,7 +141,7 @@ public class BulletPattern : ScriptableObject
                 deltaIncrement %= baseSpread;
             }
 
-            float spawnerAngle = (deltaIncrement + (spawnerOscillationSpeed * Time.time)) % bulletSpread;
+            float spawnerAngle = (deltaIncrement + (spawnerOscillationSpeed * Time.time)) % Mathf.Max(1f, bulletSpread);
             float angle = (minAngle + spawnerAngle) * Mathf.Deg2Rad;
             Vector3 bulletPos = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0f);
 
