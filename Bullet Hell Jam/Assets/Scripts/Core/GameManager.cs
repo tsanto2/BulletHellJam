@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
     private bool isSlowmoActive;
 
     [SerializeField] private float pauseTime = 0.03f;
+    [SerializeField] private float minPitch = 0.3f;
     
     [Header("Boss")]
     [SerializeField] private float bossSpawnDelay;
@@ -191,10 +192,12 @@ public class GameManager : MonoBehaviour
         while (Mathf.Abs(Time.timeScale - targetValue) > 0.1f)
         {
             Time.timeScale = Mathf.Lerp(Time.timeScale, targetValue, time);
+            GetComponent<AudioSource>().pitch = minPitch + (Time.timeScale * (1f - minPitch));
             yield return null;
         }
 
         Time.timeScale = targetValue;
+        GetComponent<AudioSource>().pitch = minPitch + (Time.timeScale * (1f - minPitch));
         pauseCoroutine = null;
     }
 
