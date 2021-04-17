@@ -7,7 +7,17 @@ using Random = UnityEngine.Random;
 public class DeckManager : MonoBehaviour
 {
 
+    public static event Action OnHandUpdated;
+
     #region Variables/Fields
+
+    // Might be HANDy later for invoking OnHandUpdated
+    private enum HandUpdateType
+    {
+        drawCard = 0,
+        discardCard,
+        replaceHand,
+    }
 
     // Gross but just for ease of balance testing
     [SerializeField]
@@ -147,6 +157,8 @@ public class DeckManager : MonoBehaviour
             drawnCard = availableCards[randomIndex];
 
             availableCards.RemoveAt(randomIndex);
+
+            OnHandUpdated?.Invoke();
         }
         else
         {
@@ -157,6 +169,8 @@ public class DeckManager : MonoBehaviour
             drawnCard = availableCards[randomIndex];
 
             availableCards.RemoveAt(randomIndex);
+
+            OnHandUpdated?.Invoke();
         }
         return drawnCard;
     }
@@ -186,6 +200,8 @@ public class DeckManager : MonoBehaviour
             availableCards[i] = availableCards[randomIndex];
             availableCards[randomIndex] = temp;
         }
+
+        OnHandUpdated?.Invoke();
     }
 
     // Need to account for hand still having cards in it.
@@ -198,6 +214,8 @@ public class DeckManager : MonoBehaviour
             Card drawnCard = DrawCard();
             hand.Add(drawnCard);
         }
+
+        OnHandUpdated?.Invoke();
     }
 
     // Change this to spend specific card when we are actually spending cards.
@@ -211,6 +229,8 @@ public class DeckManager : MonoBehaviour
         AddToDiscardPile(hand[spentIndex]);
 
         hand.RemoveAt(spentIndex);
+
+        OnHandUpdated?.Invoke();
     }
 
     public void DiscardHand()
@@ -221,6 +241,8 @@ public class DeckManager : MonoBehaviour
         }
 
         hand.Clear();
+
+        OnHandUpdated?.Invoke();
     }
 
     #endregion
