@@ -81,12 +81,14 @@ public class EnemyController : MonoBehaviour, IDamageable, IFireable
         }
     }
 
-    public virtual void Die()
+    public virtual void Die(bool scorePoints = false)
     {
         ObjectPool.Instance.ReturnObject(this.gameObject);
 
         OnEnemyDeath?.Invoke();
-        OnEnemyDeathScore?.Invoke(scoreValue);
+        
+        if (scorePoints)
+            OnEnemyDeathScore?.Invoke(scoreValue);
     }
 
     private void HandleShooting()
@@ -100,7 +102,7 @@ public class EnemyController : MonoBehaviour, IDamageable, IFireable
         Health -= damage;
 
         if (health == 0)
-            Die();
+            Die(true);
     }
 
     public void Shoot(BulletPattern weapon)

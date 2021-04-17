@@ -3,5 +3,5 @@
     int Health { get; }
 
     void TakeDamage(int damage);
-    void Die();
+    void Die(bool scorePoints);
 }

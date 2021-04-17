@@ -124,7 +124,7 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
             Die();
     }
 
-    public void Die()
+    public void Die(bool scorePoints = false)
     {
         // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         Debug.Log("Doug Dimmadome declares you dimma-dun-dead, son.");

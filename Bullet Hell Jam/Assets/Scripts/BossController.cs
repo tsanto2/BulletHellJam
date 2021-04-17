@@ -56,7 +56,7 @@ public class BossController : EnemyController
         nextPhaseTime = Time.time + phase.phaseTimeLength;
     }
 
-    public override void Die()
+    public override void Die(bool scorePoints = false)
     {
         base.Die();
         OnBossDeath?.Invoke();

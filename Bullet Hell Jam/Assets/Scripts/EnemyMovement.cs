@@ -79,7 +79,7 @@ public class EnemyMovement : MonoBehaviour
                 transform.position += Vector3.left * adjustedSpeed;
 
                 if (cam.WorldToViewportPoint(transform.position).x < 0f)
-                    controller.Die();
+                    controller.Die(false);
                 break;
             }
 
@@ -88,7 +88,7 @@ public class EnemyMovement : MonoBehaviour
                 transform.position += Vector3.right * adjustedSpeed;
 
                 if (cam.WorldToViewportPoint(transform.position).x > 1f)
-                    controller.Die();
+                    controller.Die(false);
                 break;
             }
         }

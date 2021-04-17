@@ -4,18 +4,15 @@ public class InputController : MonoBehaviour
 {
     public KeyInput keyInput;
 
-    private bool RTActive = false;
-
     private void Update()
     {
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
         keyInput.moveVec = new Vector3(moveX, moveY, 0f);
 
-        keyInput.crawlPress = Input.GetKey(KeyCode.LeftShift) || (Input.GetAxisRaw("Crawl") > 0);
-
+        keyInput.crawlPress = (Input.GetButton("Crawl") || Input.GetAxisRaw("Crawl") > 0f);
+        keyInput.shootPress = (Input.GetButton("Shoot") || Input.GetAxisRaw("Shoot") > 0f);
         keyInput.slowmo = Input.GetButton("SlowMo");
-        keyInput.shootPress = Input.GetAxisRaw("Shoot") > 0 || Input.GetKey(KeyCode.Space);
 
         keyInput.leftFaceButtonPress = Input.GetButtonDown("LeftFaceButton");
         keyInput.rightFaceButtonPress = Input.GetButtonDown("RightFaceButton");
