@@ -154,6 +154,7 @@ public class GameManager : MonoBehaviour
 
                 pauseCoroutine = StartCoroutine(Pause(0f, pauseTime));
                 isSlowmoActive = true;
+                OnSlowMoStarted?.Invoke();
             }
                 //StartSlowmo();
                 
@@ -169,6 +170,7 @@ public class GameManager : MonoBehaviour
 
                 pauseCoroutine = StartCoroutine(Pause(1f, pauseTime));
                 isSlowmoActive = false;
+                OnSlowMoEnded?.Invoke();
             }
                 //StopSlowmo();
         }

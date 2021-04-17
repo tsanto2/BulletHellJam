@@ -54,7 +54,6 @@ public class DeckManager : MonoBehaviour
 
     #endregion
 
-
     #region MonoBehaviours
 
     private void OnEnable()
