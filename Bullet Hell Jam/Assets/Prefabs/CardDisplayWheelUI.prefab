@@ -164,11 +164,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4598978919103008451, guid: ad83647f43e4c634b92489105cded60a,
         type: 3}
-      propertyPath: deckManager
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4598978919103008451, guid: ad83647f43e4c634b92489105cded60a,
-        type: 3}
       propertyPath: displayWheelBG
       value: 
       objectReference: {fileID: 2783174054172548594}

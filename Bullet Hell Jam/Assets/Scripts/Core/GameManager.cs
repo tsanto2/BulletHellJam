@@ -8,6 +8,7 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     public static event Action OnTenSecondsPassed;
+    public static event Action OnStartedTenSecondTimer;
     public static event Action<int> OnScoreChanged;
     public static event Action<int> OnComboChanged;
     public static event Action OnSlowMoStarted;
@@ -38,6 +39,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         input = GetComponent<InputController>();
+        OnStartedTenSecondTimer?.Invoke();
         StartCoroutine(TenSecondTimer());
     }
 
