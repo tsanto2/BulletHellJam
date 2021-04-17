@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     public static event Action OnTenSecondsPassed;
     public static event Action<int> OnScoreChanged;
     public static event Action<int> OnComboChanged;
+    public static event Action OnSlowMoStarted;
+    public static event Action OnSlowMoEnded;
 
     private WaitForSeconds tenSeconds = new WaitForSeconds(10f);
 
@@ -136,38 +138,40 @@ public class GameManager : MonoBehaviour
     {
         if (!isSlowmoActive)
         {
-            slowlmoCooldownImage.fillAmount = (Time.time - slowmoStopTime) / (slowmoCooldown - slowmoStopTime);
+            //slowlmoCooldownImage.fillAmount = (Time.time - slowmoStopTime) / (slowmoCooldown - slowmoStopTime);
             
-            if (input.keyInput.slowmoPress && Time.time >= slowmoCooldown)
+            if (input.keyInput.slowmoPress /*&& Time.time >= slowmoCooldown*/)
                 StartSlowmo();
                 
         }
         else
         {
-            slowmoMaxTimeImage.fillAmount = 1 - ((Time.time - slowmoStartTime) / slowmoMaxTime);
+            //slowmoMaxTimeImage.fillAmount = 1 - ((Time.time - slowmoStartTime) / slowmoMaxTime);
 
-            if (input.keyInput.slowmoRelease || Time.time >= slowmoStartTime + slowmoMaxTime)
+            if (input.keyInput.slowmoRelease /*|| Time.time >= slowmoStartTime + slowmoMaxTime*/)
                 StopSlowmo();
         }
     }
 
     private void StartSlowmo()
     {
-        Time.timeScale = slowmoScale;
-        slowmoStartTime = Time.time;
+        Time.timeScale = 0 /*slowmoScale*/;
+        //slowmoStartTime = Time.time;
         isSlowmoActive = true;
-        slowmoMaxTimeImage.enabled = true;
-        slowlmoCooldownImage.enabled = false;
+        //slowmoMaxTimeImage.enabled = true;
+        //slowlmoCooldownImage.enabled = false;
+        OnSlowMoStarted?.Invoke();
     }
 
     private void StopSlowmo()
     {
         Time.timeScale = 1f;
-        slowmoCooldown = Time.time + slowmoDelay;
+        //slowmoCooldown = Time.time + slowmoDelay;
         isSlowmoActive = false;
-        slowmoStopTime = Time.time;
-        slowmoMaxTimeImage.enabled = false;
-        slowlmoCooldownImage.enabled = true;
+        //slowmoStopTime = Time.time;
+        //slowmoMaxTimeImage.enabled = false;
+        //slowlmoCooldownImage.enabled = true;
+        OnSlowMoEnded?.Invoke();
     }
     
     #endregion
