@@ -12,30 +12,24 @@ public class BulletController : MonoBehaviour
     public ObjectPool pool;
     private bool active;
 
-    private SpriteRenderer spriteRenderer;
-    private Material material;
     public BulletPattern weapon;
+    private Quaternion startRotation;
 
     private void Awake()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-
-        material = new Material(spriteRenderer.material);
-        spriteRenderer.material = material;
+        startRotation = transform.rotation;
     }
 
     private void OnEnable()
     {
         startTime = Time.time;
-        transform.rotation = Quaternion.identity;
+        transform.rotation = startRotation;
         active = true;
     }
 
     private void FixedUpdate()
     {
-        if (rotationSpeed != 0f)
-            transform.Rotate(new Vector3(0f, 0f, rotationSpeed * Time.fixedDeltaTime));
-
+        transform.Rotate(new Vector3(0f, 0f, rotationSpeed * Time.fixedDeltaTime));
         transform.Translate(moveVec * moveSpeed * Time.fixedDeltaTime);
 
         if (Time.time > startTime + lifetime)
@@ -46,10 +40,5 @@ public class BulletController : MonoBehaviour
                 pool.ReturnObject(this.gameObject);
             }
         }
-    }
-
-    public void ChangeColor(Color color)
-    {
-        material.SetColor("_Color", color);
     }
 }

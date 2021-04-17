@@ -50,3 +50,5 @@ MonoBehaviour:
   - prefab: {fileID: 1492540044211201988, guid: e15eeeb9d931da2478e3de2f13269a3a,
       type: 3}
     amount: 1000
+  - prefab: {fileID: 92464775212012027, guid: d47c1444e0824a94ea0e2c3fab958dbf, type: 3}
+    amount: 10

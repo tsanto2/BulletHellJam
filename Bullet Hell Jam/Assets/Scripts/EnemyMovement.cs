@@ -39,11 +39,14 @@ public class EnemyMovement : MonoBehaviour
         if (!awake)
             return;
         
+        camController.AutoScroll(transform);
+        
         if (movementBehaviour != MovementBehaviour.MoveLeft &&
             movementBehaviour != MovementBehaviour.MoveRight)
         {
             camController.CameraUpdatePosition(transform);
         }
+
         if (Time.time >= moveStartTime)
             HandleMovement();
     }
@@ -55,23 +58,25 @@ public class EnemyMovement : MonoBehaviour
 
     private void HandleMovement()
     {
+        float adjustedSpeed = moveSpeed * Time.fixedDeltaTime;
+
         switch (movementBehaviour)
         {
             case MovementBehaviour.MoveDown:
             {
-                transform.position += Vector3.down * moveSpeed * Time.fixedDeltaTime;
+                transform.position += Vector3.down * adjustedSpeed;
                 break;
             }
 
             case MovementBehaviour.MoveUp:
             {
-                transform.position += Vector3.up * moveSpeed * Time.fixedDeltaTime;
+                transform.position += Vector3.up * adjustedSpeed;
                 break;
             }
 
             case MovementBehaviour.MoveLeft:
             {
-                transform.position += Vector3.left * moveSpeed * Time.fixedDeltaTime;
+                transform.position += Vector3.left * adjustedSpeed;
 
                 if (cam.WorldToViewportPoint(transform.position).x < 0f)
                     controller.Die();
@@ -80,10 +85,10 @@ public class EnemyMovement : MonoBehaviour
 
             case MovementBehaviour.MoveRight:
             {
-                transform.position += Vector3.right * moveSpeed * Time.fixedDeltaTime;
+                transform.position += Vector3.right * adjustedSpeed;
 
                 if (cam.WorldToViewportPoint(transform.position).x > 1f)
-                        controller.Die();
+                    controller.Die();
                 break;
             }
         }
