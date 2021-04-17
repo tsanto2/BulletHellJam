@@ -316,7 +316,8 @@ public class DeckManager : MonoBehaviour
     {
         for (int i = 0; i < hand.Count; i++)
         {
-            AddToDiscardPile(hand[i]);
+            if (hand[i] != null)
+                AddToDiscardPile(hand[i]);
         }
 
         hand.Clear();
