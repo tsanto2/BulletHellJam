@@ -52,6 +52,9 @@ MonoBehaviour:
   slowmoMaxTime: 1
   slowlmoCooldownImage: {fileID: 0}
   slowmoMaxTimeImage: {fileID: 0}
+  bossSpawnDelay: 2
+  bossGameObject: {fileID: 6407241734672754609, guid: 46d58d5e17c9424488d2987eebb329da,
+    type: 3}
 --- !u!114 &8176372330591010298
 MonoBehaviour:
   m_ObjectHideFlags: 0

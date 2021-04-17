@@ -5,6 +5,8 @@ using System;
 [RequireComponent(typeof(EnemyMovement))]
 public class BossController : EnemyController
 {
+    public static event Action OnBossDeath;
+
     [SerializeField] private List<BossPhase> phasePlaylist;
     [SerializeField] private bool loopPhases;
     private int phaseIndex;
@@ -54,12 +56,17 @@ public class BossController : EnemyController
         nextPhaseTime = Time.time + phase.phaseTimeLength;
     }
 
+    public override void Die()
+    {
+        base.Die();
+        OnBossDeath?.Invoke();
+    }
+
     [Serializable]
     private class BossPhase
     {
         public BulletPattern weapon;
         public MovementBehaviour movement;
-
         public float phaseTimeLength;
     }
 }

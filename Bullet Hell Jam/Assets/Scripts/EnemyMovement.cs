@@ -54,31 +54,33 @@ public class EnemyMovement : MonoBehaviour
     {
         switch (movementBehaviour)
         {
-            case MovementBehaviour.StrafeDown:
+            case MovementBehaviour.MoveDown:
             {
                 transform.position += Vector3.down * moveSpeed * Time.fixedDeltaTime;
                 break;
             }
 
-            case MovementBehaviour.StrafeUp:
+            case MovementBehaviour.MoveUp:
             {
                 transform.position += Vector3.up * moveSpeed * Time.fixedDeltaTime;
                 break;
             }
 
-            case MovementBehaviour.MoveForward:
+            case MovementBehaviour.MoveLeft:
             {
                 transform.position += Vector3.left * moveSpeed * Time.fixedDeltaTime;
 
-                if (cam.WorldToScreenPoint(transform.position).x < 0f)
+                if (cam.WorldToViewportPoint(transform.position).x < 0f)
                     ObjectPool.Instance.ReturnObject(this.gameObject);
                 break;
             }
 
-            case MovementBehaviour.PingPong:
+            case MovementBehaviour.MoveRight:
             {
-                float distance = 5f;
-                transform.position = new Vector3(transform.position.x, 1f + (Mathf.PingPong((Time.time - moveStartTime + (distance / 2f)) * moveSpeed, distance) - (distance / 2f)));
+                transform.position += Vector3.right * moveSpeed * Time.fixedDeltaTime;
+
+                if (cam.WorldToViewportPoint(transform.position).x > 1f)
+                    ObjectPool.Instance.ReturnObject(this.gameObject);
                 break;
             }
         }

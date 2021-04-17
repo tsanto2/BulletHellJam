@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6654540015302613636}
   - component: {fileID: 6654540015302613639}
   - component: {fileID: 1533623159307737031}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6654540015302613638}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 10, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -94,11 +94,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2f24856c53b73f4abf01e280c90a9c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthMax: 5
-  weapon: {fileID: 0}
+  healthMax: 10
+  scoreValue: 50
+  weapon: {fileID: 11400000, guid: 81121cf394f68da44b4109d3ebde9b8f, type: 2}
   playerBulletLayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
 --- !u!114 &1533623159307737031
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,8 +1,8 @@
 ﻿public enum MovementBehaviour
 {
     Freeze,
-    StrafeUp,
-    StrafeDown,
-    MoveForward,
-    PingPong
+    MoveUp,
+    MoveDown,
+    MoveLeft,
+    MoveRight
 }

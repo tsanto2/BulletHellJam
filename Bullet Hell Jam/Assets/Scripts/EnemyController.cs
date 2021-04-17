@@ -39,18 +39,11 @@ public class EnemyController : MonoBehaviour, IDamageable, IFireable
     [SerializeField] private LayerMask playerBulletLayerMask;
     private Collider2D hit;
 
-    private SpriteRenderer spriteRenderer;
     private float scrollSpeed;
 
     protected bool awake;
     private bool onScreen;
-
-    private void Awake()
-    {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-    }
     
-
     private void OnEnable()
     {
         health = healthMax;
@@ -88,7 +81,7 @@ public class EnemyController : MonoBehaviour, IDamageable, IFireable
         }
     }
 
-    public void Die()
+    public virtual void Die()
     {
         ObjectPool.Instance.ReturnObject(this.gameObject);
 

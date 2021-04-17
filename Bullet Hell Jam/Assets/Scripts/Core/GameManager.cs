@@ -32,22 +32,29 @@ public class GameManager : MonoBehaviour
     private float slowmoStopTime;
     private bool isSlowmoActive;
     
+    [Header("Boss")]
+    [SerializeField] private float bossSpawnDelay;
+    [SerializeField] private GameObject bossGameObject;
     private int enemyCount;
 
     private InputController input;
+    private Camera cam;
 
     private void Awake()
     {
         input = GetComponent<InputController>();
         StartCoroutine(TenSecondTimer());
 
-        slowmoMaxTimeImage.enabled = false;
+        if (slowmoMaxTimeImage != null)
+            slowmoMaxTimeImage.enabled = false;
     }
 
     private void Start()
     {
         foreach (var enemy in FindObjectsOfType<EnemyController>())
             enemyCount++;
+    
+        cam = Camera.main;
     }
 
     private void OnEnable()
@@ -59,7 +66,8 @@ public class GameManager : MonoBehaviour
         combo = 0;
         score = 0;
 
-        scoreText.text = score.ToString("000000");
+        // Because I'm lazy, that's why
+        scoreText.text = score.ToString("0000000");
         comboText.text = "";
     }
 
@@ -78,18 +86,32 @@ public class GameManager : MonoBehaviour
             ResetCombo();
     }
 
+    #region Enemy Methods
+
     private void DecreaseEnemyCount()
     {
         enemyCount--;
-        Debug.Log(enemyCount);
+        
+        if (enemyCount == 0 && bossGameObject != null)
+            Invoke("SpawnBoss", bossSpawnDelay);
     }
+
+    private void SpawnBoss()
+    {
+        Debug.Log("OH LAWD HE COMIN'");
+        Instantiate(bossGameObject, new Vector3(cam.ViewportToWorldPoint(Vector3.right).x + 2f, 1f, 0f), Quaternion.identity);
+    }
+
+    #endregion
 
     private void AddPoints(int points)
     {
         score += points * combo;
         OnScoreChanged?.Invoke(points);
-        scoreText.text = score.ToString("000000");
+        scoreText.text = score.ToString("0000000");
     }
+
+    #region Combo Methods
 
     private void AddCombo()
     {
@@ -105,6 +127,10 @@ public class GameManager : MonoBehaviour
         OnComboChanged?.Invoke(combo);
         comboText.text = "";
     }
+
+    #endregion
+
+    #region Slowmo Methods
 
     private void HandleSlowmo()
     {
@@ -123,8 +149,6 @@ public class GameManager : MonoBehaviour
             if (input.keyInput.slowmoRelease || Time.time >= slowmoStartTime + slowmoMaxTime)
                 StopSlowmo();
         }
-        
-
     }
 
     private void StartSlowmo()
@@ -145,6 +169,8 @@ public class GameManager : MonoBehaviour
         slowmoMaxTimeImage.enabled = false;
         slowlmoCooldownImage.enabled = true;
     }
+    
+    #endregion
 
     IEnumerator TenSecondTimer()
     {

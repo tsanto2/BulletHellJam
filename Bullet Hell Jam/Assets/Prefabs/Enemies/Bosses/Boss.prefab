@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 084a574cfa15bb54eb4af23b07fa9d9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthMax: 200
+  healthMax: 60
   scoreValue: 5000
   weapon: {fileID: 11400000, guid: a8ad87b2bde9ca14ab92e8717db6cbf4, type: 2}
   playerBulletLayerMask:
@@ -106,6 +106,15 @@ MonoBehaviour:
     phaseTimeLength: 3
   - weapon: {fileID: 11400000, guid: 81121cf394f68da44b4109d3ebde9b8f, type: 2}
     movement: 2
+    phaseTimeLength: 3
+  - weapon: {fileID: 11400000, guid: a8ad87b2bde9ca14ab92e8717db6cbf4, type: 2}
+    movement: 3
+    phaseTimeLength: 1
+  - weapon: {fileID: 11400000, guid: 81121cf394f68da44b4109d3ebde9b8f, type: 2}
+    movement: 1
+    phaseTimeLength: 3
+  - weapon: {fileID: 11400000, guid: 81121cf394f68da44b4109d3ebde9b8f, type: 2}
+    movement: 4
     phaseTimeLength: 3
   loopPhases: 1
 --- !u!114 &1228610036
