@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class AbilityManager : MonoBehaviour
 {
+
+    [SerializeField]
+    private PlayerController pc;
+
     void OnEnable()
     {
         EnergyRegen.OnEnergyRegenCardActivated += ActivateEnergyRegen;
@@ -19,6 +23,8 @@ public class AbilityManager : MonoBehaviour
     void ActivateEnergyRegen(int energyRegenAmount)
     {
         Debug.Log("Activating: Regenerating " + energyRegenAmount + " energy.");
+
+        pc.Energy += energyRegenAmount;
     }
 
     void ActivateHpRegen(int hpRegenAmount)

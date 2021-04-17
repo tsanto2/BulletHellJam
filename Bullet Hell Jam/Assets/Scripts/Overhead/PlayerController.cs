@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
     }
 
     [SerializeField, Min(1)] private int energyMax;
+    [SerializeField]
     private int energy;
     public int Energy
     {
@@ -69,10 +70,25 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
         Energy = energyMax;
     }
 
+    private void OnEnable()
+    {
+        GameManager.OnTenSecondsPassed += RefreshEnergy;
+    }
+
+    private void OnDisable()
+    {
+        GameManager.OnTenSecondsPassed -= RefreshEnergy;
+    }
+
     private void FixedUpdate()
     {        
         CheckForEnemyBullets();
         HandleShooting();
+    }
+
+    private void RefreshEnergy()
+    {
+        Energy = energyMax;
     }
 
     private void HandleShooting()

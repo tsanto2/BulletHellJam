@@ -29,6 +29,9 @@ public class DeckManager : MonoBehaviour
     [SerializeField]
     private InputController input;
 
+    [SerializeField]
+    private PlayerController pc;
+
     // Change to private l8r
     private List<Card> deck;
 
@@ -98,6 +101,16 @@ public class DeckManager : MonoBehaviour
             SpendCard();
         }*/
 
+        CheckSpendCard();
+
+    }
+
+    #endregion
+
+    #region Helpers
+
+    private void CheckSpendCard()
+    {
         if (isSlowMoTime)
         {
             // Dont ask about these numbers and never speak of them again
@@ -118,13 +131,13 @@ public class DeckManager : MonoBehaviour
                 SpendCard(3);
             }
         }
-
     }
 
-    #endregion
+    private bool CanActivate(int cardIndex)
+    {
 
-    #region Helpers
-
+        return hand[cardIndex].energyCost <= pc.Energy;
+    }
     private void SlowMoStarted()
     {
         isSlowMoTime = true;
@@ -285,8 +298,10 @@ public class DeckManager : MonoBehaviour
         // Random for testing...
         //int spentIndex = Random.Range(0, hand.Count);
 
-        if (hand[spentIndex] != null)
+        if (hand[spentIndex] != null && CanActivate(spentIndex))
         {
+            pc.Energy -= hand[spentIndex].energyCost;
+
             hand[spentIndex].Activate();
 
             AddToDiscardPile(hand[spentIndex]);
