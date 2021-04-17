@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
     [Header("Stats")]
     [SerializeField, Min(1)] private int healthMax;
     private int health;
+
+    private IBulletHitBehaviour bulletHitBehaviour;
     public int Health
     {
         get
@@ -68,6 +70,8 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
 
         Health = healthMax;
         Energy = energyMax;
+
+        bulletHitBehaviour = new DamagePlayerBehaviour();
     }
 
     private void OnEnable()
@@ -103,8 +107,9 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
 
         if (hit)
         {
-            ObjectPool.Instance.ReturnObject(hit.gameObject);
-            TakeDamage(1);
+            //ObjectPool.Instance.ReturnObject(hit.gameObject);
+            //TakeDamage(1);
+            bulletHitBehaviour.Perform(hit.gameObject);
         }
     }
 
@@ -122,6 +127,11 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
             return;
                 
         this.weapon = weapon;
+    }
+
+    public void ChangeBulletHitBehaviour(IBulletHitBehaviour newBulletHitBehaviour)
+    {
+        bulletHitBehaviour = newBulletHitBehaviour;
     }
 
     public void TakeDamage(int damage)
