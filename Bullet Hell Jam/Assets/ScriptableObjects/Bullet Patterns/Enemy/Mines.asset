@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be56a3ed7cd2bc84b8ef5f8e18f93480, type: 3}
   m_Name: Mines
   m_EditorClassIdentifier: 
-  baseDirection: 180
+  baseDirection: 0
   baseSpread: 0
   bulletMinSpawnDistance: 1
   bulletMaxSpawnDistance: 1

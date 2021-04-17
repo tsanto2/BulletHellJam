@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class GameManager : MonoBehaviour
@@ -33,6 +34,8 @@ public class GameManager : MonoBehaviour
     private float slowmoStartTime;
     private float slowmoStopTime;
     private bool isSlowmoActive;
+
+    [SerializeField] private float pauseTime = 0.03f;
     
     [Header("Boss")]
     [SerializeField] private float bossSpawnDelay;
@@ -41,6 +44,7 @@ public class GameManager : MonoBehaviour
 
     private InputController input;
     private Camera cam;
+    private Coroutine pauseCoroutine;
 
     private void Awake()
     {
@@ -86,6 +90,9 @@ public class GameManager : MonoBehaviour
 
         if (Time.time >= comboResetTime)
             ResetCombo();
+
+        if (input.keyInput.restartPress)
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     #region Enemy Methods
@@ -141,7 +148,14 @@ public class GameManager : MonoBehaviour
             //slowlmoCooldownImage.fillAmount = (Time.time - slowmoStopTime) / (slowmoCooldown - slowmoStopTime);
             
             if (input.keyInput.slowmoPress /*&& Time.time >= slowmoCooldown*/)
-                StartSlowmo();
+            {
+                if (pauseCoroutine != null)
+                    StopCoroutine(pauseCoroutine);
+
+                pauseCoroutine = StartCoroutine(Pause(0f, pauseTime));
+                isSlowmoActive = true;
+            }
+                //StartSlowmo();
                 
         }
         else
@@ -149,7 +163,14 @@ public class GameManager : MonoBehaviour
             //slowmoMaxTimeImage.fillAmount = 1 - ((Time.time - slowmoStartTime) / slowmoMaxTime);
 
             if (input.keyInput.slowmoRelease /*|| Time.time >= slowmoStartTime + slowmoMaxTime*/)
-                StopSlowmo();
+            {
+                if (pauseCoroutine != null)
+                    StopCoroutine(pauseCoroutine);
+
+                pauseCoroutine = StartCoroutine(Pause(1f, pauseTime));
+                isSlowmoActive = false;
+            }
+                //StopSlowmo();
         }
     }
 
@@ -161,6 +182,18 @@ public class GameManager : MonoBehaviour
         //slowmoMaxTimeImage.enabled = true;
         //slowlmoCooldownImage.enabled = false;
         OnSlowMoStarted?.Invoke();
+    }
+
+    IEnumerator Pause(float targetValue, float time)
+    {
+        while (Mathf.Abs(Time.timeScale - targetValue) > 0.1f)
+        {
+            Time.timeScale = Mathf.Lerp(Time.timeScale, targetValue, time);
+            yield return null;
+        }
+
+        Time.timeScale = targetValue;
+        pauseCoroutine = null;
     }
 
     private void StopSlowmo()

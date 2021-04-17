@@ -35,6 +35,7 @@ public class InputController : MonoBehaviour
         keyInput.topFaceButtonPress = Input.GetButtonDown("TopFaceButton");
         keyInput.bottomFaceButtonPress = Input.GetButtonDown("BottomFaceButton");
 
+        keyInput.restartPress = Input.GetKeyDown(KeyCode.F12); 
     }
 }
 
@@ -51,4 +52,7 @@ public struct KeyInput
     public bool rightFaceButtonPress;
     public bool topFaceButtonPress;
     public bool bottomFaceButtonPress;
+
+    // Just a temporary button for debugging
+    public bool restartPress;
 }
