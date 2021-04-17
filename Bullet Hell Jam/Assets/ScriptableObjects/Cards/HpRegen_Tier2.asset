@@ -9,11 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9c645b9d7fb4ef4186d836417ce25f7, type: 3}
-  m_Name: IntermediateWeapon
+  m_Script: {fileID: 11500000, guid: d047230b548c3ca4198b334de2b3ccad, type: 3}
+  m_Name: HpRegen_Tier2
   m_EditorClassIdentifier: 
-  cardType: 5
+  cardType: 3
+  cardTier: 1
   energyCost: 2
-  description: intermediate weapon yo
+  description: 
   cardIcon: {fileID: 0}
   cardBorder: {fileID: 0}
+  hpRegenAmount: 40

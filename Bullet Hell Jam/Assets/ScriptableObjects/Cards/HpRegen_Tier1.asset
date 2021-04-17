@@ -9,11 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9c645b9d7fb4ef4186d836417ce25f7, type: 3}
-  m_Name: IntermediateHp
+  m_Script: {fileID: 11500000, guid: d047230b548c3ca4198b334de2b3ccad, type: 3}
+  m_Name: HpRegen_Tier1
   m_EditorClassIdentifier: 
-  cardType: 3
-  energyCost: 2
-  description: intermediate hp yo
+  cardType: 0
+  cardTier: 0
+  energyCost: 1
+  description: 
   cardIcon: {fileID: 0}
   cardBorder: {fileID: 0}
+  hpRegenAmount: 20

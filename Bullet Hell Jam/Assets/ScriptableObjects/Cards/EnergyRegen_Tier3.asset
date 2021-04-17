@@ -9,11 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9c645b9d7fb4ef4186d836417ce25f7, type: 3}
-  m_Name: IntermediateEnergy
+  m_Script: {fileID: 11500000, guid: bad292b6fbcd9954a991c0e051f63538, type: 3}
+  m_Name: EnergyRegen_Tier3
   m_EditorClassIdentifier: 
-  cardType: 4
-  energyCost: 2
-  description: intermediate energy yo
+  cardType: 7
+  cardTier: 2
+  energyCost: 3
+  description: 
   cardIcon: {fileID: 0}
   cardBorder: {fileID: 0}
+  energyRegenAmount: 6

@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class DeckManager : MonoBehaviour
 {
@@ -27,6 +29,12 @@ public class DeckManager : MonoBehaviour
 
     public List<Card> DiscardedCards { get { return discardedCards; } }
 
+    [SerializeField]
+    private int maxDrawCount = 4;
+
+    // Change back to private l8r
+    public List<Card> hand;
+
     #endregion
 
 
@@ -39,6 +47,23 @@ public class DeckManager : MonoBehaviour
         CompileBaseDeck();
 
         availableCards = deck;
+    }
+    private void Update()
+    {
+        // Just for testing :]
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            DiscardHand();
+            DrawHand();
+        }
+        if (Input.GetKeyDown(KeyCode.G) && hand.Count < maxDrawCount)
+        {
+            DrawHand();
+        }
+        if (Input.GetKeyDown(KeyCode.H) && hand.Count > 0)
+        {
+            SpendCard();
+        }
     }
 
     #endregion
@@ -153,6 +178,7 @@ public class DeckManager : MonoBehaviour
 
         discardedCards.Clear();
 
+        // Probably doesnt need to actually be shuffled if we make sure we are drawing at random
         for (int i = 0; i < availableCards.Count; i++)
         {
             Card temp = availableCards[i];
@@ -160,6 +186,41 @@ public class DeckManager : MonoBehaviour
             availableCards[i] = availableCards[randomIndex];
             availableCards[randomIndex] = temp;
         }
+    }
+
+    // Need to account for hand still having cards in it.
+    public void DrawHand()
+    {
+        int drawCount = maxDrawCount - hand.Count;
+
+        for (int i = 0; i < drawCount; i++)
+        {
+            Card drawnCard = DrawCard();
+            hand.Add(drawnCard);
+        }
+    }
+
+    // Change this to spend specific card when we are actually spending cards.
+    public void SpendCard()
+    {
+        // Random for testing...
+        int spentIndex = Random.Range(0, hand.Count);
+
+        hand[spentIndex].Activate();
+
+        AddToDiscardPile(hand[spentIndex]);
+
+        hand.RemoveAt(spentIndex);
+    }
+
+    public void DiscardHand()
+    {
+        for (int i = 0; i < hand.Count; i++)
+        {
+            AddToDiscardPile(hand[i]);
+        }
+
+        hand.Clear();
     }
 
     #endregion
