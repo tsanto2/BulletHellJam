@@ -192,12 +192,12 @@ public class GameManager : MonoBehaviour
         while (Mathf.Abs(Time.timeScale - targetValue) > 0.1f)
         {
             Time.timeScale = Mathf.Lerp(Time.timeScale, targetValue, time);
-            GetComponent<AudioSource>().pitch = minPitch + (Time.timeScale * (1f - minPitch));
+            //GetComponent<AudioSource>().pitch = minPitch + (Time.timeScale * (1f - minPitch));
             yield return null;
         }
 
         Time.timeScale = targetValue;
-        GetComponent<AudioSource>().pitch = minPitch + (Time.timeScale * (1f - minPitch));
+        //GetComponent<AudioSource>().pitch = minPitch + (Time.timeScale * (1f - minPitch));
         pauseCoroutine = null;
     }
 

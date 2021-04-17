@@ -1,23 +1,41 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class CardDisplay : MonoBehaviour
 {
 
     [SerializeField]
-    private SpriteRenderer iconSR;
+    private Image iconImage;
 
     [SerializeField]
-    private SpriteRenderer backgroundSR;
+    private Image backgroundImage;
+    
+    [SerializeField]
+    private TextMeshProUGUI energyCostText;
+
+    [SerializeField]
+    private TextMeshProUGUI descriptionText;
     public void SetIcon(Sprite sprite)
     {
-        iconSR.sprite = sprite;
+        iconImage.sprite = sprite;
     }
 
     public void SetBackground(Sprite sprite)
     {
-        backgroundSR.sprite = sprite;
+        backgroundImage.sprite = sprite;
+    }
+
+    public void SetEnergyCostText(string energyCost)
+    {
+        energyCostText.text = energyCost;
+    }
+
+    public void SetDescriptionText(string description)
+    {
+        descriptionText.text = description;
     }
 
 }

@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CardDisplayWheel : MonoBehaviour
 {
 
+    [SerializeField]
+    private Image displayWheelBG;
     [SerializeField]
     private CardDisplay topCardDisplay;
     [SerializeField]
@@ -37,6 +40,8 @@ public class CardDisplayWheel : MonoBehaviour
 
     private void Start()
     {
+        displayWheelBG.enabled = false;
+
         cardDisplays = new List<CardDisplay>();
 
         cardDisplays.Add(topCardDisplay);
@@ -48,12 +53,17 @@ public class CardDisplayWheel : MonoBehaviour
     private void OnSlowMoStarted()
     {
         isDisplaying = true;
+
+        displayWheelBG.enabled = true;
+
         UpdateCards();
     }
 
     private void OnSlowMoEnded()
     {
         isDisplaying = false;
+
+        displayWheelBG.enabled = false;
 
         HideAllCardDisplays();
     }
@@ -85,8 +95,12 @@ public class CardDisplayWheel : MonoBehaviour
 
     private void BuildCard(Card card, int displayIndex)
     {
-        cardDisplays[displayIndex].SetIcon(card.cardIcon);
-        cardDisplays[displayIndex].SetBackground(card.cardBorder);
+        CardDisplay cardDisplay = cardDisplays[displayIndex];
+
+        cardDisplay.SetIcon(card.cardIcon);
+        cardDisplay.SetBackground(card.cardBorder);
+        cardDisplay.SetEnergyCostText(card.energyCost.ToString());
+        cardDisplay.SetDescriptionText(card.description);
     }
 
 }
