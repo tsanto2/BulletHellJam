@@ -11,6 +11,8 @@ public class CardDisplayWheel : MonoBehaviour
     [SerializeField]
     private DeckManager deckManager;
 
+    private bool isDisplaying = false;
+
     private void OnEnable()
     {
         DeckManager.OnHandUpdated += UpdateCards;
@@ -18,20 +20,43 @@ public class CardDisplayWheel : MonoBehaviour
 
     private void OnDisable()
     {
-        
+        DeckManager.OnHandUpdated -= UpdateCards;
+    }
+
+    private void OnSlowMoStarted()
+    {
+        isDisplaying = true;
+    }
+
+    private void OnSlowMoEnded()
+    {
+        isDisplaying = false;
+
+        HideAllCardDisplays();
+    }
+
+    private void HideAllCardDisplays()
+    {
+        foreach (CardDisplay cardDisplay in cardDisplays)
+        {
+            cardDisplay.gameObject.SetActive(false);
+        }
     }
 
     private void UpdateCards()
     {
-        for (int i=0; i<cardDisplays.Length; i++)
+        if (isDisplaying)
         {
-            if (i < deckManager.hand.Count)
+            for (int i = 0; i < cardDisplays.Length; i++)
             {
-                cardDisplays[i].gameObject.SetActive(true);
-                BuildCard(deckManager.hand[i], i);
+                if (i < deckManager.hand.Count)
+                {
+                    cardDisplays[i].gameObject.SetActive(true);
+                    BuildCard(deckManager.hand[i], i);
+                }
+                else
+                    cardDisplays[i].gameObject.SetActive(false);
             }
-            else
-                cardDisplays[i].gameObject.SetActive(false);
         }
     }
 
