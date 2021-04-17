@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public static event Action OnSlowMoEnded;
 
     private WaitForSeconds tenSeconds = new WaitForSeconds(10f);
+    private WaitForSeconds oneSecond = new WaitForSeconds(1f);
 
     [Header("UI")]
     [SerializeField] private float comboResetDelay;
@@ -32,6 +33,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float bossSpawnDelay;
     [SerializeField] private GameObject bossGameObject;
     private int enemyCount;
+
+    private int countdown = 10;
+    public int Countdown { get { return countdown;  } }
 
     private InputController input;
     private Camera cam;
@@ -164,8 +168,15 @@ public class GameManager : MonoBehaviour
 
     IEnumerator TenSecondTimer()
     {
-        yield return tenSeconds;
-        OnTenSecondsPassed?.Invoke();
+        yield return oneSecond;
+
+        countdown--;
+
+        if (countdown == 0)
+        {
+            countdown = 10;
+            OnTenSecondsPassed?.Invoke();
+        }
         StartCoroutine(TenSecondTimer());
     }
 }
