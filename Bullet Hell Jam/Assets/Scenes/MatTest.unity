@@ -395,41 +395,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
-    - target: {fileID: 2027764439036012516, guid: 0988227107433444aafb0457add34251,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2027764439036012516, guid: 0988227107433444aafb0457add34251,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 91682451374851122, guid: 0988227107433444aafb0457add34251,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-    - target: {fileID: 91682451374851122, guid: 0988227107433444aafb0457add34251,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 91682451374851122, guid: 0988227107433444aafb0457add34251,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.92208767
-      objectReference: {fileID: 0}
-    - target: {fileID: 91682451374851122, guid: 0988227107433444aafb0457add34251,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8643028492163881478, guid: 0988227107433444aafb0457add34251,
-        type: 3}
-      propertyPath: healthMax
-      value: 100
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0988227107433444aafb0457add34251, type: 3}
 --- !u!1001 &595326392

@@ -10,11 +10,15 @@ public class ObjectPool : MonoBehaviour
     private Dictionary<string, Queue<GameObject>> objectPool = new Dictionary<string, Queue<GameObject>>();
     public Dictionary<GameObject, BulletController> componentCache = new Dictionary<GameObject, BulletController>();
 
+    [SerializeField] private LayerMask enemyBulletLayerMask;
+    private List<GameObject> enemyBulletList = new List<GameObject>();
+
     private void Awake()
     {
         Instance = this;
 
         PrepopulatePools();
+        enemyBulletList.Clear();
     }
 
     public GameObject GetObject(GameObject gameObject)
@@ -25,6 +29,9 @@ public class ObjectPool : MonoBehaviour
             {
                 GameObject _object = objectList.Dequeue();
                 _object.SetActive(true);
+
+                if (gameObject.layer == 9)
+                    enemyBulletList.Add(_object);
 
                 return _object;
             }
@@ -46,11 +53,18 @@ public class ObjectPool : MonoBehaviour
                     GameObject _object = objectList.Dequeue();
                     _object.SetActive(true);
                     returnList[i] = _object;
+
+                    if (gameObject.layer == 9)
+                        enemyBulletList.Add(_object);
+
                     continue;
                 }
             }
             else
-                returnList[i] = CreateNewObject(gameObject);
+            {
+                GameObject _object = CreateNewObject(gameObject);
+                returnList[i] = _object;
+            }
         }
 
         return returnList;
@@ -65,15 +79,27 @@ public class ObjectPool : MonoBehaviour
         {
             componentCache.Add(newObject, comp);
             comp.pool = this;
+
+            if (newObject.layer == 9)
+            {
+                Debug.Log("GET IN THE GOD DAMN LIST");
+                enemyBulletList.Add(newObject);
+
+            }
         }
 
         return newObject;
     }
 
-    public void ReturnObject(GameObject gameObject)
+    public void ReturnObject(GameObject gameObject, bool removeFromList = true)
     {
         if (objectPool.TryGetValue(gameObject.name, out Queue<GameObject> objectList))
+        {
             objectList.Enqueue(gameObject);
+
+            if (gameObject.layer == 9 && removeFromList)
+                enemyBulletList.Remove(gameObject);
+        }
         else
         {
             Queue<GameObject> newObjectQueue = new Queue<GameObject>();
@@ -82,6 +108,14 @@ public class ObjectPool : MonoBehaviour
         }
 
         gameObject.SetActive(false);
+    }
+
+    public void WipeAllEnemyBullets()
+    {
+        foreach(var bullet in enemyBulletList)
+            ReturnObject(bullet, false);
+
+        enemyBulletList.Clear();
     }
 
     private void PrepopulatePools()

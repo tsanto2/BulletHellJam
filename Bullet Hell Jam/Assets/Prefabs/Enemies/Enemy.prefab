@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthMax: 10
-  scoreValue: 50
+  scoreValue: 75
   weapon: {fileID: 11400000, guid: 81121cf394f68da44b4109d3ebde9b8f, type: 2}
   playerBulletLayerMask:
     serializedVersion: 2
