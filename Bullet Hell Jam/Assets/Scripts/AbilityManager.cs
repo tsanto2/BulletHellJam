@@ -8,6 +8,12 @@ public class AbilityManager : MonoBehaviour
     [SerializeField]
     private PlayerController pc;
 
+    [SerializeField]
+    private float weaponDuration = 3.0f;
+
+    private bool isAbsorbing = false;
+    private bool isShooting = false;
+
     void OnEnable()
     {
         EnergyRegen.OnEnergyRegenCardActivated += ActivateEnergyRegen;
@@ -41,11 +47,58 @@ public class AbilityManager : MonoBehaviour
     void ActivateWeapon(BulletPattern bulletPattern)
     {
         pc.ChangeWeapon(bulletPattern);
+
+        if (!pc.debugWeapons)
+        {
+            if (!isShooting)
+            {
+                StartCoroutine(DisablePlayerWeaponAbilityCountdown());
+            }
+            else
+            {
+                StopCoroutine(DisablePlayerWeaponAbilityCountdown());
+
+                StartCoroutine(DisablePlayerWeaponAbilityCountdown());
+            }
+        }
     }
 
     void ActivateAbsorbBullets(float duration)
     {
         pc.ChangeBulletHitBehaviour(new AbsorbBulletBehaviour());
+
+        if (!isAbsorbing)
+        {
+            StartCoroutine(DisableAbsorbAbilityCountdown(duration));
+        }
+        else
+        {
+            StopCoroutine(DisableAbsorbAbilityCountdown(0));
+
+            StartCoroutine(DisableAbsorbAbilityCountdown(duration));
+        }
+
+    }
+
+    IEnumerator DisablePlayerWeaponAbilityCountdown()
+    {
+        pc.CanShoot = true;
+
+        // Might change duration to scale with tier
+        yield return new WaitForSeconds(weaponDuration);
+
+        pc.CanShoot = false;
+    }
+
+    IEnumerator DisableAbsorbAbilityCountdown(float duration)
+    {
+        isAbsorbing = true;
+
+        yield return new WaitForSeconds(duration);
+
+        pc.ChangeBulletHitBehaviour(new DamagePlayerBehaviour());
+
+        isAbsorbing = false;
     }
 
 }

@@ -11,11 +11,11 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
     public static event Action<bool> OnPlayerActivateSlowmo;
     #endregion
 
+    private IBulletHitBehaviour bulletHitBehaviour;
+
     [Header("Stats")]
     [SerializeField, Min(1)] private int healthMax;
     private int health;
-
-    private IBulletHitBehaviour bulletHitBehaviour;
     public int Health
     {
         get
@@ -65,6 +65,22 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
     [SerializeField] private LayerMask enemyBulletLayerMask;
     private Collider2D hit;
 
+    public bool debugWeapons = false;
+
+    private bool canShoot = false;
+
+    public bool CanShoot
+    {
+        get
+        {
+            return canShoot;
+        }
+        set
+        {
+            canShoot = value;
+        }
+    }
+
     private void Awake()
     {
         input = GetComponent<InputController>();
@@ -73,6 +89,9 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
         Energy = energyMax;
 
         bulletHitBehaviour = new DamagePlayerBehaviour();
+
+        if (!debugWeapons)
+            weapon = null;
     }
 
     private void OnEnable()
@@ -114,7 +133,7 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
 
     public void Shoot(BulletPattern weapon)
     {
-        if (weapon == null)
+        if (weapon == null || (!canShoot && !debugWeapons))
             return;
 
         weapon.SpawnBullets(transform.position, this);
