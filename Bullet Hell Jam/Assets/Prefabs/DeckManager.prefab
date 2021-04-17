@@ -44,10 +44,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseDeckBasicHpCardCount: 3
-  baseDeckBasicEnergyCardCount: 3
+  baseDeckBasicEnergyCardCount: 2
   baseDeckBasicWeaponCardCount: 3
+  baseDeckBasicClearBullets: 2
   baseDeckIntermediateHpCardCount: 2
-  baseDeckIntermediateEnergyCardCount: 2
+  baseDeckIntermediateEnergyCardCount: 1
   baseDeckIntermediateWeaponCardCount: 2
   baseDeckAdvancedHpCardCount: 1
   baseDeckAdvancedEnergyCardCount: 1
@@ -68,6 +69,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 519a8bf0db8d07248b860d17fe30c797, type: 2}
   - {fileID: 11400000, guid: 770391f3e5356434fa3ff21a0473eb2d, type: 2}
   - {fileID: 11400000, guid: dafa49cf861112d47bcaa09cd21d3e4d, type: 2}
+  - {fileID: 11400000, guid: e2e169aaa2f974841840ed4b356ca4e3, type: 2}
   input: {fileID: 0}
   pc: {fileID: 0}
   availableCards: []

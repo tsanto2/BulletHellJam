@@ -21,7 +21,7 @@ public class DeckManager : MonoBehaviour
 
     // Gross but just for ease of balance testing
     [SerializeField]
-    private int baseDeckBasicHpCardCount, baseDeckBasicEnergyCardCount, baseDeckBasicWeaponCardCount, baseDeckIntermediateHpCardCount, baseDeckIntermediateEnergyCardCount, baseDeckIntermediateWeaponCardCount, baseDeckAdvancedHpCardCount, baseDeckAdvancedEnergyCardCount, baseDeckAdvancedWeaponCardCount, baseDeckBasicAbsorbCardCount, baseDeckintermediateAbsorbCardCount, baseDeckAdvancedAbsorbCardCount;
+    private int baseDeckBasicHpCardCount, baseDeckBasicEnergyCardCount, baseDeckBasicWeaponCardCount, baseDeckBasicClearBullets, baseDeckIntermediateHpCardCount, baseDeckIntermediateEnergyCardCount, baseDeckIntermediateWeaponCardCount, baseDeckAdvancedHpCardCount, baseDeckAdvancedEnergyCardCount, baseDeckAdvancedWeaponCardCount, baseDeckBasicAbsorbCardCount, baseDeckintermediateAbsorbCardCount, baseDeckAdvancedAbsorbCardCount;
 
     [SerializeField]
     private Card[] cardSOs;
@@ -300,6 +300,12 @@ public class DeckManager : MonoBehaviour
                     break;
                 case CardType.basicAbsorb:
                     for (int i = 0; i < baseDeckBasicAbsorbCardCount; i++)
+                    {
+                        deck.Add(cardSO);
+                    }
+                    break;
+                case CardType.basicClearBullets:
+                    for (int i = 0; i < baseDeckBasicClearBullets; i++)
                     {
                         deck.Add(cardSO);
                     }

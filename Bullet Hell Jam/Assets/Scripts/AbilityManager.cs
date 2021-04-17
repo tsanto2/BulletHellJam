@@ -20,6 +20,7 @@ public class AbilityManager : MonoBehaviour
         HpRegen.OnHpRegenCardActivated += ActivateHpRegen;
         PlayerWeapon.OnHpRegenCardActivated += ActivateWeapon;
         AbsorbBullets.OnAbsorbBulletsCardActivated += ActivateAbsorbBullets;
+        ClearBullets.OnClearBulletsCardActivated += ActivateClearBullets;
     }
 
     private void OnDisable()
@@ -28,6 +29,7 @@ public class AbilityManager : MonoBehaviour
         HpRegen.OnHpRegenCardActivated -= ActivateHpRegen;
         PlayerWeapon.OnHpRegenCardActivated -= ActivateWeapon;
         AbsorbBullets.OnAbsorbBulletsCardActivated -= ActivateAbsorbBullets;
+        ClearBullets.OnClearBulletsCardActivated += ActivateClearBullets;
     }
 
     void ActivateEnergyRegen(int energyRegenAmount)
@@ -78,6 +80,11 @@ public class AbilityManager : MonoBehaviour
             StartCoroutine(DisableAbsorbAbilityCountdown(duration));
         }
 
+    }
+
+    void ActivateClearBullets()
+    {
+        ObjectPool.Instance.WipeAllEnemyBullets();
     }
 
     IEnumerator DisablePlayerWeaponAbilityCountdown()

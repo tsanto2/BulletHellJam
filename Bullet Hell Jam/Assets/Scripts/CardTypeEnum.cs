@@ -4,6 +4,7 @@
     basicEnergy,
     basicWeapon,
     basicAbsorb,
+    basicClearBullets,
     intermediateHp,
     intermediateEnergy,
     intermediateWeapon,
