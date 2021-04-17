@@ -17,7 +17,6 @@ public class CameraController : MonoBehaviour
 
     public void CameraUpdatePosition(Transform transform)
     {
-        AutoScroll(transform);
 
         float clampMinX = this.transform.position.x + minX;
         float clampMaxX = this.transform.position.x + maxX;
@@ -29,7 +28,7 @@ public class CameraController : MonoBehaviour
         transform.position = new Vector3(clampX, clampY);
     }
 
-    private void AutoScroll(Transform transform)
+    public void AutoScroll(Transform transform)
     {
         transform.position += Vector3.right * scrollSpeed * Time.fixedDeltaTime;
     }

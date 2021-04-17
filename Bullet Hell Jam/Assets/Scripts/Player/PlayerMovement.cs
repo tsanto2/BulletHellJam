@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     {
         HandleMovement();
         cam.CameraUpdatePosition(transform);
+        cam.AutoScroll(transform);
     }
 
     private void HandleMovement()
