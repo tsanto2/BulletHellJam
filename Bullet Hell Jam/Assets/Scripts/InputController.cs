@@ -30,6 +30,11 @@ public class InputController : MonoBehaviour
 
         keyInput.slowmoRelease = Input.GetKeyUp(KeyCode.LeftControl) || shouldReleaseRT;
 
+        keyInput.leftFaceButtonPress = Input.GetButtonDown("LeftFaceButton");
+        keyInput.rightFaceButtonPress = Input.GetButtonDown("RightFaceButton");
+        keyInput.topFaceButtonPress = Input.GetButtonDown("TopFaceButton");
+        keyInput.bottomFaceButtonPress = Input.GetButtonDown("BottomFaceButton");
+
     }
 }
 
@@ -41,4 +46,9 @@ public struct KeyInput
 
     public bool slowmoPress;
     public bool slowmoRelease;
+
+    public bool leftFaceButtonPress;
+    public bool rightFaceButtonPress;
+    public bool topFaceButtonPress;
+    public bool bottomFaceButtonPress;
 }
