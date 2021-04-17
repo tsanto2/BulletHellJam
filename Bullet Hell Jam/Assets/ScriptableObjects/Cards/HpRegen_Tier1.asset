@@ -15,7 +15,7 @@ MonoBehaviour:
   cardType: 0
   cardTier: 0
   energyCost: 1
-  description: Gain 20 HP.
+  description: Gain 2 HP.
   cardIcon: {fileID: 21300000, guid: b2c5a118e62b8b749b7d0a985814688d, type: 3}
   cardBorder: {fileID: 21300000, guid: 85481c198aced1b449f68b8940cd4ecb, type: 3}
-  hpRegenAmount: 20
+  hpRegenAmount: 2

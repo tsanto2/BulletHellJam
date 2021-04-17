@@ -31,6 +31,8 @@ public class AbilityManager : MonoBehaviour
     void ActivateHpRegen(int hpRegenAmount)
     {
         Debug.Log("Activating: Regenerating " + hpRegenAmount + " HP.");
+
+        pc.Health += hpRegenAmount;
     }
 
     void ActivateWeapon(BulletPattern bulletPattern)
