@@ -53,7 +53,7 @@ public class BossController : EnemyController
 
     private void ChangePhase(BossPhase phase)
     {
-        weapon = phase.weapon;
+        Spawner.pattern = phase.weapon;
         movement.movementBehaviour = phase.movement;
         nextPhaseTime = Time.time + phase.phaseTimeLength;
     }

@@ -16,54 +16,54 @@ public class BulletPattern : ScriptableObject
     #region Fields
 
     [Header("Base Stats")]
-    [Range(0f, 360f), SerializeField] private float baseDirection = 0f;
-    [Range(0f, 360f), SerializeField] private float baseSpread = 90f;
+    [Range(0f, 360f), SerializeField] public float baseDirection = 0f;
+    [Range(0f, 360f), SerializeField] public float baseSpread = 90f;
     [Space]
-    [Range(0f, 2f), SerializeField] private float bulletMinSpawnDistance = 1f;
-    [Range(0f, 2f), SerializeField] private float bulletMaxSpawnDistance = 1f;
+    [Range(0f, 2f), SerializeField] public float bulletMinSpawnDistance = 1f;
+    [Range(0f, 2f), SerializeField] public float bulletMaxSpawnDistance = 1f;
     [Space]
-    [SerializeField] private SpawnOscillation baseOscillationType;
-    [Range(0f, 720f), SerializeField] private float baseOscillationSpeed = 45f;
+    [SerializeField] public SpawnOscillation baseOscillationType;
+    [Range(0f, 720f), SerializeField] public float baseOscillationSpeed = 45f;
 
-    private float spawnRadius;
+    public float spawnRadius;
 
     [Header("Bullet Stats")]
-    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] public GameObject bulletPrefab;
     [Space]
-    [SerializeField] private float bulletMinLifeTime = 5f;
-    [SerializeField] private float bulletMaxLifeTime = 5f;
+    [SerializeField] public float bulletMinLifeTime = 5f;
+    [SerializeField] public float bulletMaxLifeTime = 5f;
     [Space]
-    [SerializeField] private float bulletMinBaseSpeed = 3f;
-    [SerializeField] private float bulletMaxBaseSpeed = 3f;
+    [SerializeField] public float bulletMinBaseSpeed = 3f;
+    [SerializeField] public float bulletMaxBaseSpeed = 3f;
     [Space]
-    [Range(-30f, 30f), SerializeField] private float bulletRotationSpeed;
+    [Range(-30f, 30f), SerializeField] public float bulletRotationSpeed;
 
     [Header("Spawner Stats")]
     [Range(0.02f, 3f)] public float shootDelay = 0.1f;
-    [Range(1, 50), SerializeField] private int bulletTotal = 1;
-    [Range(0f, 360), SerializeField] private float bulletOffset = 0f;
-    [SerializeField] private bool wrapAngles;
+    [Range(1, 50), SerializeField] public int bulletTotal = 1;
+    [Range(0f, 360), SerializeField] public float bulletOffset = 0f;
+    [SerializeField] public bool wrapAngles;
 
     [SerializeField, Tooltip("If disabled, bullets will move directly away from spawn position")] 
-    private bool mirrorShootAngles;
+    public bool mirrorShootAngles;
 
-    [SerializeField] private float spawnerOscillationSpeed;
+    [SerializeField] public float spawnerOscillationSpeed;
     
     [Header("Incremental Spawn Adjustments")]
-    [Range(-0.3f, 0.3f), SerializeField] private float incrementalSpeed;
-    [Range(-90f, 90f), SerializeField] private float incrementalRotation;    
+    [Range(-0.3f, 0.3f), SerializeField] public float incrementalSpeed;
+    [Range(-90f, 90f), SerializeField] public float incrementalRotation;    
 
-    private float bulletSpread;
-    private float spawnRotation;
-    private float currentBaseAngle;
+    public float bulletSpread;
+    public float spawnRotation;
+    public float currentBaseAngle;
 
     #endregion
 
-    private Vector3[] positions;
-    private GameObject[] bullets;
-    private ObjectPool pool;
+    public Vector3[] positions;
+    public GameObject[] bullets;
+    public ObjectPool pool;
 
-    private void OnEnable()
+    public void OnEnable()
     {
         positions = new Vector3[bulletTotal];
         bullets = new GameObject[bulletTotal];
@@ -214,7 +214,7 @@ public class BulletPattern : ScriptableObject
         }
     }
 
-    private void OnValidate()
+    public void OnValidate()
     {
         baseOscillationSpeed = Mathf.Floor(baseOscillationSpeed / 1f) * 1f;
         baseSpread = Mathf.Max(0f, Mathf.Floor(baseSpread / 5f) * 5f);

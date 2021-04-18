@@ -2,7 +2,7 @@
 using System;
 using System.Collections;
 
-[RequireComponent(typeof(InputController))]
+[RequireComponent(typeof(InputController), typeof(BulletSpawner))]
 public class PlayerController : MonoBehaviour, IDamageable, IFireable
 {
     #region Events
@@ -43,8 +43,8 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
         }
     }
 
-    [Header("Weapons")]
-    [SerializeField] private BulletPattern weapon;
+    public BulletSpawner Spawner { get; private set; }
+
     private float shootCooldown;
     public float ShootCooldown
     {
@@ -88,6 +88,7 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
 
         Health = healthMax;
         Energy = energyMax;
+        Spawner = GetComponent<BulletSpawner>();
     }
 
     private void OnEnable()
@@ -97,7 +98,7 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
         BulletHitBehaviour = new DamagePlayerBehaviour(this);
 
         if (!debugWeapons)
-            weapon = null;
+            Spawner.pattern = null;
     }
 
     private void OnDisable()
@@ -118,16 +119,15 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
     private void HandleShooting()
     {
         if (input.keyInput.shootPress && Time.time > shootCooldown)
-            Shoot(weapon);
+            Shoot();
     }
 
-    public void Shoot(BulletPattern weapon)
+    public void Shoot()
     {
-        if (weapon == null || (!canShoot && !debugWeapons))
+        if (!canShoot && !debugWeapons)
             return;
 
-        weapon.SpawnBullets(transform.position);
-        ShootCooldown = weapon.shootDelay;
+        Spawner.SpawnBullets(transform.position);
     }
 
     public void ChangeWeapon(BulletPattern weapon)
@@ -135,7 +135,7 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
         if (weapon == null)
             return;
                 
-        this.weapon = weapon;
+        Spawner.pattern = weapon;
     }
 
     public void ChangeBulletHitBehaviour(IBulletHitBehaviour newBulletHitBehaviour)

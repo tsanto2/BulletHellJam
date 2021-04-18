@@ -38,7 +38,8 @@ public class EnemyController : MonoBehaviour, IDamageable, IFireable
 
     [SerializeField] private int scoreValue;
     
-    [SerializeField] protected BulletPattern weapon;
+    public BulletSpawner Spawner { get; private set; }
+    
     [SerializeField] private LayerMask playerBulletLayerMask;
     private Collider2D hit;
 
@@ -50,6 +51,7 @@ public class EnemyController : MonoBehaviour, IDamageable, IFireable
     protected virtual void Awake()
     {
         BulletHitBehaviour = new DamagePlayerBehaviour(this);
+        Spawner = GetComponent<BulletSpawner>();
     }
 
     private void OnEnable()
@@ -102,7 +104,7 @@ public class EnemyController : MonoBehaviour, IDamageable, IFireable
     private void HandleShooting()
     {
         if (Time.time > shootCooldown)
-            Shoot(weapon);
+            Shoot();
     }
 
     public void TakeDamage(int damage)
@@ -113,9 +115,9 @@ public class EnemyController : MonoBehaviour, IDamageable, IFireable
             Die(true);
     }
 
-    public void Shoot(BulletPattern weapon)
+    public void Shoot()
     {
-        weapon.SpawnBullets(transform.position);
-        ShootCooldown = weapon.shootDelay;
+        Spawner.SpawnBullets(transform.position);
+        ShootCooldown = Spawner.pattern.shootDelay;
     }
 }
