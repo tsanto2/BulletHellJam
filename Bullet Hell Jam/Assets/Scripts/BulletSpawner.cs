@@ -5,7 +5,21 @@ using UnityEngine;
 [RequireComponent(typeof(IFireable))]
 public class BulletSpawner : MonoBehaviour
 {
-    public BulletPattern pattern;
+    [SerializeField] private BulletPattern pattern;
+    public BulletPattern Pattern
+    {
+        get
+        {
+            return pattern;
+        }
+        set
+        {
+            pattern = value;
+            bulletSpread = pattern.bulletOffset * (pattern.bulletTotal - 1);
+            positions = new Vector3[pattern.bulletTotal];
+            bullets = new GameObject[pattern.bulletTotal];
+        }
+    }
     private IFireable shooter;
     private ObjectPool pool;
 

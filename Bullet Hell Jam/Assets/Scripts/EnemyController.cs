@@ -118,6 +118,6 @@ public class EnemyController : MonoBehaviour, IDamageable, IFireable
     public void Shoot()
     {
         Spawner.SpawnBullets(transform.position);
-        ShootCooldown = Spawner.pattern.shootDelay;
+        ShootCooldown = Spawner.Pattern.shootDelay;
     }
 }

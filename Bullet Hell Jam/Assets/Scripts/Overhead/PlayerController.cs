@@ -98,7 +98,7 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
         BulletHitBehaviour = new DamagePlayerBehaviour(this);
 
         if (!debugWeapons)
-            Spawner.pattern = null;
+            Spawner.Pattern = null;
     }
 
     private void OnDisable()
@@ -135,7 +135,7 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
         if (weapon == null)
             return;
                 
-        Spawner.pattern = weapon;
+        Spawner.Pattern = weapon;
     }
 
     public void ChangeBulletHitBehaviour(IBulletHitBehaviour newBulletHitBehaviour)

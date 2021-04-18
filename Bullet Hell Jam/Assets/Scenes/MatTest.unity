@@ -495,7 +495,7 @@ PrefabInstance:
     - target: {fileID: 8643028492163881478, guid: 0988227107433444aafb0457add34251,
         type: 3}
       propertyPath: debugWeapons
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4348034929009209615, guid: 0988227107433444aafb0457add34251,
         type: 3}
@@ -1425,6 +1425,11 @@ PrefabInstance:
       propertyPath: pc
       value: 
       objectReference: {fileID: 1458303222}
+    - target: {fileID: 7215049052774595603, guid: 7515427156c98b544904f437243cab63,
+        type: 3}
+      propertyPath: weaponDuration
+      value: 6.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7515427156c98b544904f437243cab63, type: 3}
 --- !u!1001 &1215248729
