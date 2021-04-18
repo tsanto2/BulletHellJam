@@ -47,12 +47,15 @@ MonoBehaviour:
   baseDeckBasicEnergyCardCount: 2
   baseDeckBasicWeaponCardCount: 3
   baseDeckBasicClearBullets: 2
+  baseDeckBasicBlockCardCount: 1
   baseDeckIntermediateHpCardCount: 2
   baseDeckIntermediateEnergyCardCount: 1
   baseDeckIntermediateWeaponCardCount: 2
+  baseDeckIntermediateBlockCardCount: 1
   baseDeckAdvancedHpCardCount: 1
   baseDeckAdvancedEnergyCardCount: 1
   baseDeckAdvancedWeaponCardCount: 1
+  baseDeckAdvancedBlockCardCount: 1
   baseDeckBasicAbsorbCardCount: 1
   baseDeckintermediateAbsorbCardCount: 1
   baseDeckAdvancedAbsorbCardCount: 1
@@ -70,6 +73,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 770391f3e5356434fa3ff21a0473eb2d, type: 2}
   - {fileID: 11400000, guid: dafa49cf861112d47bcaa09cd21d3e4d, type: 2}
   - {fileID: 11400000, guid: e2e169aaa2f974841840ed4b356ca4e3, type: 2}
+  - {fileID: 11400000, guid: 6c2a14c8d88a15b4f9fb9329b6c2fdba, type: 2}
+  - {fileID: 11400000, guid: a032744ed15c6d94c89cdccceab651ab, type: 2}
+  - {fileID: 11400000, guid: b1a225a0f65ca86439ba482e543aedbb, type: 2}
   input: {fileID: 0}
   pc: {fileID: 0}
   availableCards: []

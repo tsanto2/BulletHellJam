@@ -21,7 +21,7 @@ public class DeckManager : MonoBehaviour
 
     // Gross but just for ease of balance testing
     [SerializeField]
-    private int baseDeckBasicHpCardCount, baseDeckBasicEnergyCardCount, baseDeckBasicWeaponCardCount, baseDeckBasicClearBullets, baseDeckIntermediateHpCardCount, baseDeckIntermediateEnergyCardCount, baseDeckIntermediateWeaponCardCount, baseDeckAdvancedHpCardCount, baseDeckAdvancedEnergyCardCount, baseDeckAdvancedWeaponCardCount, baseDeckBasicAbsorbCardCount, baseDeckintermediateAbsorbCardCount, baseDeckAdvancedAbsorbCardCount;
+    private int baseDeckBasicHpCardCount, baseDeckBasicEnergyCardCount, baseDeckBasicWeaponCardCount, baseDeckBasicClearBullets, baseDeckBasicBlockCardCount, baseDeckIntermediateHpCardCount, baseDeckIntermediateEnergyCardCount, baseDeckIntermediateWeaponCardCount, baseDeckIntermediateBlockCardCount, baseDeckAdvancedHpCardCount, baseDeckAdvancedEnergyCardCount, baseDeckAdvancedWeaponCardCount, baseDeckAdvancedBlockCardCount, baseDeckBasicAbsorbCardCount, baseDeckintermediateAbsorbCardCount, baseDeckAdvancedAbsorbCardCount;
 
     [SerializeField]
     private Card[] cardSOs;
@@ -354,6 +354,24 @@ public class DeckManager : MonoBehaviour
                     break;
                 case CardType.advancedAbsorb:
                     for (int i = 0; i < baseDeckAdvancedAbsorbCardCount; i++)
+                    {
+                        deck.Add(cardSO);
+                    }
+                    break;
+                case CardType.basicBlock:
+                    for (int i = 0; i < baseDeckBasicBlockCardCount; i++)
+                    {
+                        deck.Add(cardSO);
+                    }
+                    break;
+                case CardType.intermediateBlock:
+                    for (int i = 0; i < baseDeckIntermediateBlockCardCount; i++)
+                    {
+                        deck.Add(cardSO);
+                    }
+                    break;
+                case CardType.advancedBlock:
+                    for (int i = 0; i < baseDeckAdvancedBlockCardCount; i++)
                     {
                         deck.Add(cardSO);
                     }

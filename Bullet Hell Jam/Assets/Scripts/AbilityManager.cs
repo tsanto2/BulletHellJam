@@ -13,6 +13,7 @@ public class AbilityManager : MonoBehaviour
 
     private bool isAbsorbing = false;
     private bool isShooting = false;
+    private bool isBlocking = false;
 
     void OnEnable()
     {
@@ -21,6 +22,7 @@ public class AbilityManager : MonoBehaviour
         PlayerWeapon.OnHpRegenCardActivated += ActivateWeapon;
         AbsorbBullets.OnAbsorbBulletsCardActivated += ActivateAbsorbBullets;
         ClearBullets.OnClearBulletsCardActivated += ActivateClearBullets;
+        BlockBullets.OnBlockBulletsCardActivated += ActivateBlockBullets;
     }
 
     private void OnDisable()
@@ -87,6 +89,22 @@ public class AbilityManager : MonoBehaviour
         ObjectPool.Instance.WipeAllEnemyBullets();
     }
 
+    void ActivateBlockBullets(float duration)
+    {
+        pc.ChangeBulletHitBehaviour(new BlockBulletBehaviour());
+
+        if (!isBlocking)
+        {
+            StartCoroutine(DisableBlockAbilityCountdown(duration));
+        }
+        else
+        {
+            StopCoroutine(DisableBlockAbilityCountdown(0));
+
+            StartCoroutine(DisableBlockAbilityCountdown(duration));
+        }
+    }
+
     IEnumerator DisablePlayerWeaponAbilityCountdown()
     {
         pc.CanShoot = true;
@@ -106,6 +124,17 @@ public class AbilityManager : MonoBehaviour
         pc.ChangeBulletHitBehaviour(new DamagePlayerBehaviour(pc));
 
         isAbsorbing = false;
+    }
+
+    IEnumerator DisableBlockAbilityCountdown(float duration)
+    {
+        isBlocking = true;
+
+        yield return new WaitForSeconds(duration);
+
+        pc.ChangeBulletHitBehaviour(new DamagePlayerBehaviour(pc));
+
+        isBlocking = false;
     }
 
 }
