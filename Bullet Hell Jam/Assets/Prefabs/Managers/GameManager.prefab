@@ -45,12 +45,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aeac8f85f904614f8c7301f8a1f16ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  comboResetDelay: 3
+  comboResetDelay: 4
   comboText: {fileID: 0}
   scoreText: {fileID: 0}
   pauseTime: 0.06
   minPitch: 0.5
-  bossSpawnDelay: 2
+  bossSpawnDelay: 3.5
   bossGameObject: {fileID: 6407241734672754609, guid: 46d58d5e17c9424488d2987eebb329da,
     type: 3}
   bgmMixer: {fileID: 5108656363309057666, guid: b5dcec59dec494e48a360a24ca430ed7,

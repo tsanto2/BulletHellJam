@@ -480,10 +480,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2011510052, guid: 0988227107433444aafb0457add34251, type: 3}
-      propertyPath: checkRadius
-      value: 0.08
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0988227107433444aafb0457add34251, type: 3}
 --- !u!1001 &595326392
@@ -575,7 +571,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1288986874, guid: 4828d6115ce0bc746b5c8f22231830d0, type: 3}
       propertyPath: m_PlayOnAwake
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4828d6115ce0bc746b5c8f22231830d0, type: 3}
