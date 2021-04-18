@@ -108,6 +108,8 @@ public class ObjectPool : MonoBehaviour
 
     public void WipeAllEnemyBullets()
     {
+        FindObjectOfType<GameManager>().AddPoints(enemyBulletList.Count * 5);
+
         foreach(var bullet in enemyBulletList)
             ReturnObject(bullet, false);
 

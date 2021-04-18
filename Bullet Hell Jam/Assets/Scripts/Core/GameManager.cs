@@ -23,7 +23,21 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI comboText;
     [SerializeField] private TextMeshProUGUI scoreText;
     private float comboResetTime;
+
     private int score;
+    public int Score
+    {
+        get
+        {
+            return score;
+        }
+        set
+        {
+            score = value;
+            OnScoreChanged?.Invoke(score);
+            scoreText.text = score.ToString("0000000");
+        }
+    }
     private int combo;
     
     [SerializeField] private float pauseTime = 0.03f;
@@ -113,11 +127,9 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
-    private void AddPoints(int points)
+    public void AddPoints(int points)
     {
-        score += points * combo;
-        OnScoreChanged?.Invoke(points);
-        scoreText.text = score.ToString("0000000");
+        Score += points * combo;
     }
 
     #region Combo Methods
