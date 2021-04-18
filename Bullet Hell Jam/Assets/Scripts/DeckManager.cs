@@ -21,7 +21,23 @@ public class DeckManager : MonoBehaviour
 
     // Gross but just for ease of balance testing
     [SerializeField]
-    private int baseDeckBasicHpCardCount, baseDeckBasicEnergyCardCount, baseDeckBasicWeaponCardCount, baseDeckBasicClearBullets, baseDeckBasicBlockCardCount, baseDeckIntermediateHpCardCount, baseDeckIntermediateEnergyCardCount, baseDeckIntermediateWeaponCardCount, baseDeckIntermediateBlockCardCount, baseDeckAdvancedHpCardCount, baseDeckAdvancedEnergyCardCount, baseDeckAdvancedWeaponCardCount, baseDeckAdvancedBlockCardCount, baseDeckBasicAbsorbCardCount, baseDeckintermediateAbsorbCardCount, baseDeckAdvancedAbsorbCardCount, baseDeckBasicRefreshHandCardCount;
+    private int baseDeckBasicHpCardCount,
+                baseDeckIntermediateHpCardCount,
+                baseDeckAdvancedHpCardCount,
+                baseDeckBasicEnergyCardCount,
+                baseDeckIntermediateEnergyCardCount,
+                baseDeckAdvancedEnergyCardCount,
+                baseDeckBasicWeaponCardCount,
+                baseDeckIntermediateWeaponCardCount,
+                baseDeckAdvancedWeaponCardCount,
+                baseDeckBasicBlockCardCount,
+                baseDeckIntermediateBlockCardCount,
+                baseDeckAdvancedBlockCardCount,
+                baseDeckBasicAbsorbCardCount,
+                baseDeckIntermediateAbsorbCardCount,
+                baseDeckAdvancedAbsorbCardCount,
+                baseDeckBasicRefreshHandCardCount,
+                baseDeckBasicClearBullets;
 
     [SerializeField]
     private Card[] cardSOs;
@@ -331,7 +347,7 @@ public class DeckManager : MonoBehaviour
                     }
                     break;
                 case CardType.intermediateAbsorb:
-                    for (int i = 0; i < baseDeckintermediateAbsorbCardCount; i++)
+                    for (int i = 0; i < baseDeckIntermediateAbsorbCardCount; i++)
                     {
                         deck.Add(cardSO);
                     }
