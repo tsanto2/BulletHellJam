@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac54895d086108940b58f8fae8080f3a, type: 3}
   m_Name: AbsorbBullets_Tier2
   m_EditorClassIdentifier: 
-  cardType: 3
-  cardTier: 0
+  cardType: 7
+  cardTier: 1
   energyCost: 3
-  description: Absorb Bullets for 2 seconds.
+  description: Absorb Bullets for 3 seconds.
   cardIcon: {fileID: 21300000, guid: d69fcfffddd6b7c4095d82c9be04b0e1, type: 3}
-  cardBorder: {fileID: 21300000, guid: 85481c198aced1b449f68b8940cd4ecb, type: 3}
-  effectDuration: 2
+  cardBorder: {fileID: 21300000, guid: 8520cb125d656de4d8c6e4ef68cf3f2a, type: 3}
+  effectDuration: 3
