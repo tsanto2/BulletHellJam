@@ -43,18 +43,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b90833799b4299b43a5e8cdfe9c8eaa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseDeckBasicHpCardCount: 3
+  baseDeckBasicHpCardCount: 2
   baseDeckBasicEnergyCardCount: 2
   baseDeckBasicWeaponCardCount: 3
   baseDeckBasicClearBullets: 2
   baseDeckBasicBlockCardCount: 1
   baseDeckIntermediateHpCardCount: 2
   baseDeckIntermediateEnergyCardCount: 1
-  baseDeckIntermediateWeaponCardCount: 2
+  baseDeckIntermediateWeaponCardCount: 3
   baseDeckIntermediateBlockCardCount: 1
   baseDeckAdvancedHpCardCount: 1
   baseDeckAdvancedEnergyCardCount: 1
-  baseDeckAdvancedWeaponCardCount: 1
+  baseDeckAdvancedWeaponCardCount: 2
   baseDeckAdvancedBlockCardCount: 1
   baseDeckBasicAbsorbCardCount: 1
   baseDeckintermediateAbsorbCardCount: 1

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d047230b548c3ca4198b334de2b3ccad, type: 3}
   m_Name: HpRegen_Tier2
   m_EditorClassIdentifier: 
-  cardType: 3
+  cardType: 6
   cardTier: 1
   energyCost: 2
   description: Gain 3 HP.

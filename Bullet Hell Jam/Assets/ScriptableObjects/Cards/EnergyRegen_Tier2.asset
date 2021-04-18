@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bad292b6fbcd9954a991c0e051f63538, type: 3}
   m_Name: EnergyRegen_Tier2
   m_EditorClassIdentifier: 
-  cardType: 4
+  cardType: 7
   cardTier: 1
   energyCost: 2
   description: Gain 4 Energy.
