@@ -59,6 +59,7 @@ MonoBehaviour:
   baseDeckBasicAbsorbCardCount: 1
   baseDeckintermediateAbsorbCardCount: 1
   baseDeckAdvancedAbsorbCardCount: 1
+  baseDeckBasicRefreshHandCardCount: 3
   cardSOs:
   - {fileID: 11400000, guid: 3ba886a3b4e964348b7c63a5096e6bb1, type: 2}
   - {fileID: 11400000, guid: 06ae01b77b2a86145b8864f3e1271374, type: 2}
@@ -76,6 +77,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6c2a14c8d88a15b4f9fb9329b6c2fdba, type: 2}
   - {fileID: 11400000, guid: a032744ed15c6d94c89cdccceab651ab, type: 2}
   - {fileID: 11400000, guid: b1a225a0f65ca86439ba482e543aedbb, type: 2}
+  - {fileID: 11400000, guid: 2080d9452cbb2194dbb85fdfb501f610, type: 2}
   input: {fileID: 0}
   pc: {fileID: 0}
   availableCards: []

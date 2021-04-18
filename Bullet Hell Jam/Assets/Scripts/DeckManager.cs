@@ -21,7 +21,7 @@ public class DeckManager : MonoBehaviour
 
     // Gross but just for ease of balance testing
     [SerializeField]
-    private int baseDeckBasicHpCardCount, baseDeckBasicEnergyCardCount, baseDeckBasicWeaponCardCount, baseDeckBasicClearBullets, baseDeckBasicBlockCardCount, baseDeckIntermediateHpCardCount, baseDeckIntermediateEnergyCardCount, baseDeckIntermediateWeaponCardCount, baseDeckIntermediateBlockCardCount, baseDeckAdvancedHpCardCount, baseDeckAdvancedEnergyCardCount, baseDeckAdvancedWeaponCardCount, baseDeckAdvancedBlockCardCount, baseDeckBasicAbsorbCardCount, baseDeckintermediateAbsorbCardCount, baseDeckAdvancedAbsorbCardCount;
+    private int baseDeckBasicHpCardCount, baseDeckBasicEnergyCardCount, baseDeckBasicWeaponCardCount, baseDeckBasicClearBullets, baseDeckBasicBlockCardCount, baseDeckIntermediateHpCardCount, baseDeckIntermediateEnergyCardCount, baseDeckIntermediateWeaponCardCount, baseDeckIntermediateBlockCardCount, baseDeckAdvancedHpCardCount, baseDeckAdvancedEnergyCardCount, baseDeckAdvancedWeaponCardCount, baseDeckAdvancedBlockCardCount, baseDeckBasicAbsorbCardCount, baseDeckintermediateAbsorbCardCount, baseDeckAdvancedAbsorbCardCount, baseDeckBasicRefreshHandCardCount;
 
     [SerializeField]
     private Card[] cardSOs;
@@ -108,7 +108,7 @@ public class DeckManager : MonoBehaviour
         isSlowMoTime = false;
     }
 
-    private void RenewHand()
+    public void RenewHand()
     {
         DiscardHand();
         DrawHand();
@@ -219,13 +219,15 @@ public class DeckManager : MonoBehaviour
 
         if (hand[spentIndex] != null && CanActivate(spentIndex))
         {
-            pc.Energy -= hand[spentIndex].energyCost;
+            Card spentCard = hand[spentIndex];
 
-            hand[spentIndex].Activate();
+            pc.Energy -= spentCard.energyCost;
 
             AddToDiscardPile(hand[spentIndex]);
 
             hand[spentIndex] = null;
+
+            spentCard.Activate();
 
             OnHandUpdated?.Invoke();
         }
@@ -372,6 +374,12 @@ public class DeckManager : MonoBehaviour
                     break;
                 case CardType.advancedBlock:
                     for (int i = 0; i < baseDeckAdvancedBlockCardCount; i++)
+                    {
+                        deck.Add(cardSO);
+                    }
+                    break;
+                case CardType.basicRefreshHand:
+                    for (int i = 0; i < baseDeckBasicRefreshHandCardCount; i++)
                     {
                         deck.Add(cardSO);
                     }

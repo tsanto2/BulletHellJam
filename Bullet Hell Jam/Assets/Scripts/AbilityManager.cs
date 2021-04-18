@@ -8,6 +8,8 @@ public class AbilityManager : MonoBehaviour
     [SerializeField]
     private PlayerController pc;
 
+    private DeckManager dm;
+
     [SerializeField]
     private float weaponDuration = 3.0f;
 
@@ -23,6 +25,7 @@ public class AbilityManager : MonoBehaviour
         AbsorbBullets.OnAbsorbBulletsCardActivated += ActivateAbsorbBullets;
         ClearBullets.OnClearBulletsCardActivated += ActivateClearBullets;
         BlockBullets.OnBlockBulletsCardActivated += ActivateBlockBullets;
+        RefreshHand.OnRefreshHandCardActivated += ActivateRefreshHand;
     }
 
     private void OnDisable()
@@ -31,7 +34,14 @@ public class AbilityManager : MonoBehaviour
         HpRegen.OnHpRegenCardActivated -= ActivateHpRegen;
         PlayerWeapon.OnHpRegenCardActivated -= ActivateWeapon;
         AbsorbBullets.OnAbsorbBulletsCardActivated -= ActivateAbsorbBullets;
-        ClearBullets.OnClearBulletsCardActivated += ActivateClearBullets;
+        ClearBullets.OnClearBulletsCardActivated -= ActivateClearBullets;
+        RefreshHand.OnRefreshHandCardActivated -= ActivateRefreshHand;
+    }
+
+    private void Start()
+    {
+        pc = FindObjectOfType<PlayerController>();
+        dm = FindObjectOfType<DeckManager>();
     }
 
     void ActivateEnergyRegen(int energyRegenAmount)
@@ -103,6 +113,11 @@ public class AbilityManager : MonoBehaviour
 
             StartCoroutine(DisableBlockAbilityCountdown(duration));
         }
+    }
+
+    void ActivateRefreshHand()
+    {
+        dm.RenewHand();
     }
 
     IEnumerator DisablePlayerWeaponAbilityCountdown()

@@ -16,4 +16,5 @@
     advancedWeapon,
     advancedAbsorb,
     advancedBlock,
+    basicRefreshHand,
 }
