@@ -11,9 +11,6 @@ public class AbilityManager : MonoBehaviour
 
     private DeckManager dm;
 
-    [SerializeField]
-    private float weaponDuration = 3.0f;
-
     private bool isAbsorbing = false;
     private bool isShooting = false;
     private bool isBlocking = false;
@@ -21,6 +18,8 @@ public class AbilityManager : MonoBehaviour
     public static event Action OnBlockBulletsCardDeactivated;
     public static event Action OnAbsorbBulletsCardDeactivated;
     public static event Action OnPlayerWeaponCardDeactivated;
+
+    Coroutine trackedWeaponAbilityRoutine = null;
 
     void OnEnable()
     {
@@ -65,15 +64,16 @@ public class AbilityManager : MonoBehaviour
 
         if (!pc.debugWeapons)
         {
+            IEnumerator weaponCoroutine = DisablePlayerWeaponAbilityCountdown(duration);
             if (!isShooting)
             {
-                StartCoroutine(DisablePlayerWeaponAbilityCountdown(duration));
+                trackedWeaponAbilityRoutine = StartCoroutine(weaponCoroutine);
             }
             else
             {
-                StopCoroutine(DisablePlayerWeaponAbilityCountdown(0));
+                StopCoroutine(trackedWeaponAbilityRoutine);
 
-                StartCoroutine(DisablePlayerWeaponAbilityCountdown(duration));
+                trackedWeaponAbilityRoutine = StartCoroutine(weaponCoroutine);
             }
         }
     }
@@ -124,13 +124,17 @@ public class AbilityManager : MonoBehaviour
     IEnumerator DisablePlayerWeaponAbilityCountdown(float duration)
     {
         pc.CanShoot = true;
+        isShooting = true;
 
         // Might change duration to scale with tier
         yield return new WaitForSeconds(duration);
 
+        isShooting = false;
         pc.CanShoot = false;
 
         OnPlayerWeaponCardDeactivated?.Invoke();
+
+        trackedWeaponAbilityRoutine = null;
     }
 
     IEnumerator DisableAbsorbAbilityCountdown(float duration)
