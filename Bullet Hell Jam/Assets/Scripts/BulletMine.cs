@@ -11,18 +11,21 @@ public class BulletMine : BulletController, IDamageable
     }
 
     [SerializeField] private BulletPattern burstWeapon;
+    public IBulletHitBehaviour BulletHitBehaviour { get; private set; }
 
-    public float ShootCooldown { get; set; }
 
     protected override void OnEnable()
     {
         base.OnEnable();
         Health = healthMax;
+
+        BulletHitBehaviour = new DamagePlayerBehaviour(this);
     }
 
     public override void Die(bool scorePoints)
     {
         burstWeapon.SpawnBullets(transform.position);
+        pool.ReturnObject(this.gameObject);
     }
 
     public void TakeDamage(int damage)

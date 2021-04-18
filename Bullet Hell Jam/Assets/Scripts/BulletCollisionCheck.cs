@@ -22,6 +22,8 @@ public class BulletCollisionCheck : MonoBehaviour
         Debug.Log(hit);
         if (hit)
         {
+            Debug.Log($"Damageable: {damageable}");
+            Debug.Log($"Hit Behaviour: {damageable.BulletHitBehaviour}");
             damageable.BulletHitBehaviour.Perform(hit.gameObject);
         }
     }

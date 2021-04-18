@@ -14,9 +14,7 @@ public class BulletController : MonoBehaviour
 
     private Quaternion startRotation;
 
-    public IBulletHitBehaviour BulletHitBehaviour { get; }
-
-    private void Awake()
+    protected virtual void Awake()
     {
         startRotation = transform.rotation;
     }
