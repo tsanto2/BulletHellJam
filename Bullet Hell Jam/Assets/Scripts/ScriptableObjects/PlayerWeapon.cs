@@ -8,10 +8,13 @@ public class PlayerWeapon : Card
     [SerializeField]
     private BulletPattern bulletPattern;
 
-    public static event Action<BulletPattern> OnHpRegenCardActivated;
+    [SerializeField]
+    private float effectDuration;
+
+    public static event Action<BulletPattern, float> OnPlayerWeaponCardActivated;
 
     public override void Activate()
     {
-        OnHpRegenCardActivated?.Invoke(bulletPattern);
+        OnPlayerWeaponCardActivated?.Invoke(bulletPattern, effectDuration);
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class AbilityManager : MonoBehaviour
@@ -17,11 +18,15 @@ public class AbilityManager : MonoBehaviour
     private bool isShooting = false;
     private bool isBlocking = false;
 
+    public static event Action OnBlockBulletsCardDeactivated;
+    public static event Action OnAbsorbBulletsCardDeactivated;
+    public static event Action OnPlayerWeaponCardDeactivated;
+
     void OnEnable()
     {
         EnergyRegen.OnEnergyRegenCardActivated += ActivateEnergyRegen;
         HpRegen.OnHpRegenCardActivated += ActivateHpRegen;
-        PlayerWeapon.OnHpRegenCardActivated += ActivateWeapon;
+        PlayerWeapon.OnPlayerWeaponCardActivated += ActivateWeapon;
         AbsorbBullets.OnAbsorbBulletsCardActivated += ActivateAbsorbBullets;
         ClearBullets.OnClearBulletsCardActivated += ActivateClearBullets;
         BlockBullets.OnBlockBulletsCardActivated += ActivateBlockBullets;
@@ -32,7 +37,7 @@ public class AbilityManager : MonoBehaviour
     {
         EnergyRegen.OnEnergyRegenCardActivated -= ActivateEnergyRegen;
         HpRegen.OnHpRegenCardActivated -= ActivateHpRegen;
-        PlayerWeapon.OnHpRegenCardActivated -= ActivateWeapon;
+        PlayerWeapon.OnPlayerWeaponCardActivated -= ActivateWeapon;
         AbsorbBullets.OnAbsorbBulletsCardActivated -= ActivateAbsorbBullets;
         ClearBullets.OnClearBulletsCardActivated -= ActivateClearBullets;
         RefreshHand.OnRefreshHandCardActivated -= ActivateRefreshHand;
@@ -58,7 +63,7 @@ public class AbilityManager : MonoBehaviour
         pc.Health += hpRegenAmount;
     }
 
-    void ActivateWeapon(BulletPattern bulletPattern)
+    void ActivateWeapon(BulletPattern bulletPattern, float duration)
     {
         pc.ChangeWeapon(bulletPattern);
 
@@ -66,13 +71,13 @@ public class AbilityManager : MonoBehaviour
         {
             if (!isShooting)
             {
-                StartCoroutine(DisablePlayerWeaponAbilityCountdown());
+                StartCoroutine(DisablePlayerWeaponAbilityCountdown(duration));
             }
             else
             {
-                StopCoroutine(DisablePlayerWeaponAbilityCountdown());
+                StopCoroutine(DisablePlayerWeaponAbilityCountdown(0));
 
-                StartCoroutine(DisablePlayerWeaponAbilityCountdown());
+                StartCoroutine(DisablePlayerWeaponAbilityCountdown(duration));
             }
         }
     }
@@ -120,14 +125,16 @@ public class AbilityManager : MonoBehaviour
         dm.RenewHand();
     }
 
-    IEnumerator DisablePlayerWeaponAbilityCountdown()
+    IEnumerator DisablePlayerWeaponAbilityCountdown(float duration)
     {
         pc.CanShoot = true;
 
         // Might change duration to scale with tier
-        yield return new WaitForSeconds(weaponDuration);
+        yield return new WaitForSeconds(duration);
 
         pc.CanShoot = false;
+
+        OnPlayerWeaponCardDeactivated?.Invoke();
     }
 
     IEnumerator DisableAbsorbAbilityCountdown(float duration)
@@ -139,6 +146,8 @@ public class AbilityManager : MonoBehaviour
         pc.ChangeBulletHitBehaviour(new DamagePlayerBehaviour(pc));
 
         isAbsorbing = false;
+
+        OnAbsorbBulletsCardDeactivated?.Invoke();
     }
 
     IEnumerator DisableBlockAbilityCountdown(float duration)
@@ -150,6 +159,8 @@ public class AbilityManager : MonoBehaviour
         pc.ChangeBulletHitBehaviour(new DamagePlayerBehaviour(pc));
 
         isBlocking = false;
+
+        OnBlockBulletsCardDeactivated?.Invoke();
     }
 
 }
