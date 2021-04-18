@@ -10,7 +10,6 @@ public class ObjectPool : MonoBehaviour
     private Dictionary<string, Queue<GameObject>> objectPool = new Dictionary<string, Queue<GameObject>>();
     public Dictionary<GameObject, BulletController> componentCache = new Dictionary<GameObject, BulletController>();
 
-    [SerializeField] private LayerMask enemyBulletLayerMask;
     private List<GameObject> enemyBulletList = new List<GameObject>();
 
     private void Awake()

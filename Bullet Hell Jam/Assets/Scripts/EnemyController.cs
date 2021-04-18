@@ -33,6 +33,8 @@ public class EnemyController : MonoBehaviour, IDamageable, IFireable
         }
     }
 
+    public IBulletHitBehaviour BulletHitBehaviour { get; private set; }
+
     [SerializeField] private int scoreValue;
     
     [SerializeField] protected BulletPattern weapon;
@@ -43,12 +45,18 @@ public class EnemyController : MonoBehaviour, IDamageable, IFireable
 
     protected bool awake;
     private bool onScreen;
+
+    private void Awake()
+    {
+        BulletHitBehaviour = new DamagePlayerBehaviour(this);
+    }
+
     
     private void OnEnable()
     {
         health = healthMax;
         awake = false;
-        onScreen = false;
+        onScreen = false;  
     }
 
     protected virtual void FixedUpdate()
@@ -107,6 +115,7 @@ public class EnemyController : MonoBehaviour, IDamageable, IFireable
 
     public void Shoot(BulletPattern weapon)
     {
-        weapon.SpawnBullets(transform.position, this);
+        weapon.SpawnBullets(transform.position);
+        ShootCooldown = weapon.shootDelay;
     }
 }

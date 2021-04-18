@@ -1,20 +1,21 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class DamagePlayerBehaviour : IBulletHitBehaviour
 {
+    private IDamageable damageable;
 
-    private PlayerController pc;
-
-    public DamagePlayerBehaviour()
+    public DamagePlayerBehaviour(IDamageable damageable)
     {
-        pc = GameObject.FindObjectOfType<PlayerController>();
+        this.damageable = damageable;
     }
 
     public void Perform(GameObject bullet)
     {
-        ObjectPool.Instance.ReturnObject(bullet);
-        pc.TakeDamage(1);
+        if (bullet.TryGetComponent<IDamageable>(out var check))
+            check.TakeDamage(1);
+        else
+            ObjectPool.Instance.ReturnObject(bullet);
+
+        damageable.TakeDamage(1);
     }
 }

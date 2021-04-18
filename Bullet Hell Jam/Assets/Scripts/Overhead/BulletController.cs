@@ -5,29 +5,30 @@ using UnityEngine;
 public class BulletController : MonoBehaviour
 {
     private float startTime;
-    public Vector3 moveVec;
-    public float rotationSpeed;
-    public float moveSpeed;
-    public float lifetime;
+    [HideInInspector] public Vector3 moveVec;
+    [HideInInspector] public float rotationSpeed;
+    [HideInInspector] public float moveSpeed;
+    [HideInInspector] public float lifetime;
     public ObjectPool pool;
     private bool active;
 
-    public BulletPattern weapon;
     private Quaternion startRotation;
+
+    public IBulletHitBehaviour BulletHitBehaviour { get; }
 
     private void Awake()
     {
         startRotation = transform.rotation;
     }
 
-    private void OnEnable()
+    protected virtual void OnEnable()
     {
         startTime = Time.time;
         transform.rotation = startRotation;
         active = true;
     }
 
-    private void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         transform.Rotate(new Vector3(0f, 0f, rotationSpeed * Time.fixedDeltaTime));
         transform.Translate(moveVec * moveSpeed * Time.fixedDeltaTime);
@@ -40,5 +41,15 @@ public class BulletController : MonoBehaviour
                 pool.ReturnObject(this.gameObject);
             }
         }
+    }
+
+    public void ReverseDirection()
+    {
+        moveVec *= -1f;
+    }
+
+    public virtual void Die(bool scorePoints)
+    {
+        
     }
 }

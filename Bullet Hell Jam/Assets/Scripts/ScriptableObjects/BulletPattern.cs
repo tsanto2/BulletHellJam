@@ -165,15 +165,10 @@ public class BulletPattern : ScriptableObject
         return positions;
     }
 
-    public void SpawnBullets(Vector3 startPosition, IFireable fireable)
+    public void SpawnBullets(Vector3 startPosition)
     {
-        if (fireable == null)
-            return;
-
         if (pool == null)
             pool = FindObjectOfType<ObjectPool>();
-
-        fireable.ShootCooldown = shootDelay;
 
         positions = GetSpawnPositions();
         bullets = pool.GetObject(bulletPrefab, bulletTotal);

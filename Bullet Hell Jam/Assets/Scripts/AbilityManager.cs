@@ -103,7 +103,7 @@ public class AbilityManager : MonoBehaviour
 
         yield return new WaitForSeconds(duration);
 
-        pc.ChangeBulletHitBehaviour(new DamagePlayerBehaviour());
+        pc.ChangeBulletHitBehaviour(new DamagePlayerBehaviour(pc));
 
         isAbsorbing = false;
     }

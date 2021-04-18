@@ -9,9 +9,7 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
     public static event Action<int> OnPlayerHealthChange;
     public static event Action<int> OnPlayerEnergyChange;
     public static event Action<bool> OnPlayerActivateSlowmo;
-    #endregion
-
-    private IBulletHitBehaviour bulletHitBehaviour;
+    #endregion   
 
     [Header("Stats")]
     [SerializeField, Min(1)] private int healthMax;
@@ -61,6 +59,7 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
     }
 
     private InputController input;
+    public BulletCollisionCheck BulletCollisionCheck { get; private set; }
     
     [SerializeField] private LayerMask enemyBulletLayerMask;
     private Collider2D hit;
@@ -81,22 +80,24 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
         }
     }
 
+    public IBulletHitBehaviour BulletHitBehaviour { get; private set; }
+
     private void Awake()
     {
         input = GetComponent<InputController>();
 
         Health = healthMax;
         Energy = energyMax;
-
-        bulletHitBehaviour = new DamagePlayerBehaviour();
-
-        if (!debugWeapons)
-            weapon = null;
     }
 
     private void OnEnable()
     {
         GameManager.OnTenSecondsPassed += RefreshEnergy;
+
+        BulletHitBehaviour = new DamagePlayerBehaviour(this);
+
+        if (!debugWeapons)
+            weapon = null;
     }
 
     private void OnDisable()
@@ -106,7 +107,6 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
 
     private void FixedUpdate()
     {        
-        CheckForEnemyBullets();
         HandleShooting();
     }
 
@@ -121,22 +121,13 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
             Shoot(weapon);
     }
 
-    private void CheckForEnemyBullets()
-    {
-        hit = Physics2D.OverlapCircle(transform.position, 0.1f, enemyBulletLayerMask);
-
-        if (hit)
-        {
-            bulletHitBehaviour.Perform(hit.gameObject);
-        }
-    }
-
     public void Shoot(BulletPattern weapon)
     {
         if (weapon == null || (!canShoot && !debugWeapons))
             return;
 
-        weapon.SpawnBullets(transform.position, this);
+        weapon.SpawnBullets(transform.position);
+        ShootCooldown = weapon.shootDelay;
     }
 
     public void ChangeWeapon(BulletPattern weapon)
@@ -149,7 +140,7 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
 
     public void ChangeBulletHitBehaviour(IBulletHitBehaviour newBulletHitBehaviour)
     {
-        bulletHitBehaviour = newBulletHitBehaviour;
+        BulletHitBehaviour = newBulletHitBehaviour;
     }
 
     public void TakeDamage(int damage)
