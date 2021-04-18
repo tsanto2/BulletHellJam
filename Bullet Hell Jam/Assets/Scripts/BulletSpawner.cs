@@ -15,9 +15,7 @@ public class BulletSpawner : MonoBehaviour
         set
         {
             pattern = value;
-            bulletSpread = pattern.bulletOffset * (pattern.bulletTotal - 1);
-            positions = new Vector3[pattern.bulletTotal];
-            bullets = new GameObject[pattern.bulletTotal];
+            UpdatePatternDetails();
         }
     }
     private IFireable shooter;
@@ -33,10 +31,7 @@ public class BulletSpawner : MonoBehaviour
     private void Awake()
     {
         shooter = GetComponent<IFireable>();
-
-        bulletSpread = pattern.bulletOffset * (pattern.bulletTotal - 1);
-        positions = new Vector3[pattern.bulletTotal];
-        bullets = new GameObject[pattern.bulletTotal];
+        UpdatePatternDetails();
     }
 
     private void Start()
@@ -167,5 +162,15 @@ public class BulletSpawner : MonoBehaviour
             comp.moveSpeed = Random.Range(pattern.bulletMinBaseSpeed, pattern.bulletMaxBaseSpeed);
             comp.lifetime = Random.Range(pattern.bulletMinLifeTime, pattern.bulletMaxLifeTime);
         }
+    }
+
+    private void UpdatePatternDetails()
+    {
+        if (pattern == null)
+            return;
+
+        bulletSpread = pattern.bulletOffset * (pattern.bulletTotal - 1);
+        positions = new Vector3[pattern.bulletTotal];
+        bullets = new GameObject[pattern.bulletTotal];
     }
 }
