@@ -138,7 +138,7 @@ MonoBehaviour:
   lifetime: 0
   pool: {fileID: 0}
   healthMax: 5
-  burstWeapon: {fileID: 11400000, guid: 1d0a1dd246422ad4eaa3536b8fad2079, type: 2}
+  burstWeapon: {fileID: 11400000, guid: 8cf78289d4ebe30469d26b8bc35ba16d, type: 2}
 --- !u!114 &7093404757587068282
 MonoBehaviour:
   m_ObjectHideFlags: 0

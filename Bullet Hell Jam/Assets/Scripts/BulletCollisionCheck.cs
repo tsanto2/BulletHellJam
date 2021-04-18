@@ -19,11 +19,8 @@ public class BulletCollisionCheck : MonoBehaviour
     private void CheckForEnemyBullets()
     {
         hit = Physics2D.OverlapCircle(transform.position, checkRadius, bulletLayerMask);
-        //Debug.Log(hit);
         if (hit)
         {
-            //Debug.Log($"Damageable: {damageable}");
-            //Debug.Log($"Hit Behaviour: {damageable.BulletHitBehaviour}");
             damageable.BulletHitBehaviour.Perform(hit.gameObject);
         }
     }

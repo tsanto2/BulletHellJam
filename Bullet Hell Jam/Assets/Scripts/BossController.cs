@@ -15,8 +15,10 @@ public class BossController : EnemyController
     private float nextPhaseTime;
 
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+        
         movement = GetComponent<EnemyMovement>();
 
         if (phasePlaylist.Count > 0)

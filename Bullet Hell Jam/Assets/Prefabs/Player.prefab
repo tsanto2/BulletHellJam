@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 1640828083724269385}
   - component: {fileID: 8643028492163881478}
   - component: {fileID: 237190377}
+  - component: {fileID: 2011510052}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -145,7 +146,7 @@ MonoBehaviour:
   enemyBulletLayerMask:
     serializedVersion: 2
     m_Bits: 512
-  debugWeapons: 1
+  debugWeapons: 0
 --- !u!114 &237190377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,3 +161,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   crawlSpeed: 2.5
+--- !u!114 &2011510052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8529394294941818745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15b854af4683e2d43a6e710c13478f78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletLayerMask:
+    serializedVersion: 2
+    m_Bits: 512
+  checkRadius: 0.08

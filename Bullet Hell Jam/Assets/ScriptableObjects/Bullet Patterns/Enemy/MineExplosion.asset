@@ -14,20 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseDirection: 0
   baseSpread: 360
-  bulletMinSpawnDistance: 1
-  bulletMaxSpawnDistance: 1
+  bulletMinSpawnDistance: 0.1
+  bulletMaxSpawnDistance: 0.5
   baseOscillationType: 0
-  baseOscillationSpeed: 45
+  baseOscillationSpeed: 39
   bulletPrefab: {fileID: 1492540044211201988, guid: e15eeeb9d931da2478e3de2f13269a3a,
     type: 3}
-  bulletMinLifeTime: 1
-  bulletMaxLifeTime: 5
+  bulletMinLifeTime: 1.5
+  bulletMaxLifeTime: 1.5
   bulletMinBaseSpeed: 1
-  bulletMaxBaseSpeed: 5
+  bulletMaxBaseSpeed: 2.2
   bulletRotationSpeed: 0
-  shootDelay: 0.099999994
+  shootDelay: 2
   bulletTotal: 50
-  bulletOffset: 81
+  bulletOffset: 126
   wrapAngles: 0
   mirrorShootAngles: 0
   spawnerOscillationSpeed: 0

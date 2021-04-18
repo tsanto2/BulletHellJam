@@ -103,5 +103,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: ac755fa0a58180c4a804413e9d8efc0f, type: 2}
+    - target: {fileID: 2297257048766246822, guid: 428be333308cad642819c5e938d1416f,
+        type: 3}
+      propertyPath: checkRadius
+      value: 0.35
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 428be333308cad642819c5e938d1416f, type: 3}

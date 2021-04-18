@@ -10,26 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be56a3ed7cd2bc84b8ef5f8e18f93480, type: 3}
-  m_Name: Tendrils
+  m_Name: Bubbles
   m_EditorClassIdentifier: 
-  baseDirection: 180
-  baseSpread: 80
+  baseDirection: 0
+  baseSpread: 360
   bulletMinSpawnDistance: 1
   bulletMaxSpawnDistance: 1
-  baseOscillationType: 0
-  baseOscillationSpeed: 462
+  baseOscillationType: 2
+  baseOscillationSpeed: 0
   bulletPrefab: {fileID: 1492540044211201988, guid: e15eeeb9d931da2478e3de2f13269a3a,
     type: 3}
   bulletMinLifeTime: 5
   bulletMaxLifeTime: 5
-  bulletMinBaseSpeed: 1
-  bulletMaxBaseSpeed: 1
+  bulletMinBaseSpeed: 2.5
+  bulletMaxBaseSpeed: 2.5
   bulletRotationSpeed: 0
-  shootDelay: 0.07
-  bulletTotal: 2
-  bulletOffset: 15
-  wrapAngles: 0
+  shootDelay: 0.90999997
+  bulletTotal: 10
+  bulletOffset: 36
+  wrapAngles: 1
   mirrorShootAngles: 1
   spawnerOscillationSpeed: 0
-  incrementalSpeed: -0.167
+  incrementalSpeed: 0
   incrementalRotation: 0

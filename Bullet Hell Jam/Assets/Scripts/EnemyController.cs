@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
+[RequireComponent(typeof(BulletCollisionCheck))]
 public class EnemyController : MonoBehaviour, IDamageable, IFireable
 {
     public static event Action<int> OnEnemyDeathScore;
@@ -46,12 +47,11 @@ public class EnemyController : MonoBehaviour, IDamageable, IFireable
     protected bool awake;
     private bool onScreen;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         BulletHitBehaviour = new DamagePlayerBehaviour(this);
     }
 
-    
     private void OnEnable()
     {
         health = healthMax;

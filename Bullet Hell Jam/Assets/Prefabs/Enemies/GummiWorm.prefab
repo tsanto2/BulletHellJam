@@ -153,4 +153,4 @@ MonoBehaviour:
   bulletLayerMask:
     serializedVersion: 2
     m_Bits: 256
-  checkRadius: 1
+  checkRadius: 0.4
