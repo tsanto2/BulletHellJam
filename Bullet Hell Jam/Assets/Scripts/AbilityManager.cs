@@ -51,15 +51,11 @@ public class AbilityManager : MonoBehaviour
 
     void ActivateEnergyRegen(int energyRegenAmount)
     {
-        Debug.Log("Activating: Regenerating " + energyRegenAmount + " energy.");
-
         pc.Energy += energyRegenAmount;
     }
 
     void ActivateHpRegen(int hpRegenAmount)
     {
-        Debug.Log("Activating: Regenerating " + hpRegenAmount + " HP.");
-
         pc.Health += hpRegenAmount;
     }
 

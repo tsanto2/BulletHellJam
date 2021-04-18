@@ -45,6 +45,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -142,7 +143,6 @@ MonoBehaviour:
   healthMax: 100
   energyMax: 6
   energy: 0
-  weapon: {fileID: 11400000, guid: 2d24ad02ffae4114080e69c47ed6db36, type: 2}
   enemyBulletLayerMask:
     serializedVersion: 2
     m_Bits: 512
@@ -177,3 +177,5 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   checkRadius: 0.08
+  normalRadius: 0.08
+  largeRadius: 0.5

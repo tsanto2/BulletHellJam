@@ -19,4 +19,4 @@ MonoBehaviour:
   cardIcon: {fileID: 21300000, guid: 6bb5b4a5f3f6f2c4eabaf3309d0d0ff6, type: 3}
   cardBorder: {fileID: 21300000, guid: 8520cb125d656de4d8c6e4ef68cf3f2a, type: 3}
   bulletPattern: {fileID: 11400000, guid: eecdd40c4e0af204dae5ff6c3136e382, type: 2}
-  effectDuration: 5
+  effectDuration: 6.5

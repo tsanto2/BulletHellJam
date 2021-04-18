@@ -5,6 +5,8 @@ public class BulletCollisionCheck : MonoBehaviour
 {
     [SerializeField] private LayerMask bulletLayerMask;
     [SerializeField] private float checkRadius;
+    [SerializeField] private float normalRadius;
+    [SerializeField] private float largeRadius;
 
     private IDamageable damageable;
     private Collider2D hit;
@@ -15,6 +17,16 @@ public class BulletCollisionCheck : MonoBehaviour
     }
 
     private void FixedUpdate() => CheckForEnemyBullets();
+
+    public void ChangeToLargeRadius()
+    {
+        checkRadius = largeRadius;
+    }
+
+    public void ChangeToNormalRadius()
+    {
+        checkRadius = normalRadius;
+    }
 
     private void CheckForEnemyBullets()
     {

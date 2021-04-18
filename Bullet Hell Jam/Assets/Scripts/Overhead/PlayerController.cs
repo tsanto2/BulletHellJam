@@ -94,6 +94,10 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
     private void OnEnable()
     {
         GameManager.OnTenSecondsPassed += RefreshEnergy;
+        AbsorbBullets.OnAbsorbBulletsCardActivated += EnlargeHitbox;
+        AbilityManager.OnAbsorbBulletsCardDeactivated += ShrinkHitbox;
+        BlockBullets.OnBlockBulletsCardActivated += EnlargeHitbox;
+        AbilityManager.OnBlockBulletsCardDeactivated += ShrinkHitbox;
 
         BulletHitBehaviour = new DamagePlayerBehaviour(this);
 
@@ -104,6 +108,10 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
     private void OnDisable()
     {
         GameManager.OnTenSecondsPassed -= RefreshEnergy;
+        AbsorbBullets.OnAbsorbBulletsCardActivated -= EnlargeHitbox;
+        AbilityManager.OnAbsorbBulletsCardDeactivated -= ShrinkHitbox;
+        BlockBullets.OnBlockBulletsCardActivated -= EnlargeHitbox;
+        AbilityManager.OnBlockBulletsCardDeactivated -= ShrinkHitbox;
     }
 
     private void FixedUpdate()
@@ -114,6 +122,18 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
     private void RefreshEnergy()
     {
         Energy = energyMax;
+    }
+
+    private void EnlargeHitbox(float duration)
+    {
+        BulletCollisionCheck bcheck = GetComponent<BulletCollisionCheck>();
+        bcheck.ChangeToLargeRadius();
+    }
+
+    private void ShrinkHitbox()
+    {
+        BulletCollisionCheck bcheck = GetComponent<BulletCollisionCheck>();
+        bcheck.ChangeToNormalRadius();
     }
 
     private void HandleShooting()
