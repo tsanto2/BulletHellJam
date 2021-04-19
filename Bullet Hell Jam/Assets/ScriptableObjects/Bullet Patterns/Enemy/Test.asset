@@ -19,7 +19,7 @@ MonoBehaviour:
   baseOscillationType: 0
   baseOscillationSpeed: 1
   spawnRadius: 0
-  bulletPrefab: {fileID: 1492540044211201988, guid: e15eeeb9d931da2478e3de2f13269a3a,
+  bulletPrefab: {fileID: 3004463604967225481, guid: ec8f3ef1339b7a848a89c716fef8c841,
     type: 3}
   bulletMinLifeTime: 5
   bulletMaxLifeTime: 5

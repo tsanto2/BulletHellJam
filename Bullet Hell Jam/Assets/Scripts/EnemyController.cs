@@ -37,6 +37,7 @@ public class EnemyController : MonoBehaviour, IDamageable, IFireable
     public IBulletHitBehaviour BulletHitBehaviour { get; private set; }
 
     [SerializeField] private int scoreValue;
+    [SerializeField] private Sound deathSound;
     
     public BulletSpawner Spawner { get; private set; }
     
@@ -94,13 +95,14 @@ public class EnemyController : MonoBehaviour, IDamageable, IFireable
     public virtual void Die(bool scorePoints = false)
     {
         ObjectPool.Instance.ReturnObject(this.gameObject);
-
+        
         // Increase combo by 1
         
         if (scorePoints)
         {
             OnEnemyDeathScore?.Invoke(scoreValue);
             OnEnemyDeath?.Invoke(1);
+            AudioManager.PlaySFX(deathSound);
         }
     }
 

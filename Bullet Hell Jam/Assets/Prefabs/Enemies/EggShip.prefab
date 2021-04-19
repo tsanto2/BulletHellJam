@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &4435064986325589250
+--- !u!1001 &2807414511276348647
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 6654540015302613638, guid: 428be333308cad642819c5e938d1416f,
         type: 3}
       propertyPath: m_Name
-      value: CannonFodder
+      value: EggShip
       objectReference: {fileID: 0}
     - target: {fileID: 6654540015302613637, guid: 428be333308cad642819c5e938d1416f,
         type: 3}
@@ -67,16 +67,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6654540015302613637, guid: 428be333308cad642819c5e938d1416f,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6654540015302613637, guid: 428be333308cad642819c5e938d1416f,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6654540015302613639, guid: 428be333308cad642819c5e938d1416f,
         type: 3}
       propertyPath: healthMax
@@ -84,45 +74,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6654540015302613639, guid: 428be333308cad642819c5e938d1416f,
         type: 3}
-      propertyPath: scoreValue
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 6654540015302613639, guid: 428be333308cad642819c5e938d1416f,
-        type: 3}
       propertyPath: deathSound
       value: 
-      objectReference: {fileID: 11400000, guid: 65f64211973b0514ea342b66887543fd,
+      objectReference: {fileID: 11400000, guid: 5df130ac9e07d8f4daf77339d41c30e2,
         type: 2}
-    - target: {fileID: 1533623159307737031, guid: 428be333308cad642819c5e938d1416f,
+    - target: {fileID: 7225182345000428548, guid: 428be333308cad642819c5e938d1416f,
         type: 3}
-      propertyPath: WakeUpDelay
-      value: 0.5
-      objectReference: {fileID: 0}
+      propertyPath: pattern
+      value: 
+      objectReference: {fileID: 11400000, guid: ac6185a3324cd7049b3f22063cfb22e2,
+        type: 2}
     - target: {fileID: 6654540015302613636, guid: 428be333308cad642819c5e938d1416f,
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 5598772166888400066, guid: 8c6bf2a7dcfc2ff4c9c31607be508fb9,
+      objectReference: {fileID: 1050214997628741292, guid: 14f4a7f3d32b1ea44a47186f629b7bd1,
         type: 3}
-    - target: {fileID: 6654540015302613636, guid: 428be333308cad642819c5e938d1416f,
-        type: 3}
-      propertyPath: m_SortingLayerID
-      value: 1592786015
-      objectReference: {fileID: 0}
-    - target: {fileID: 6654540015302613636, guid: 428be333308cad642819c5e938d1416f,
-        type: 3}
-      propertyPath: m_SortingLayer
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 8239723498519947872, guid: 428be333308cad642819c5e938d1416f,
         type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: ac755fa0a58180c4a804413e9d8efc0f, type: 2}
-    - target: {fileID: 2297257048766246822, guid: 428be333308cad642819c5e938d1416f,
-        type: 3}
-      propertyPath: checkRadius
-      value: 0.25
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 9100000, guid: 3239ef78d8798354b884a242387b771b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 428be333308cad642819c5e938d1416f, type: 3}

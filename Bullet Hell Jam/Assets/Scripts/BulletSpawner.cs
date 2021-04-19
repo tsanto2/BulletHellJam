@@ -6,6 +6,8 @@ using UnityEngine;
 public class BulletSpawner : MonoBehaviour
 {
     [SerializeField] private BulletPattern pattern;
+    [SerializeField] private Sound shootSound;
+
     public BulletPattern Pattern
     {
         get
@@ -140,6 +142,9 @@ public class BulletSpawner : MonoBehaviour
         positions = GetSpawnPositions();
         bullets = pool.GetObject(pattern.bulletPrefab, pattern.bulletTotal);
         shooter.ShootCooldown = pattern.shootDelay;
+        
+        if (shootSound != null)
+            AudioManager.PlaySFX(shootSound);
 
         for (int i = 0; i < pattern.bulletTotal; i++)
         {

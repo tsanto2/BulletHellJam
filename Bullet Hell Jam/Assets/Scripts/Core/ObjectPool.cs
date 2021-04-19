@@ -20,6 +20,16 @@ public class ObjectPool : MonoBehaviour
         enemyBulletList.Clear();
     }
 
+    private void OnEnable()
+    {
+        BossController.OnBossDeath += WipeAllEnemyBullets;
+    }
+
+    private void OnDisable()
+    {
+        BossController.OnBossDeath -= WipeAllEnemyBullets;
+    }
+
     public GameObject GetObject(GameObject gameObject)
     {
         if (objectPool.TryGetValue(gameObject.name, out Queue<GameObject> objectList))

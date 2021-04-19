@@ -66,12 +66,24 @@ public class EnemyMovement : MonoBehaviour
             case MovementBehaviour.MoveDown:
             {
                 transform.position += Vector3.down * adjustedSpeed;
+
+                if (cam.WorldToViewportPoint(transform.position).y < 0f)
+                {
+                    OnEnemyDespawnOffscreen?.Invoke(1);
+                    controller.Die(false);
+                }
                 break;
             }
 
             case MovementBehaviour.MoveUp:
             {
                 transform.position += Vector3.up * adjustedSpeed;
+
+                if (cam.WorldToViewportPoint(transform.position).y > 1f)
+                {
+                    OnEnemyDespawnOffscreen?.Invoke(1);
+                    controller.Die(false);
+                }
                 break;
             }
 

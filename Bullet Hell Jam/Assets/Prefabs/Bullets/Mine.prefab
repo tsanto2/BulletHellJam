@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 1592786015
   m_SortingLayer: 2
   m_SortingOrder: 1
-  m_Sprite: {fileID: 6422032807521507588, guid: 4f172379d7c103f4e841a9ac38d48623,
+  m_Sprite: {fileID: 7069996863708345292, guid: 866e0215c5094924e9e3be542f75c214,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -109,7 +109,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 92464775212012027}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 3b7a107a5d3cd724392d46bbf91f458f, type: 2}
   m_CullingMode: 0
@@ -139,6 +139,7 @@ MonoBehaviour:
   pool: {fileID: 0}
   healthMax: 3
   burstWeapon: {fileID: 11400000, guid: 8cf78289d4ebe30469d26b8bc35ba16d, type: 2}
+  deathSound: {fileID: 11400000, guid: 69505cebcd6158c4cb6d7e0b8d24bc64, type: 2}
 --- !u!114 &7093404757587068282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,3 +158,4 @@ MonoBehaviour:
   checkRadius: 1
   normalRadius: 0
   largeRadius: 0
+  hitSound: {fileID: 0}

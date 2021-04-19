@@ -7,6 +7,7 @@ public class BulletCollisionCheck : MonoBehaviour
     [SerializeField] private float checkRadius;
     [SerializeField] private float normalRadius;
     [SerializeField] private float largeRadius;
+    [SerializeField] private Sound hitSound;
 
     private IDamageable damageable;
     private Collider2D hit;
@@ -34,6 +35,9 @@ public class BulletCollisionCheck : MonoBehaviour
         if (hit)
         {
             damageable.BulletHitBehaviour.Perform(hit.gameObject);
+
+            if (hitSound != null)
+                AudioManager.PlaySFX(hitSound);
         }
     }
 }

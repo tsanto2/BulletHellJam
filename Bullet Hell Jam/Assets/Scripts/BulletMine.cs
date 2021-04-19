@@ -11,6 +11,7 @@ public class BulletMine : BulletController, IDamageable
     }
 
     [SerializeField] private BulletPattern burstWeapon;
+    [SerializeField] private Sound deathSound;
     public IBulletHitBehaviour BulletHitBehaviour { get; private set; }
 
 
@@ -25,6 +26,10 @@ public class BulletMine : BulletController, IDamageable
     public override void Die(bool scorePoints)
     {
         burstWeapon.SpawnBullets(transform.position);
+        
+        if (scorePoints)
+            AudioManager.PlaySFX(deathSound);
+            
         pool.ReturnObject(this.gameObject);
     }
 

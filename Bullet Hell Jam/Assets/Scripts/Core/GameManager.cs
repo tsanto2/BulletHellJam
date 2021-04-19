@@ -2,7 +2,6 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Audio;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 
@@ -72,7 +71,7 @@ public class GameManager : MonoBehaviour
 
         foreach (var enemy in FindObjectsOfType<EnemyController>())
             enemyCount++;
-
+    
         if (enemyCount == 0)
             SpawnBoss();
     }
@@ -126,7 +125,7 @@ public class GameManager : MonoBehaviour
     private void SpawnBoss()
     {
         Debug.Log("OH LAWD HE COMIN'");
-        Instantiate(bossGameObject, new Vector3(cam.ViewportToWorldPoint(Vector3.right).x + 2f, 1f, 0f), Quaternion.identity);
+        Instantiate(bossGameObject, new Vector3(cam.ViewportToWorldPoint(Vector3.right).x + 2f, 0f, 0f), Quaternion.identity);
     }
 
     #endregion
@@ -142,8 +141,10 @@ public class GameManager : MonoBehaviour
     {
         combo += increase;
         OnComboChanged?.Invoke(combo);
-        comboResetTime = Time.time + comboResetDelay;
         comboText.text = $"x{combo}";
+
+        if (enemyCount > 0)
+            comboResetTime = Time.time + comboResetDelay;
     }
 
     private void ResetCombo()
