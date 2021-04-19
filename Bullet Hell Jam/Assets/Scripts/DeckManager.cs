@@ -71,6 +71,9 @@ public class DeckManager : MonoBehaviour
 
     private bool isSlowMoTime = false;
 
+    [SerializeField]
+    private Sound activateCardSound, drawHandSound;
+
     #endregion
 
     #region MonoBehaviours
@@ -129,6 +132,8 @@ public class DeckManager : MonoBehaviour
 
     public void RenewHand()
     {
+        AudioManager.PlaySFX(drawHandSound);
+
         DiscardHand();
         DrawHand();
     }
@@ -142,6 +147,7 @@ public class DeckManager : MonoBehaviour
         if (isSlowMoTime)
         {
             // Dont ask about these numbers and never speak of them again
+            // Okay, will do.
             if (input.keyInput.bottomFaceButtonPress && hand.Count > 0)
             {
                 SpendCard(0);
@@ -249,6 +255,8 @@ public class DeckManager : MonoBehaviour
             spentCard.Activate();
 
             OnHandUpdated?.Invoke();
+
+            AudioManager.PlaySFX(activateCardSound);
         }
     }
 
