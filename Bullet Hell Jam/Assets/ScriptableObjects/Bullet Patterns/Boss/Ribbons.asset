@@ -12,35 +12,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be56a3ed7cd2bc84b8ef5f8e18f93480, type: 3}
   m_Name: Ribbons
   m_EditorClassIdentifier: 
-  baseDirection: 320
-  baseSpread: 90
+  baseDirection: 180
+  baseSpread: 115
   bulletMinSpawnDistance: 1
   bulletMaxSpawnDistance: 1
   baseOscillationType: 0
-  baseOscillationSpeed: 477
-  spawnRadius: 45
+  baseOscillationSpeed: 525
+  spawnRadius: 57.5
   bulletPrefab: {fileID: 1492540044211201988, guid: e15eeeb9d931da2478e3de2f13269a3a,
     type: 3}
   bulletMinLifeTime: 5
   bulletMaxLifeTime: 5
-  bulletMinBaseSpeed: 1.2
-  bulletMaxBaseSpeed: 1.2
+  bulletMinBaseSpeed: 1.5
+  bulletMaxBaseSpeed: 1.5
   bulletRotationSpeed: 0
-  shootDelay: 0.049999997
-  bulletTotal: 2
+  shootDelay: 0.25
+  bulletTotal: 10
   bulletOffset: 18
   wrapAngles: 0
-  mirrorShootAngles: 0
+  mirrorShootAngles: 1
   spawnerOscillationSpeed: 0
   incrementalSpeed: 0
   incrementalRotation: 0
-  bulletSpread: 18
+  bulletSpread: 162
   spawnRotation: 0
   currentBaseAngle: 0
   positions:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
   bullets:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   pool: {fileID: 0}

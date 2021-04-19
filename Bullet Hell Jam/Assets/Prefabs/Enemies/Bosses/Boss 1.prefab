@@ -100,11 +100,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthMax: 200
   scoreValue: 10000
+  deathSound: {fileID: 0}
   playerBulletLayerMask:
     serializedVersion: 2
     m_Bits: 256
   phasePlaylist:
-  - weapon: {fileID: 11400000, guid: 67f9b8e2f7ad90945af5c6cd6ab43c69, type: 2}
+  - weapon: {fileID: 11400000, guid: 7731c7944eb2f564bbd7003bc700c45d, type: 2}
     movement: 0
     phaseTimeLength: 1.5
   loopPhases: 0
@@ -142,6 +143,7 @@ MonoBehaviour:
   checkRadius: 2
   normalRadius: 0
   largeRadius: 0
+  hitSound: {fileID: 0}
 --- !u!114 &-3707578697455773167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,6 +157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pattern: {fileID: 0}
+  shootSound: {fileID: 0}
 --- !u!95 &6355264790038296008
 Animator:
   serializedVersion: 3

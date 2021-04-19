@@ -99,6 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthMax: 140
   scoreValue: 10000
+  deathSound: {fileID: 11400000, guid: 69505cebcd6158c4cb6d7e0b8d24bc64, type: 2}
   playerBulletLayerMask:
     serializedVersion: 2
     m_Bits: 256
@@ -150,6 +151,7 @@ MonoBehaviour:
   checkRadius: 2
   normalRadius: 0
   largeRadius: 0
+  hitSound: {fileID: 0}
 --- !u!114 &-3707578697455773167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,6 +165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pattern: {fileID: 0}
+  shootSound: {fileID: 0}
 --- !u!95 &6355264790038296008
 Animator:
   serializedVersion: 3
@@ -171,7 +174,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6407241734672754609}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 97341dfa0aa0f534b928304d32db1da3, type: 2}
   m_CullingMode: 0

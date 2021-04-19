@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2f24856c53b73f4abf01e280c90a9c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthMax: 9
+  healthMax: 8
   scoreValue: 150
   deathSound: {fileID: 11400000, guid: 5df130ac9e07d8f4daf77339d41c30e2, type: 2}
   playerBulletLayerMask:
@@ -154,7 +154,7 @@ MonoBehaviour:
   bulletLayerMask:
     serializedVersion: 2
     m_Bits: 256
-  checkRadius: 0.35
+  checkRadius: 0.3
   normalRadius: 0
   largeRadius: 0
   hitSound: {fileID: 0}
