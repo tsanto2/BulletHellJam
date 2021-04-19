@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
     public static event Action<int> OnPlayerHealthChange;
     public static event Action<int> OnPlayerEnergyChange;
     public static event Action<bool> OnPlayerActivateSlowmo;
+    public static event Action OnPlayerTakeDamage;
     #endregion   
 
     [Header("Stats")]
@@ -166,6 +167,7 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
     public void TakeDamage(int damage)
     {
         Health -= damage;
+        OnPlayerTakeDamage?.Invoke();
 
         if (Health == 0)
             Die();

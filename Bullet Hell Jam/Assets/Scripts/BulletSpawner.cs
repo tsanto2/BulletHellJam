@@ -124,7 +124,7 @@ public class BulletSpawner : MonoBehaviour
                 else deltaIncrement = 0f;
             }
 
-            float spawnerAngle = (deltaIncrement + (pattern.spawnerOscillationSpeed * Time.time)) % (Mathf.Max(1f, bulletSpread) + 1f);
+            float spawnerAngle = deltaIncrement + ((pattern.spawnerOscillationSpeed * Time.time)) % (Mathf.Max(1f, bulletSpread) + 1f);
             float angle = (minAngle + spawnerAngle) * Mathf.Deg2Rad;
 
             Vector3 bulletPos = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0f);

@@ -1,10 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using System;
 
 [RequireComponent(typeof(EnemyController))]
 public class EnemyMovement : MonoBehaviour
 {
+    public static event Action<int> OnEnemyDespawnOffscreen;
+
     public MovementBehaviour movementBehaviour;
     [SerializeField] private float WakeUpDelay = 2f;
     [SerializeField] private float moveSpeed;
@@ -79,7 +80,10 @@ public class EnemyMovement : MonoBehaviour
                 transform.position += Vector3.left * adjustedSpeed;
 
                 if (cam.WorldToViewportPoint(transform.position).x < 0f)
+                {
+                    OnEnemyDespawnOffscreen?.Invoke(1);
                     controller.Die(false);
+                }
                 break;
             }
 
@@ -88,7 +92,10 @@ public class EnemyMovement : MonoBehaviour
                 transform.position += Vector3.right * adjustedSpeed;
 
                 if (cam.WorldToViewportPoint(transform.position).x > 1f)
+                {
+                    OnEnemyDespawnOffscreen?.Invoke(1);
                     controller.Die(false);
+                }
                 break;
             }
         }

@@ -80,7 +80,7 @@ PrefabInstance:
     - target: {fileID: 6654540015302613639, guid: 428be333308cad642819c5e938d1416f,
         type: 3}
       propertyPath: healthMax
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6654540015302613639, guid: 428be333308cad642819c5e938d1416f,
         type: 3}
@@ -98,6 +98,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5598772166888400066, guid: 8c6bf2a7dcfc2ff4c9c31607be508fb9,
         type: 3}
+    - target: {fileID: 6654540015302613636, guid: 428be333308cad642819c5e938d1416f,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1592786015
+      objectReference: {fileID: 0}
+    - target: {fileID: 6654540015302613636, guid: 428be333308cad642819c5e938d1416f,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8239723498519947872, guid: 428be333308cad642819c5e938d1416f,
         type: 3}
       propertyPath: m_Controller
@@ -106,7 +116,7 @@ PrefabInstance:
     - target: {fileID: 2297257048766246822, guid: 428be333308cad642819c5e938d1416f,
         type: 3}
       propertyPath: checkRadius
-      value: 0.35
+      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 428be333308cad642819c5e938d1416f, type: 3}

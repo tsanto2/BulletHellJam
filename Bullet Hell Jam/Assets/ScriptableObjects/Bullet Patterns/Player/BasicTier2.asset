@@ -13,23 +13,36 @@ MonoBehaviour:
   m_Name: BasicTier2
   m_EditorClassIdentifier: 
   baseDirection: 0
-  baseSpread: 0
-  bulletMinSpawnDistance: 0.5
-  bulletMaxSpawnDistance: 0.5
-  baseOscillationType: 1
+  baseSpread: 30
+  bulletMinSpawnDistance: 2
+  bulletMaxSpawnDistance: 2
+  baseOscillationType: 0
   baseOscillationSpeed: 0
+  spawnRadius: 15
   bulletPrefab: {fileID: 1492540044211201988, guid: da5958408dfe64b43ab7ed99332bebba,
     type: 3}
-  bulletMinLifeTime: 2
-  bulletMaxLifeTime: 2
-  bulletMinBaseSpeed: 12
-  bulletMaxBaseSpeed: 12
+  bulletMinLifeTime: 3
+  bulletMaxLifeTime: 3
+  bulletMinBaseSpeed: 10
+  bulletMaxBaseSpeed: 10
   bulletRotationSpeed: 0
-  shootDelay: 0.14
-  bulletTotal: 2
-  bulletOffset: 40
+  shootDelay: 0.25
+  bulletTotal: 3
+  bulletOffset: 10
   wrapAngles: 0
-  mirrorShootAngles: 1
+  mirrorShootAngles: 0
   spawnerOscillationSpeed: 0
   incrementalSpeed: 0
   incrementalRotation: 0
+  bulletSpread: 20
+  spawnRotation: 0
+  currentBaseAngle: 0
+  positions:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  bullets:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  pool: {fileID: 0}

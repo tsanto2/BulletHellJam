@@ -96,10 +96,12 @@ public class EnemyController : MonoBehaviour, IDamageable, IFireable
         ObjectPool.Instance.ReturnObject(this.gameObject);
 
         // Increase combo by 1
-        OnEnemyDeath?.Invoke(1);
         
         if (scorePoints)
+        {
             OnEnemyDeathScore?.Invoke(scoreValue);
+            OnEnemyDeath?.Invoke(1);
+        }
     }
 
     private void HandleShooting()

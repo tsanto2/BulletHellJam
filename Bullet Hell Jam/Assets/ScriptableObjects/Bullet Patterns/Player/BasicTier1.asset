@@ -18,10 +18,11 @@ MonoBehaviour:
   bulletMaxSpawnDistance: 0.5
   baseOscillationType: 1
   baseOscillationSpeed: 0
+  spawnRadius: 0
   bulletPrefab: {fileID: 1492540044211201988, guid: da5958408dfe64b43ab7ed99332bebba,
     type: 3}
-  bulletMinLifeTime: 2
-  bulletMaxLifeTime: 2
+  bulletMinLifeTime: 3
+  bulletMaxLifeTime: 3
   bulletMinBaseSpeed: 12
   bulletMaxBaseSpeed: 12
   bulletRotationSpeed: 0
@@ -33,3 +34,11 @@ MonoBehaviour:
   spawnerOscillationSpeed: 0
   incrementalSpeed: 0
   incrementalRotation: 0
+  bulletSpread: 0
+  spawnRotation: 0
+  currentBaseAngle: 0
+  positions:
+  - {x: 0, y: 0, z: 0}
+  bullets:
+  - {fileID: 0}
+  pool: {fileID: 0}

@@ -48,14 +48,14 @@ MonoBehaviour:
   comboResetDelay: 4
   comboText: {fileID: 0}
   scoreText: {fileID: 0}
-  pauseTime: 0.06
+  pauseTime: 0.2
   minPitch: 0.5
   bossSpawnDelay: 3.5
-  bossGameObject: {fileID: 6407241734672754609, guid: 46d58d5e17c9424488d2987eebb329da,
+  bossGameObject: {fileID: 6407241734672754609, guid: a5f5dc40c49279a489b62bac7196df8d,
     type: 3}
   bgmMixer: {fileID: 5108656363309057666, guid: b5dcec59dec494e48a360a24ca430ed7,
     type: 2}
-  minLowpassFrequency: 750
+  minLowpassFrequency: 1000
 --- !u!114 &8176372330591010298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79,8 +79,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 5108656363309057666, guid: b5dcec59dec494e48a360a24ca430ed7,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 2e81ed606a76df540a416d0b97a34b58, type: 3}
-  m_PlayOnAwake: 0
+  m_audioClip: {fileID: 8300000, guid: 272b12c1f44fe2a4e976a7931d35a2c1, type: 3}
+  m_PlayOnAwake: 1
   m_Volume: 0.1
   m_Pitch: 1
   Loop: 1

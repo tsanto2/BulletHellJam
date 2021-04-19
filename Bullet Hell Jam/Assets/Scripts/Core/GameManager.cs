@@ -82,6 +82,8 @@ public class GameManager : MonoBehaviour
         EnemyController.OnEnemyDeathScore += AddPoints;
         EnemyController.OnEnemyDeath += AddCombo;
         EnemyController.OnEnemyDeath += DecreaseEnemyCount;
+        EnemyMovement.OnEnemyDespawnOffscreen += DecreaseEnemyCount;
+        PlayerController.OnPlayerTakeDamage += ResetCombo;
 
         combo = 0;
         score = 0;
@@ -96,13 +98,15 @@ public class GameManager : MonoBehaviour
         EnemyController.OnEnemyDeathScore -= AddPoints;
         EnemyController.OnEnemyDeath -= AddCombo;
         EnemyController.OnEnemyDeath -= DecreaseEnemyCount;
+        EnemyMovement.OnEnemyDespawnOffscreen -= DecreaseEnemyCount;
+        PlayerController.OnPlayerTakeDamage -= ResetCombo;
     }
 
     private void Update()
     {
         HandlePause();
 
-        if (Time.time >= comboResetTime)
+        if (Time.time >= comboResetTime && enemyCount > 0)
             ResetCombo();
 
         if (input.keyInput.restartPress)
@@ -177,7 +181,7 @@ public class GameManager : MonoBehaviour
         float lowpass;
         while (Mathf.Abs(Time.timeScale - targetValue) > 0.1f)
         {
-            Time.timeScale = Mathf.Lerp(Time.timeScale, targetValue, time);
+            Time.timeScale = Mathf.SmoothStep(Time.timeScale, targetValue, time);
 
             lowpass = (Time.timeScale * (5000f - minLowpassFrequency));
             bgmMixer.audioMixer.SetFloat("BgmLowpassCutoff", minLowpassFrequency + lowpass);

@@ -102,12 +102,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7049585844080445317, guid: ea5b746cabf7f6a42bac4f0b25a9b31a,
-        type: 3}
-      propertyPath: weapon
-      value: 
-      objectReference: {fileID: 11400000, guid: cddc25a6480b0624cb577e85c8cb4c82,
-        type: 2}
     - target: {fileID: 2937475297104890565, guid: ea5b746cabf7f6a42bac4f0b25a9b31a,
         type: 3}
       propertyPath: movementBehaviour
@@ -115,8 +109,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2937475297104890565, guid: ea5b746cabf7f6a42bac4f0b25a9b31a,
         type: 3}
-      propertyPath: moveSpeed
+      propertyPath: WakeUpDelay
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2937475297104890565, guid: ea5b746cabf7f6a42bac4f0b25a9b31a,
+        type: 3}
+      propertyPath: moveSpeed
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea5b746cabf7f6a42bac4f0b25a9b31a, type: 3}
@@ -141,7 +140,7 @@ PrefabInstance:
     - target: {fileID: 7049585844080445319, guid: ea5b746cabf7f6a42bac4f0b25a9b31a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.5
+      value: 8.5
       objectReference: {fileID: 0}
     - target: {fileID: 7049585844080445319, guid: ea5b746cabf7f6a42bac4f0b25a9b31a,
         type: 3}
@@ -193,12 +192,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7049585844080445317, guid: ea5b746cabf7f6a42bac4f0b25a9b31a,
-        type: 3}
-      propertyPath: weapon
-      value: 
-      objectReference: {fileID: 11400000, guid: cddc25a6480b0624cb577e85c8cb4c82,
-        type: 2}
     - target: {fileID: 2937475297104890565, guid: ea5b746cabf7f6a42bac4f0b25a9b31a,
         type: 3}
       propertyPath: movementBehaviour
@@ -206,8 +199,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2937475297104890565, guid: ea5b746cabf7f6a42bac4f0b25a9b31a,
         type: 3}
-      propertyPath: moveSpeed
+      propertyPath: WakeUpDelay
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2937475297104890565, guid: ea5b746cabf7f6a42bac4f0b25a9b31a,
+        type: 3}
+      propertyPath: moveSpeed
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea5b746cabf7f6a42bac4f0b25a9b31a, type: 3}
@@ -232,7 +230,7 @@ PrefabInstance:
     - target: {fileID: 7049585844080445319, guid: ea5b746cabf7f6a42bac4f0b25a9b31a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7049585844080445319, guid: ea5b746cabf7f6a42bac4f0b25a9b31a,
         type: 3}
@@ -284,12 +282,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7049585844080445317, guid: ea5b746cabf7f6a42bac4f0b25a9b31a,
-        type: 3}
-      propertyPath: weapon
-      value: 
-      objectReference: {fileID: 11400000, guid: cddc25a6480b0624cb577e85c8cb4c82,
-        type: 2}
     - target: {fileID: 2937475297104890565, guid: ea5b746cabf7f6a42bac4f0b25a9b31a,
         type: 3}
       propertyPath: movementBehaviour
@@ -297,8 +289,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2937475297104890565, guid: ea5b746cabf7f6a42bac4f0b25a9b31a,
         type: 3}
-      propertyPath: moveSpeed
+      propertyPath: WakeUpDelay
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2937475297104890565, guid: ea5b746cabf7f6a42bac4f0b25a9b31a,
+        type: 3}
+      propertyPath: moveSpeed
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea5b746cabf7f6a42bac4f0b25a9b31a, type: 3}
@@ -323,7 +320,7 @@ PrefabInstance:
     - target: {fileID: 7049585844080445319, guid: ea5b746cabf7f6a42bac4f0b25a9b31a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.5
+      value: 11.5
       objectReference: {fileID: 0}
     - target: {fileID: 7049585844080445319, guid: ea5b746cabf7f6a42bac4f0b25a9b31a,
         type: 3}
@@ -375,12 +372,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7049585844080445317, guid: ea5b746cabf7f6a42bac4f0b25a9b31a,
-        type: 3}
-      propertyPath: weapon
-      value: 
-      objectReference: {fileID: 11400000, guid: cddc25a6480b0624cb577e85c8cb4c82,
-        type: 2}
     - target: {fileID: 2937475297104890565, guid: ea5b746cabf7f6a42bac4f0b25a9b31a,
         type: 3}
       propertyPath: movementBehaviour
@@ -388,8 +379,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2937475297104890565, guid: ea5b746cabf7f6a42bac4f0b25a9b31a,
         type: 3}
-      propertyPath: moveSpeed
+      propertyPath: WakeUpDelay
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2937475297104890565, guid: ea5b746cabf7f6a42bac4f0b25a9b31a,
+        type: 3}
+      propertyPath: moveSpeed
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea5b746cabf7f6a42bac4f0b25a9b31a, type: 3}
@@ -414,7 +410,7 @@ PrefabInstance:
     - target: {fileID: 7049585844080445319, guid: ea5b746cabf7f6a42bac4f0b25a9b31a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7049585844080445319, guid: ea5b746cabf7f6a42bac4f0b25a9b31a,
         type: 3}
@@ -466,12 +462,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7049585844080445317, guid: ea5b746cabf7f6a42bac4f0b25a9b31a,
-        type: 3}
-      propertyPath: weapon
-      value: 
-      objectReference: {fileID: 11400000, guid: cddc25a6480b0624cb577e85c8cb4c82,
-        type: 2}
     - target: {fileID: 2937475297104890565, guid: ea5b746cabf7f6a42bac4f0b25a9b31a,
         type: 3}
       propertyPath: movementBehaviour
@@ -479,8 +469,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2937475297104890565, guid: ea5b746cabf7f6a42bac4f0b25a9b31a,
         type: 3}
-      propertyPath: moveSpeed
+      propertyPath: WakeUpDelay
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2937475297104890565, guid: ea5b746cabf7f6a42bac4f0b25a9b31a,
+        type: 3}
+      propertyPath: moveSpeed
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea5b746cabf7f6a42bac4f0b25a9b31a, type: 3}
