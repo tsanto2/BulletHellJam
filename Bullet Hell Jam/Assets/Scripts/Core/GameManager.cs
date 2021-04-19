@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using TMPro;
 
@@ -188,7 +187,6 @@ public class GameManager : MonoBehaviour
                 pauseCoroutine = StartCoroutine(Pause(1f, pauseTime));
             }
         }   
-
     }
 
     IEnumerator Pause(float targetValue, float time)
@@ -197,16 +195,11 @@ public class GameManager : MonoBehaviour
         {
             Time.timeScale = Mathf.SmoothStep(Time.timeScale, targetValue, time);
             AudioManager.UpdateBGMLowPassFilter();
-
-            //lowpass = (Time.timeScale * (5000f - minLowpassFrequency));
-            //bgmMixer.audioMixer.SetFloat("BgmLowpassCutoff", minLowpassFrequency + lowpass);
             yield return null;
         }
 
         Time.timeScale = targetValue;
         AudioManager.UpdateBGMLowPassFilter();
-        //lowpass = (Time.timeScale * (5000f - minLowpassFrequency));
-        //bgmMixer.audioMixer.SetFloat("BgmLowpassCutoff", minLowpassFrequency + lowpass);
         pauseCoroutine = null;
     }
     

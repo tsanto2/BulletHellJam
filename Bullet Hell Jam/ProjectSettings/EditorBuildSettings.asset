@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MatTest.unity
     guid: 0174ea618c09bc240886ef850636a399
+  - enabled: 1
+    path: Assets/Scenes/Level2.unity
+    guid: cfa5e9426bed9a54b8aa519a1e189502
+  - enabled: 1
+    path: Assets/Scenes/PostLevelStatsScene.unity
+    guid: 80b396d6adbe542fbbe3d24d7634cb1c
   m_configObjects: {}
