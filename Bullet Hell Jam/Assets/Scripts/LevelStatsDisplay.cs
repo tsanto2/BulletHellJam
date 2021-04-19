@@ -19,7 +19,7 @@ public class LevelStatsDisplay : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI bestScoreText;
 
-    public void PopulateData(Scene previousScene, int score, int combo, bool newHiScore, bool newMaxCombo)
+    public void PopulateData(string previousSceneName, int score, int combo, bool newHiScore, bool newMaxCombo)
     {
         if (newHiScore)
         {
@@ -33,10 +33,10 @@ public class LevelStatsDisplay : MonoBehaviour
         currentScoreText.text = score.ToString();
         currentComboText.text = combo.ToString();
 
-        Debug.Log(previousScene.name);
+        Debug.Log(previousSceneName);
 
-        bestScoreText.text = PlayerPrefs.GetInt(previousScene.name + "HiScore").ToString();
-        bestComboText.text = PlayerPrefs.GetInt(previousScene.name + "MaxCombo").ToString();
+        bestScoreText.text = PlayerPrefs.GetInt(previousSceneName + "HiScore").ToString();
+        bestComboText.text = PlayerPrefs.GetInt(previousSceneName + "MaxCombo").ToString();
     }
 
 }

@@ -7,7 +7,7 @@ public class SceneTransitionManager : MonoBehaviour
 {
     private GameManager gm;
 
-    private Scene currentScene;
+    private string currentSceneName;
 
     private int maxCombo;
     private int score;
@@ -42,11 +42,11 @@ public class SceneTransitionManager : MonoBehaviour
 
         if (scene.name == "PostLevelStatsScene")
         {
-            FindObjectOfType<LevelStatsDisplay>().PopulateData(currentScene, score, maxCombo, newHiScore, newMaxCombo);
+            FindObjectOfType<LevelStatsDisplay>().PopulateData(currentSceneName, score, maxCombo, newHiScore, newMaxCombo);
         }
         else
         {
-            currentScene = scene;
+            currentSceneName = scene.name;
         }
     }
 
@@ -62,16 +62,16 @@ public class SceneTransitionManager : MonoBehaviour
         score = gm.Score;
         maxCombo = gm.MaxCombo;
 
-        if (!PlayerPrefs.HasKey(currentScene.name + "HiScore") || score > PlayerPrefs.GetInt(currentScene.name + "HiScore"))
+        if (!PlayerPrefs.HasKey(currentSceneName + "HiScore") || score > PlayerPrefs.GetInt(currentSceneName + "HiScore"))
         {
             newHiScore = true;
-            PlayerPrefs.SetInt(currentScene.name + "HiScore", score);
+            PlayerPrefs.SetInt(currentSceneName + "HiScore", score);
         }
 
-        if (!PlayerPrefs.HasKey(currentScene.name + "MaxCombo") || maxCombo > PlayerPrefs.GetInt(currentScene.name + "MaxCombo"))
+        if (!PlayerPrefs.HasKey(currentSceneName + "MaxCombo") || maxCombo > PlayerPrefs.GetInt(currentSceneName + "MaxCombo"))
         {
             newMaxCombo = true;
-            PlayerPrefs.SetInt(currentScene.name + "MaxCombo", maxCombo);
+            PlayerPrefs.SetInt(currentSceneName + "MaxCombo", maxCombo);
         }
     }
 }
