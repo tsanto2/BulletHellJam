@@ -43,3 +43,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 662b3330d58c388478927bac3a0d971a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mixerGroups:
+  - mixerGroup: {fileID: 24300002, guid: b5dcec59dec494e48a360a24ca430ed7, type: 2}
+    volumeString: MasterVolume
+    defaultVolume: 1
+  - mixerGroup: {fileID: 5108656363309057666, guid: b5dcec59dec494e48a360a24ca430ed7,
+      type: 2}
+    volumeString: BgmVolume
+    defaultVolume: 0.7
+  - mixerGroup: {fileID: 9061378762437853971, guid: b5dcec59dec494e48a360a24ca430ed7,
+      type: 2}
+    volumeString: SfxVolume
+    defaultVolume: 0.9
