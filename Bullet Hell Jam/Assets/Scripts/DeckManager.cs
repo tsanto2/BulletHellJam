@@ -37,7 +37,10 @@ public class DeckManager : MonoBehaviour
                 baseDeckIntermediateAbsorbCardCount,
                 baseDeckAdvancedAbsorbCardCount,
                 baseDeckBasicRefreshHandCardCount,
-                baseDeckBasicClearBullets;
+                baseDeckBasicClearBullets,
+                baseDeckBasicScoreMultiplier,
+                baseDeckIntermediateScoreMultiplier,
+                baseDeckAdvancedScoreMultiplier;
 
     [SerializeField]
     private Card[] cardSOs;
@@ -396,6 +399,24 @@ public class DeckManager : MonoBehaviour
                     break;
                 case CardType.basicRefreshHand:
                     for (int i = 0; i < baseDeckBasicRefreshHandCardCount; i++)
+                    {
+                        deck.Add(cardSO);
+                    }
+                    break;
+                case CardType.basicScoreMultiplier:
+                    for (int i = 0; i < baseDeckBasicScoreMultiplier; i++)
+                    {
+                        deck.Add(cardSO);
+                    }
+                    break;
+                case CardType.intermediateScoreMultiplier:
+                    for (int i = 0; i < baseDeckIntermediateScoreMultiplier; i++)
+                    {
+                        deck.Add(cardSO);
+                    }
+                    break;
+                case CardType.advancedScoreMultiplier:
+                    for (int i = 0; i < baseDeckAdvancedScoreMultiplier; i++)
                     {
                         deck.Add(cardSO);
                     }

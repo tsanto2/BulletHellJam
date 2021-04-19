@@ -111,7 +111,7 @@ public class GameManager : MonoBehaviour
 
     #region Enemy Methods
 
-    private void DecreaseEnemyCount()
+    private void DecreaseEnemyCount(int dimmadome)
     {
         enemyCount--;
         
@@ -134,9 +134,9 @@ public class GameManager : MonoBehaviour
 
     #region Combo Methods
 
-    private void AddCombo()
+    public void AddCombo(int increase)
     {
-        combo++;
+        combo += increase;
         OnComboChanged?.Invoke(combo);
         comboResetTime = Time.time + comboResetDelay;
         comboText.text = $"x{combo}";

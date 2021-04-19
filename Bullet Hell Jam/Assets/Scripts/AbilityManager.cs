@@ -10,6 +10,7 @@ public class AbilityManager : MonoBehaviour
     private PlayerController pc;
 
     private DeckManager dm;
+    private GameManager gm;
 
     private bool isAbsorbing = false;
     private bool isShooting = false;
@@ -30,6 +31,7 @@ public class AbilityManager : MonoBehaviour
         ClearBullets.OnClearBulletsCardActivated += ActivateClearBullets;
         BlockBullets.OnBlockBulletsCardActivated += ActivateBlockBullets;
         RefreshHand.OnRefreshHandCardActivated += ActivateRefreshHand;
+        ScoreMultiplier.OnScoreMultiplierActivated += ActivateScoreMultiplier;
     }
 
     private void OnDisable()
@@ -39,13 +41,16 @@ public class AbilityManager : MonoBehaviour
         PlayerWeapon.OnPlayerWeaponCardActivated -= ActivateWeapon;
         AbsorbBullets.OnAbsorbBulletsCardActivated -= ActivateAbsorbBullets;
         ClearBullets.OnClearBulletsCardActivated -= ActivateClearBullets;
+        BlockBullets.OnBlockBulletsCardActivated += ActivateBlockBullets;
         RefreshHand.OnRefreshHandCardActivated -= ActivateRefreshHand;
+        ScoreMultiplier.OnScoreMultiplierActivated -= ActivateScoreMultiplier;
     }
 
     private void Start()
     {
         pc = FindObjectOfType<PlayerController>();
         dm = FindObjectOfType<DeckManager>();
+        gm = FindObjectOfType<GameManager>();
     }
 
     void ActivateEnergyRegen(int energyRegenAmount)
@@ -119,6 +124,11 @@ public class AbilityManager : MonoBehaviour
     void ActivateRefreshHand()
     {
         dm.RenewHand();
+    }
+    
+    void ActivateScoreMultiplier(int multiplier)
+    {
+        gm.AddCombo(multiplier);
     }
 
     IEnumerator DisablePlayerWeaponAbilityCountdown(float duration)

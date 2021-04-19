@@ -17,4 +17,7 @@
     advancedAbsorb,
     advancedBlock,
     basicRefreshHand,
+    basicScoreMultiplier,
+    intermediateScoreMultiplier,
+    advancedScoreMultiplier,
 }

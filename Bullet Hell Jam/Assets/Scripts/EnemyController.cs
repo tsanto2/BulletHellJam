@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour, IDamageable, IFireable
 {
     public static event Action<int> OnEnemyDeathScore;
-    public static event Action OnEnemyDeath;
+    public static event Action<int> OnEnemyDeath;
 
     [SerializeField] private int healthMax;
     private int health;
@@ -95,7 +95,8 @@ public class EnemyController : MonoBehaviour, IDamageable, IFireable
     {
         ObjectPool.Instance.ReturnObject(this.gameObject);
 
-        OnEnemyDeath?.Invoke();
+        // Increase combo by 1
+        OnEnemyDeath?.Invoke(1);
         
         if (scorePoints)
             OnEnemyDeathScore?.Invoke(scoreValue);

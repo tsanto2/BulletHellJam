@@ -44,22 +44,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseDeckBasicHpCardCount: 1
-  baseDeckBasicEnergyCardCount: 1
-  baseDeckBasicWeaponCardCount: 3
-  baseDeckBasicClearBullets: 2
-  baseDeckBasicBlockCardCount: 0
   baseDeckIntermediateHpCardCount: 2
-  baseDeckIntermediateEnergyCardCount: 1
-  baseDeckIntermediateWeaponCardCount: 3
-  baseDeckIntermediateBlockCardCount: 1
   baseDeckAdvancedHpCardCount: 1
+  baseDeckBasicEnergyCardCount: 1
+  baseDeckIntermediateEnergyCardCount: 1
   baseDeckAdvancedEnergyCardCount: 1
+  baseDeckBasicWeaponCardCount: 3
+  baseDeckIntermediateWeaponCardCount: 3
   baseDeckAdvancedWeaponCardCount: 2
+  baseDeckBasicBlockCardCount: 0
+  baseDeckIntermediateBlockCardCount: 1
   baseDeckAdvancedBlockCardCount: 1
   baseDeckBasicAbsorbCardCount: 0
-  baseDeckintermediateAbsorbCardCount: 1
+  baseDeckIntermediateAbsorbCardCount: 0
   baseDeckAdvancedAbsorbCardCount: 1
   baseDeckBasicRefreshHandCardCount: 3
+  baseDeckBasicClearBullets: 2
+  baseDeckBasicScoreMultiplier: 0
+  baseDeckIntermediateScoreMultiplier: 1
+  baseDeckAdvancedScoreMultiplier: 1
   cardSOs:
   - {fileID: 11400000, guid: 3ba886a3b4e964348b7c63a5096e6bb1, type: 2}
   - {fileID: 11400000, guid: 06ae01b77b2a86145b8864f3e1271374, type: 2}
@@ -78,6 +81,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a032744ed15c6d94c89cdccceab651ab, type: 2}
   - {fileID: 11400000, guid: b1a225a0f65ca86439ba482e543aedbb, type: 2}
   - {fileID: 11400000, guid: 2080d9452cbb2194dbb85fdfb501f610, type: 2}
+  - {fileID: 11400000, guid: 451b56db8ddab2746a48dc98730c48e4, type: 2}
+  - {fileID: 11400000, guid: fe7ed1c13f1609c4fbee6d265567ba1a, type: 2}
+  - {fileID: 11400000, guid: 98338fc5b4626864d9e54b387b320631, type: 2}
   input: {fileID: 0}
   pc: {fileID: 0}
   availableCards: []
