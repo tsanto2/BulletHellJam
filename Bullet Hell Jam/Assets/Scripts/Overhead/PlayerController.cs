@@ -67,6 +67,9 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
 
     public bool debugWeapons = false;
 
+    [SerializeField]
+    private BulletPattern peaShooter;
+
     private bool canShoot = false;
 
     public bool CanShoot
@@ -99,11 +102,13 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
         AbilityManager.OnAbsorbBulletsCardDeactivated += ShrinkHitbox;
         BlockBullets.OnBlockBulletsCardActivated += EnlargeHitbox;
         AbilityManager.OnBlockBulletsCardDeactivated += ShrinkHitbox;
+        AbilityManager.OnPlayerWeaponCardDeactivated += SetPeaShooter;
 
         BulletHitBehaviour = new DamagePlayerBehaviour(this);
 
-        if (!debugWeapons)
-            Spawner.Pattern = null;
+        /*if (!debugWeapons)
+            Spawner.Pattern = null;*/
+        SetPeaShooter();
     }
 
     private void OnDisable()
@@ -113,6 +118,7 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
         AbilityManager.OnAbsorbBulletsCardDeactivated -= ShrinkHitbox;
         BlockBullets.OnBlockBulletsCardActivated -= EnlargeHitbox;
         AbilityManager.OnBlockBulletsCardDeactivated -= ShrinkHitbox;
+        AbilityManager.OnPlayerWeaponCardDeactivated -= SetPeaShooter;
     }
 
     private void FixedUpdate()
@@ -143,10 +149,18 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
             Shoot();
     }
 
+    private void SetPeaShooter()
+    {
+        if (peaShooter == null)
+            return;
+
+        Spawner.Pattern = peaShooter;
+    }
+
     public void Shoot()
     {
-        if (!canShoot && !debugWeapons)
-            return;
+        /*if (!canShoot && !debugWeapons)
+            return;*/
 
         Spawner.SpawnBullets(transform.position);
     }

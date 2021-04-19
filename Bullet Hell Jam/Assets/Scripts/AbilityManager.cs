@@ -133,14 +133,14 @@ public class AbilityManager : MonoBehaviour
 
     IEnumerator DisablePlayerWeaponAbilityCountdown(float duration)
     {
-        pc.CanShoot = true;
+        //pc.CanShoot = true;
         isShooting = true;
 
         // Might change duration to scale with tier
         yield return new WaitForSeconds(duration);
 
         isShooting = false;
-        pc.CanShoot = false;
+        //pc.CanShoot = false;
 
         OnPlayerWeaponCardDeactivated?.Invoke();
 

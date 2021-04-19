@@ -140,13 +140,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e67273ebbaa6d8d46982383734984351, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthMax: 100
+  healthMax: 50
   energyMax: 6
   energy: 0
   enemyBulletLayerMask:
     serializedVersion: 2
     m_Bits: 512
   debugWeapons: 0
+  peaShooter: {fileID: 11400000, guid: f1f67cbefa1675744bd80666339dae6e, type: 2}
 --- !u!114 &237190377
 MonoBehaviour:
   m_ObjectHideFlags: 0
