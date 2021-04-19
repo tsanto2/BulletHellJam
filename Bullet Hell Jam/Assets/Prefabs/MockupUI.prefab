@@ -2524,7 +2524,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ;klfds;lknvs;dflknvsdfv;ln
+  m_text: '
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 16bf784d4bb8f754688010f246fd975b, type: 2}
   m_sharedMaterial: {fileID: 3290008393405412349, guid: 16bf784d4bb8f754688010f246fd975b,
@@ -2570,7 +2572,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 16
+  m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -2594,12 +2596,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 6151976410846413514}
-    characterCount: 26
+    characterCount: 1
     spriteCount: 0
-    spaceCount: 0
-    wordCount: 4
+    spaceCount: 1
+    wordCount: 1
     linkCount: 0
-    lineCount: 2
+    lineCount: 1
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
