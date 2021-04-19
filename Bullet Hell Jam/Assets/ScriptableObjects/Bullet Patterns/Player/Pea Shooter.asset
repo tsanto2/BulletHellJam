@@ -16,17 +16,17 @@ MonoBehaviour:
   baseSpread: 5
   bulletMinSpawnDistance: 1.4
   bulletMaxSpawnDistance: 1.4
-  baseOscillationType: 0
+  baseOscillationType: 2
   baseOscillationSpeed: 1
   spawnRadius: 2.5
-  bulletPrefab: {fileID: 1492540044211201988, guid: da5958408dfe64b43ab7ed99332bebba,
+  bulletPrefab: {fileID: 3004463604967225481, guid: aaf41af761b55c544a10b56a4e383a5b,
     type: 3}
   bulletMinLifeTime: 2.2
   bulletMaxLifeTime: 2.2
   bulletMinBaseSpeed: 8
   bulletMaxBaseSpeed: 8
   bulletRotationSpeed: 0
-  shootDelay: 0.25
+  shootDelay: 0.29
   bulletTotal: 1
   bulletOffset: 0
   wrapAngles: 0
