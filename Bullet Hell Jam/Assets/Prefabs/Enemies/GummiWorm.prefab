@@ -100,6 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthMax: 9
   scoreValue: 150
+  deathSound: {fileID: 11400000, guid: 5df130ac9e07d8f4daf77339d41c30e2, type: 2}
   playerBulletLayerMask:
     serializedVersion: 2
     m_Bits: 256
@@ -156,6 +157,7 @@ MonoBehaviour:
   checkRadius: 0.35
   normalRadius: 0
   largeRadius: 0
+  hitSound: {fileID: 0}
 --- !u!114 &7225182345000428548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,3 +171,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pattern: {fileID: 11400000, guid: 81121cf394f68da44b4109d3ebde9b8f, type: 2}
+  shootSound: {fileID: 0}

@@ -26,7 +26,7 @@ MonoBehaviour:
   bulletMinBaseSpeed: 10
   bulletMaxBaseSpeed: 10
   bulletRotationSpeed: 0
-  shootDelay: 0.03
+  shootDelay: 0.04
   bulletTotal: 1
   bulletOffset: 189
   wrapAngles: 0
