@@ -38,7 +38,20 @@ public class GameManager : MonoBehaviour
         }
     }
     private int combo;
-    
+
+    private int maxCombo;
+    public int MaxCombo
+    {
+        get
+        {
+            return maxCombo;
+        }
+        set
+        {
+            maxCombo = value;
+        }
+    }
+
     [SerializeField] private float pauseTime = 0.03f;
     [SerializeField] private float minPitch = 0.3f;
     private Coroutine pauseCoroutine;
@@ -142,6 +155,11 @@ public class GameManager : MonoBehaviour
         combo += increase;
         OnComboChanged?.Invoke(combo);
         comboText.text = $"x{combo}";
+
+        if (combo > maxCombo)
+        {
+            maxCombo = combo;
+        }
 
         if (enemyCount > 0)
             comboResetTime = Time.time + comboResetDelay;
