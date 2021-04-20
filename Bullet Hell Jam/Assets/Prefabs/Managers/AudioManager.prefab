@@ -59,7 +59,7 @@ MonoBehaviour:
     volumeString: SfxVolume
     defaultVolume: 1
   bgm: {fileID: 11400000, guid: 7fd1a45705b866f43934e2df12bdc6fa, type: 2}
-  minLowpassFrequency: 1000
+  minLowpassFrequency: 1200
 --- !u!82 &3715718034142292159
 AudioSource:
   m_ObjectHideFlags: 0

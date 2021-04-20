@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aeac8f85f904614f8c7301f8a1f16ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  comboResetDelay: 4
+  comboResetDelay: 5
   comboText: {fileID: 0}
   scoreText: {fileID: 0}
   pauseTime: 0.2
