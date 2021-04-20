@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class CardDisplayWheel : MonoBehaviour
 {
@@ -20,7 +21,15 @@ public class CardDisplayWheel : MonoBehaviour
     private List<CardDisplay> cardDisplays;
 
     [SerializeField]
+    private GameObject energyDisplay;
+
+    [SerializeField]
+    private TextMeshProUGUI energyDisplayValue;
+
+    [SerializeField]
     private DeckManager deckManager;
+
+    private PlayerController pc;
 
     private bool isDisplaying = false;
 
@@ -40,6 +49,8 @@ public class CardDisplayWheel : MonoBehaviour
 
     private void Start()
     {
+        pc = GameObject.FindObjectOfType<PlayerController>();
+
         displayWheelBG.enabled = false;
 
         cardDisplays = new List<CardDisplay>();
@@ -50,11 +61,21 @@ public class CardDisplayWheel : MonoBehaviour
         cardDisplays.Add(rightCardDisplay);
     }
 
+    private void Update()
+    {
+        if (isDisplaying)
+        {
+            energyDisplayValue.text = pc.Energy.ToString();
+        }
+    }
+
     private void OnSlowMoStarted()
     {
         isDisplaying = true;
 
         displayWheelBG.enabled = true;
+
+        energyDisplay.SetActive(true);
 
         UpdateCards();
     }
@@ -64,6 +85,8 @@ public class CardDisplayWheel : MonoBehaviour
         isDisplaying = false;
 
         displayWheelBG.enabled = false;
+
+        energyDisplay.SetActive(false);
 
         HideAllCardDisplays();
     }
