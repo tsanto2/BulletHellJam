@@ -103,8 +103,8 @@ public class EnemyController : MonoBehaviour, IDamageable, IFireable
         
         if (scorePoints)
         {
-            OnEnemyDeathScore?.Invoke(scoreValue);
             OnEnemyDeath?.Invoke(1);
+            OnEnemyDeathScore?.Invoke(scoreValue);
             AudioManager.PlaySFX(deathSound);
         }
     }

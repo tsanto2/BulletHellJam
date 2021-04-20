@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be56a3ed7cd2bc84b8ef5f8e18f93480, type: 3}
   m_Name: Shotgun
   m_EditorClassIdentifier: 
-  baseDirection: 225
-  baseSpread: 105
+  baseDirection: 260
+  baseSpread: 165
   bulletMinSpawnDistance: 0
   bulletMaxSpawnDistance: 1
   baseOscillationType: 1
   baseOscillationSpeed: 0
-  spawnRadius: 52.5
+  spawnRadius: 82.5
   bulletPrefab: {fileID: 1492540044211201988, guid: e15eeeb9d931da2478e3de2f13269a3a,
     type: 3}
   bulletMinLifeTime: 4
@@ -27,14 +27,14 @@ MonoBehaviour:
   bulletMaxBaseSpeed: 4
   bulletRotationSpeed: 0
   shootDelay: 2.45
-  bulletTotal: 40
+  bulletTotal: 50
   bulletOffset: 74
   wrapAngles: 1
   mirrorShootAngles: 0
   spawnerOscillationSpeed: 0
   incrementalSpeed: -0.01
   incrementalRotation: 0
-  bulletSpread: 2886
+  bulletSpread: 3626
   spawnRotation: 0
   currentBaseAngle: 0
   positions:
@@ -78,7 +78,27 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
   bullets:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
