@@ -3,9 +3,24 @@
 public class InputController : MonoBehaviour
 {
     public KeyInput keyInput;
+    private bool controlsEnabled = true;
+
+    private void OnEnable()
+    {
+        controlsEnabled = true;
+        BossController.OnBossDeath += DisableControls;
+    }
+
+    private void OnDisable()
+    {
+        BossController.OnBossDeath -= DisableControls;
+    }
 
     private void Update()
     {
+        if (!controlsEnabled)
+            return;
+
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
         keyInput.moveVec = new Vector3(moveX, moveY, 0f);
@@ -20,6 +35,24 @@ public class InputController : MonoBehaviour
         keyInput.bottomFaceButtonPress = Input.GetButtonDown("BottomFaceButton");
 
         keyInput.restartPress = Input.GetKeyDown(KeyCode.F12); 
+    }
+
+    private void DisableControls()
+    {
+        controlsEnabled = false;
+
+        keyInput.moveVec = Vector3.zero;
+
+        keyInput.crawlPress = false;
+        keyInput.shootPress = false;
+        keyInput.slowmo = false;
+
+        keyInput.leftFaceButtonPress = false;
+        keyInput.rightFaceButtonPress = false;
+        keyInput.topFaceButtonPress = false;
+        keyInput.bottomFaceButtonPress = false;
+
+        keyInput.restartPress = false;
     }
 }
 

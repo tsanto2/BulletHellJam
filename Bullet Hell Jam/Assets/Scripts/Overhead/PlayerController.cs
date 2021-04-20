@@ -91,9 +91,6 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
     private void Awake()
     {
         input = GetComponent<InputController>();
-
-        Health = healthMax;
-        Energy = energyMax;
         Spawner = GetComponent<BulletSpawner>();
     }
 
@@ -107,6 +104,9 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
         AbilityManager.OnPlayerWeaponCardDeactivated += SetPeaShooter;
 
         BulletHitBehaviour = new DamagePlayerBehaviour(this);
+
+        Health = healthMax;
+        Energy = energyMax;
 
         /*if (!debugWeapons)
             Spawner.Pattern = null;*/
@@ -124,7 +124,7 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
     }
 
     private void FixedUpdate()
-    {        
+    {     
         HandleShooting();
     }
 

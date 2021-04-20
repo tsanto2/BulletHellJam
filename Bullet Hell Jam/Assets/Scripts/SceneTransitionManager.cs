@@ -54,6 +54,12 @@ public class SceneTransitionManager : MonoBehaviour
     private void BossBattleEnded()
     {
         SetLevelStats();
+        StartCoroutine(StatSceneTransition(4f));
+    }
+
+    IEnumerator StatSceneTransition(float delay)
+    {
+        yield return new WaitForSeconds(delay);
         SceneManager.LoadScene("PostLevelStatsScene");
     }
 
