@@ -21,8 +21,8 @@ MonoBehaviour:
   spawnRadius: 15
   bulletPrefab: {fileID: 1492540044211201988, guid: da5958408dfe64b43ab7ed99332bebba,
     type: 3}
-  bulletMinLifeTime: 3
-  bulletMaxLifeTime: 3
+  bulletMinLifeTime: 4
+  bulletMaxLifeTime: 4
   bulletMinBaseSpeed: 10
   bulletMaxBaseSpeed: 10
   bulletRotationSpeed: 0

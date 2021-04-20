@@ -18,18 +18,75 @@ MonoBehaviour:
   bulletMaxSpawnDistance: 0.5
   baseOscillationType: 0
   baseOscillationSpeed: 39
+  spawnRadius: 180
   bulletPrefab: {fileID: 1492540044211201988, guid: e15eeeb9d931da2478e3de2f13269a3a,
     type: 3}
   bulletMinLifeTime: 1.5
   bulletMaxLifeTime: 1.5
-  bulletMinBaseSpeed: 1
-  bulletMaxBaseSpeed: 2.2
+  bulletMinBaseSpeed: 0.7
+  bulletMaxBaseSpeed: 2
   bulletRotationSpeed: 0
   shootDelay: 2
-  bulletTotal: 50
+  bulletTotal: 25
   bulletOffset: 126
   wrapAngles: 0
   mirrorShootAngles: 0
   spawnerOscillationSpeed: 0
   incrementalSpeed: 0
   incrementalRotation: 0
+  bulletSpread: 3024
+  spawnRotation: 0
+  currentBaseAngle: -119.1774
+  positions:
+  - {x: -0.98103184, y: 0.19384676, z: 0}
+  - {x: 0.41981152, y: -0.9076113, z: 0}
+  - {x: 0.48751482, y: 0.8731147, z: 0}
+  - {x: -0.99291855, y: -0.11879705, z: 0}
+  - {x: 0.67973095, y: -0.7334615, z: 0}
+  - {x: 0.19384612, y: 0.98103195, z: 0}
+  - {x: -0.90761185, y: -0.41981038, z: 0}
+  - {x: 0.8731146, y: -0.4875151, z: 0}
+  - {x: -0.11879581, y: 0.9929187, z: 0}
+  - {x: -0.7334611, y: -0.6797315, z: 0}
+  - {x: 0.9810318, y: -0.19384687, z: 0}
+  - {x: -0.41981056, y: 0.9076117, z: 0}
+  - {x: -0.4875147, y: -0.87311476, z: 0}
+  - {x: 0.99291867, y: 0.118796185, z: 0}
+  - {x: -0.6797311, y: 0.73346144, z: 0}
+  - {x: -0.19384669, y: -0.98103184, z: 0}
+  - {x: 0.90761167, y: 0.41981074, z: 0}
+  - {x: -0.87311476, y: 0.48751476, z: 0}
+  - {x: 0.118796185, y: -0.99291867, z: 0}
+  - {x: 0.73346144, y: 0.679731, z: 0}
+  - {x: -0.9810318, y: 0.19384697, z: 0}
+  - {x: 0.41981047, y: -0.9076118, z: 0}
+  - {x: 0.4875142, y: 0.87311506, z: 0}
+  - {x: -0.99291867, y: -0.118795894, z: 0}
+  - {x: 0.67973155, y: -0.733461, z: 0}
+  bullets:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  pool: {fileID: 0}

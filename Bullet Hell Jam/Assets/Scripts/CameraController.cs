@@ -1,6 +1,5 @@
 ﻿using System;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class CameraController : MonoBehaviour
 {
@@ -14,14 +13,28 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float minY = -2.5f;
     [SerializeField] private float maxY = 3.5f;
 
+    private bool bossDefeated;
+
+    private void OnEnable()
+    {
+        bossDefeated = false;
+
+        BossController.OnBossDeath += DisableAutoScroll;
+    }
+
+    private void OnDisable()
+    {
+        BossController.OnBossDeath -= DisableAutoScroll;
+    }
+
     private void FixedUpdate()
     {
-        AutoScroll(transform);
+        if (!bossDefeated)
+            AutoScroll(transform);
     }
 
     public void CameraUpdatePosition(Transform transform)
     {
-
         float clampMinX = this.transform.position.x + minX;
         float clampMaxX = this.transform.position.x + maxX;
         float clampMinY = this.transform.position.y + minY;
@@ -35,6 +48,11 @@ public class CameraController : MonoBehaviour
     public void AutoScroll(Transform transform)
     {
         transform.position += Vector3.right * scrollSpeed * Time.fixedDeltaTime;
+    }
+
+    private void DisableAutoScroll()
+    {
+        bossDefeated = true;
     }
 
     [Serializable]

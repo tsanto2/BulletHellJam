@@ -42,11 +42,11 @@ public class EnemyMovement : MonoBehaviour
         
         camController.AutoScroll(transform);
         
-        if (movementBehaviour != MovementBehaviour.MoveLeft &&
+/*         if (movementBehaviour != MovementBehaviour.MoveLeft &&
             movementBehaviour != MovementBehaviour.MoveRight)
         {
             camController.CameraUpdatePosition(transform);
-        }
+        } */
 
         if (Time.time >= moveStartTime)
             HandleMovement();

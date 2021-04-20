@@ -69,6 +69,8 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
 
     [SerializeField]
     private BulletPattern peaShooter;
+    [SerializeField]
+    private SpriteRenderer bubbleSprite;
 
     private bool canShoot = false;
 
@@ -135,12 +137,14 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
     {
         BulletCollisionCheck bcheck = GetComponent<BulletCollisionCheck>();
         bcheck.ChangeToLargeRadius();
+        bubbleSprite.enabled = true;
     }
 
     private void ShrinkHitbox()
     {
         BulletCollisionCheck bcheck = GetComponent<BulletCollisionCheck>();
         bcheck.ChangeToNormalRadius();
+        bubbleSprite.enabled = false;
     }
 
     private void HandleShooting()
