@@ -10,31 +10,31 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be56a3ed7cd2bc84b8ef5f8e18f93480, type: 3}
-  m_Name: Shotgun
+  m_Name: Swirl
   m_EditorClassIdentifier: 
-  baseDirection: 225
-  baseSpread: 105
-  bulletMinSpawnDistance: 0
+  baseDirection: 180
+  baseSpread: 100
+  bulletMinSpawnDistance: 1
   bulletMaxSpawnDistance: 1
   baseOscillationType: 1
-  baseOscillationSpeed: 0
-  spawnRadius: 52.5
+  baseOscillationSpeed: 76
+  spawnRadius: 50
   bulletPrefab: {fileID: 1492540044211201988, guid: e15eeeb9d931da2478e3de2f13269a3a,
     type: 3}
-  bulletMinLifeTime: 4
+  bulletMinLifeTime: 5
   bulletMaxLifeTime: 5
-  bulletMinBaseSpeed: 2.5
-  bulletMaxBaseSpeed: 4
+  bulletMinBaseSpeed: 1
+  bulletMaxBaseSpeed: 1
   bulletRotationSpeed: 0
-  shootDelay: 2.45
-  bulletTotal: 40
-  bulletOffset: 74
+  shootDelay: 0.59
+  bulletTotal: 20
+  bulletOffset: 234
   wrapAngles: 1
   mirrorShootAngles: 0
   spawnerOscillationSpeed: 0
-  incrementalSpeed: -0.01
+  incrementalSpeed: 0.1
   incrementalRotation: 0
-  bulletSpread: 2886
+  bulletSpread: 4446
   spawnRotation: 0
   currentBaseAngle: 0
   positions:
@@ -58,47 +58,7 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
   bullets:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

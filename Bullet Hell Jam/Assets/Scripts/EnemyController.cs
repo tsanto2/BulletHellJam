@@ -46,6 +46,7 @@ public class EnemyController : MonoBehaviour, IDamageable, IFireable
 
     private float scrollSpeed;
 
+    [SerializeField] private bool waitForAwake = true;
     protected bool awake;
     private bool onScreen;
 
@@ -64,10 +65,12 @@ public class EnemyController : MonoBehaviour, IDamageable, IFireable
 
     protected virtual void FixedUpdate()
     {
-        if (onScreen)
-            CheckForPlayerBullets();
+        if (!onScreen)
+            return;
 
-        if (awake)
+        CheckForPlayerBullets();
+
+        if (awake || !waitForAwake)
             HandleShooting();
     }
 

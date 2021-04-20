@@ -104,8 +104,9 @@ MonoBehaviour:
   playerBulletLayerMask:
     serializedVersion: 2
     m_Bits: 256
+  waitForAwake: 1
   phasePlaylist:
-  - weapon: {fileID: 11400000, guid: 0ac6677e1248e6947a9cae6f87d1bffa, type: 2}
+  - weapon: {fileID: 11400000, guid: 1d0a1dd246422ad4eaa3536b8fad2079, type: 2}
     movement: 0
     phaseTimeLength: 1.5
   loopPhases: 0
@@ -156,7 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7668825eeff8ae84aabac4d727b74ee4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pattern: {fileID: 11400000, guid: 0ac6677e1248e6947a9cae6f87d1bffa, type: 2}
+  pattern: {fileID: 11400000, guid: 1d0a1dd246422ad4eaa3536b8fad2079, type: 2}
   shootSound: {fileID: 0}
 --- !u!95 &6355264790038296008
 Animator:
