@@ -243,7 +243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthMax: 9
-  energyMax: 6
+  energyMax: 5
   energy: 0
   enemyBulletLayerMask:
     serializedVersion: 2

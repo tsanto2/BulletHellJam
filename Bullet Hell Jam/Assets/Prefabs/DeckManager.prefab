@@ -44,22 +44,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseDeckBasicHpCardCount: 1
-  baseDeckIntermediateHpCardCount: 2
+  baseDeckIntermediateHpCardCount: 1
   baseDeckAdvancedHpCardCount: 1
   baseDeckBasicEnergyCardCount: 1
   baseDeckIntermediateEnergyCardCount: 1
-  baseDeckAdvancedEnergyCardCount: 1
-  baseDeckBasicWeaponCardCount: 3
+  baseDeckAdvancedEnergyCardCount: 0
+  baseDeckBasicWeaponCardCount: 6
   baseDeckIntermediateWeaponCardCount: 3
-  baseDeckAdvancedWeaponCardCount: 2
+  baseDeckAdvancedWeaponCardCount: 1
   baseDeckBasicBlockCardCount: 0
   baseDeckIntermediateBlockCardCount: 1
-  baseDeckAdvancedBlockCardCount: 1
+  baseDeckAdvancedBlockCardCount: 0
   baseDeckBasicAbsorbCardCount: 0
   baseDeckIntermediateAbsorbCardCount: 0
   baseDeckAdvancedAbsorbCardCount: 1
   baseDeckBasicRefreshHandCardCount: 3
-  baseDeckBasicClearBullets: 2
+  baseDeckBasicClearBullets: 1
   baseDeckBasicScoreMultiplier: 0
   baseDeckIntermediateScoreMultiplier: 1
   baseDeckAdvancedScoreMultiplier: 1
