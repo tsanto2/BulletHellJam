@@ -109,12 +109,17 @@ PrefabInstance:
     - target: {fileID: 1533623159307737031, guid: 428be333308cad642819c5e938d1416f,
         type: 3}
       propertyPath: movementBehaviour
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1533623159307737031, guid: 428be333308cad642819c5e938d1416f,
         type: 3}
       propertyPath: moveSpeed
-      value: 4
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1533623159307737031, guid: 428be333308cad642819c5e938d1416f,
+        type: 3}
+      propertyPath: moveDelay
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 428be333308cad642819c5e938d1416f, type: 3}
@@ -191,6 +196,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2937475297104890565, guid: ea5b746cabf7f6a42bac4f0b25a9b31a,
+        type: 3}
+      propertyPath: movementBehaviour
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2937475297104890565, guid: ea5b746cabf7f6a42bac4f0b25a9b31a,
+        type: 3}
+      propertyPath: WakeUpDelay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2937475297104890565, guid: ea5b746cabf7f6a42bac4f0b25a9b31a,
+        type: 3}
+      propertyPath: moveSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2937475297104890565, guid: ea5b746cabf7f6a42bac4f0b25a9b31a,
+        type: 3}
+      propertyPath: moveDelay
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea5b746cabf7f6a42bac4f0b25a9b31a, type: 3}
 --- !u!4 &8206918327208577363 stripped
@@ -265,6 +290,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2937475297104890565, guid: ea5b746cabf7f6a42bac4f0b25a9b31a,
+        type: 3}
+      propertyPath: WakeUpDelay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2937475297104890565, guid: ea5b746cabf7f6a42bac4f0b25a9b31a,
+        type: 3}
+      propertyPath: movementBehaviour
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2937475297104890565, guid: ea5b746cabf7f6a42bac4f0b25a9b31a,
+        type: 3}
+      propertyPath: moveSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2937475297104890565, guid: ea5b746cabf7f6a42bac4f0b25a9b31a,
+        type: 3}
+      propertyPath: moveDelay
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea5b746cabf7f6a42bac4f0b25a9b31a, type: 3}
