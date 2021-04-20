@@ -1,14 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CameraController : MonoBehaviour
 {
+    [Header("Parallax")]
+    [SerializeField] private float scrollSpeed = 1.5f;
+    [SerializeField] private ParallaxItem[] parallaxItems;
+
+    [Header("Camera Bounds")]
     [SerializeField] private float minX = -8.5f;
     [SerializeField] private float maxX = 8.5f;
     [SerializeField] private float minY = -2.5f;
     [SerializeField] private float maxY = 3.5f;
-    [SerializeField] private float scrollSpeed = 1.5f;
 
     private void FixedUpdate()
     {
@@ -31,5 +35,13 @@ public class CameraController : MonoBehaviour
     public void AutoScroll(Transform transform)
     {
         transform.position += Vector3.right * scrollSpeed * Time.fixedDeltaTime;
+    }
+
+    [Serializable]
+    private class ParallaxItem
+    {
+        public GameObject parallaxObject;
+        public float speed;
+        public int tiles;
     }
 }
