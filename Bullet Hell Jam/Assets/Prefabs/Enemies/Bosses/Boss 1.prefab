@@ -100,7 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthMax: 200
   scoreValue: 10000
-  deathSound: {fileID: 0}
+  deathSound: {fileID: 11400000, guid: 5df130ac9e07d8f4daf77339d41c30e2, type: 2}
   playerBulletLayerMask:
     serializedVersion: 2
     m_Bits: 256

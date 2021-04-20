@@ -31,7 +31,7 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        PlaySFX(bgm);
+        //PlaySFX(bgm);
     }
 
     private static void LoadMixerGroupVolume(AudioMixerGroup group, string volumeString, float defaultVolume)

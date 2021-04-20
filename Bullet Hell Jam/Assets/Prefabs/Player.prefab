@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5039962513532096058}
   - component: {fileID: 4348034929009209615}
+  - component: {fileID: 1087805136}
   m_Layer: 8
-  m_Name: GameObject
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2271755153884047363}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.25, y: -0.2, z: 0}
+  m_LocalPosition: {x: -0.2, y: -0.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2027764439036012516}
@@ -69,7 +70,8 @@ SpriteRenderer:
   m_SortingLayerID: 1592786015
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d5f601c9019d3ca4c9aefcd1221100d3, type: 3}
+  m_Sprite: {fileID: -3330851605974255266, guid: d9de5094e4b49cc458a2e97434179816,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -80,6 +82,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1087805136
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2271755153884047363}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3f486c6c0c6c1ad439c3ae8be260329f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8529394294941818745
 GameObject:
   m_ObjectHideFlags: 0
@@ -177,8 +198,8 @@ MonoBehaviour:
   bulletLayerMask:
     serializedVersion: 2
     m_Bits: 512
-  checkRadius: 0.12
-  normalRadius: 0.12
+  checkRadius: 0.2
+  normalRadius: 0.2
   largeRadius: 0.5
   hitSound: {fileID: 11400000, guid: 8f70f3ac0138d4642ad6e9bdf956e1b1, type: 2}
 --- !u!114 &869963173
