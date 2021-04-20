@@ -137,7 +137,7 @@ MonoBehaviour:
   moveSpeed: 0
   lifetime: 0
   pool: {fileID: 0}
-  healthMax: 3
+  healthMax: 2
   burstWeapon: {fileID: 11400000, guid: 8cf78289d4ebe30469d26b8bc35ba16d, type: 2}
   deathSound: {fileID: 11400000, guid: 69505cebcd6158c4cb6d7e0b8d24bc64, type: 2}
 --- !u!114 &7093404757587068282

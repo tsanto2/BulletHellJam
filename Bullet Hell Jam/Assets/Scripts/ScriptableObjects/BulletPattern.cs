@@ -39,7 +39,7 @@ public class BulletPattern : ScriptableObject
     [Range(-30f, 30f), SerializeField] public float bulletRotationSpeed;
 
     [Header("Spawner Stats")]
-    [Range(0.02f, 3f)] public float shootDelay = 0.1f;
+    [Range(0.02f, 5f)] public float shootDelay = 0.1f;
     [Range(1, 50), SerializeField] public int bulletTotal = 1;
     [Range(0f, 360), SerializeField] public float bulletOffset = 0f;
     [SerializeField] public bool wrapAngles;

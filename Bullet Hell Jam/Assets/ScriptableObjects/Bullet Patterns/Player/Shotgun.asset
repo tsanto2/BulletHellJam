@@ -14,20 +14,89 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseDirection: 0
   baseSpread: 45
-  bulletMinSpawnDistance: 0.25
-  bulletMaxSpawnDistance: 1.5
+  bulletMinSpawnDistance: 0
+  bulletMaxSpawnDistance: 2
   baseOscillationType: 1
   baseOscillationSpeed: 1
+  spawnRadius: 22.5
   bulletPrefab: {fileID: 1492540044211201988, guid: da5958408dfe64b43ab7ed99332bebba,
     type: 3}
-  bulletLifeTime: 0.2
-  bulletBaseSpeed: 10
+  bulletMinLifeTime: 5
+  bulletMaxLifeTime: 5
+  bulletMinBaseSpeed: 2.5
+  bulletMaxBaseSpeed: 2.5
   bulletRotationSpeed: 0
-  shootDelay: 0.79999995
+  shootDelay: 0.75
   bulletTotal: 30
   bulletOffset: 5
   wrapAngles: 1
   mirrorShootAngles: 0
   spawnerOscillationSpeed: 0
-  incrementalSpeed: 0
+  incrementalSpeed: -0.02
   incrementalRotation: 0
+  bulletSpread: 145
+  spawnRotation: 0
+  currentBaseAngle: 0
+  positions:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  bullets:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  pool: {fileID: 0}
