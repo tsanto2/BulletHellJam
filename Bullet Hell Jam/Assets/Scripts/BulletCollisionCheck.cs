@@ -8,7 +8,7 @@ public class BulletCollisionCheck : MonoBehaviour
     [SerializeField] private float checkRadius;
     [SerializeField] private float normalRadius;
     [SerializeField] private float largeRadius;
-    [SerializeField] private bool invincible;
+    [SerializeField] private bool hitFlash = true;
 
     [Header("Hit FX")]
     [SerializeField] private Sound hitSound;
@@ -30,31 +30,33 @@ public class BulletCollisionCheck : MonoBehaviour
 
     private void FixedUpdate() => CheckForEnemyBullets();
 
+    public void GainInvincibility(float time) => hitFlash = false;
+    public void LoseInvincibility() => hitFlash = true;
+
     public void ChangeToLargeRadius()
     {
         checkRadius = largeRadius;
-        invincible = true;
     }
 
     public void ChangeToNormalRadius()
     {
         checkRadius = normalRadius;
-        invincible = false;
     }
 
     private void CheckForEnemyBullets()
     {
-        if (invincible)
-            return;
-
         hit = Physics2D.OverlapCircle(transform.position, checkRadius, bulletLayerMask);
         if (hit)
-        {
-            StartCoroutine(HitFlash());
-            damageable.BulletHitBehaviour.Perform(hit.gameObject);
+        {  
+            if (hitFlash)
+            {
+                StartCoroutine(HitFlash());
 
-            if (hitSound != null)
-                AudioManager.PlaySFX(hitSound);
+                if (hitSound != null)
+                    AudioManager.PlaySFX(hitSound);
+            }
+            
+            damageable.BulletHitBehaviour.Perform(hit.gameObject);
         }
     }
 

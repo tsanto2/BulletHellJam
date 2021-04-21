@@ -92,3 +92,5 @@ MonoBehaviour:
   hand: []
   activateCardSound: {fileID: 11400000, guid: 6ebb925c3264da44a967dd84325af8e2, type: 2}
   drawHandSound: {fileID: 11400000, guid: f809d0dbf30a5ec46a8a3db901f577cc, type: 2}
+  activateNoEnergySound: {fileID: 11400000, guid: 6631681fe8328324cbcc148d22a9a630,
+    type: 2}

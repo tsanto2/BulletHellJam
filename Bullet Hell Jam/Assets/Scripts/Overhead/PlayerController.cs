@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
     }
 
     private InputController input;
-    public BulletCollisionCheck BulletCollisionCheck { get; private set; }
+    private BulletCollisionCheck collisionCheck;
     
     [SerializeField] private LayerMask enemyBulletLayerMask;
     private Collider2D hit;
@@ -94,6 +94,7 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
     {
         input = GetComponent<InputController>();
         Spawner = GetComponent<BulletSpawner>();
+        collisionCheck = GetComponent<BulletCollisionCheck>();
     }
 
     private void OnEnable()
@@ -106,6 +107,11 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
         AbilityManager.OnPlayerWeaponCardDeactivated += SetPeaShooter;
 
         BulletHitBehaviour = new DamagePlayerBehaviour(this);
+
+        BlockBullets.OnBlockBulletsCardActivated += collisionCheck.GainInvincibility;
+        AbsorbBullets.OnAbsorbBulletsCardActivated += collisionCheck.GainInvincibility;
+        AbilityManager.OnBlockBulletsCardDeactivated += collisionCheck.LoseInvincibility;
+        AbilityManager.OnAbsorbBulletsCardDeactivated += collisionCheck.LoseInvincibility;
 
         Health = healthMax;
         Energy = energyMax;
@@ -123,6 +129,11 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
         BlockBullets.OnBlockBulletsCardActivated -= EnlargeHitbox;
         AbilityManager.OnBlockBulletsCardDeactivated -= ShrinkHitbox;
         AbilityManager.OnPlayerWeaponCardDeactivated -= SetPeaShooter;
+
+        BlockBullets.OnBlockBulletsCardActivated -= collisionCheck.GainInvincibility;
+        AbilityManager.OnBlockBulletsCardDeactivated -= collisionCheck.LoseInvincibility;
+        AbilityManager.OnBlockBulletsCardDeactivated -= collisionCheck.LoseInvincibility;
+        AbilityManager.OnAbsorbBulletsCardDeactivated -= collisionCheck.LoseInvincibility;
     }
 
     private void FixedUpdate()
@@ -137,15 +148,13 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
 
     private void EnlargeHitbox(float duration)
     {
-        BulletCollisionCheck bcheck = GetComponent<BulletCollisionCheck>();
-        bcheck.ChangeToLargeRadius();
+        collisionCheck.ChangeToLargeRadius();
         bubbleSprite.enabled = true;
     }
 
     private void ShrinkHitbox()
     {
-        BulletCollisionCheck bcheck = GetComponent<BulletCollisionCheck>();
-        bcheck.ChangeToNormalRadius();
+        collisionCheck.ChangeToNormalRadius();
         bubbleSprite.enabled = false;
     }
 

@@ -100,9 +100,6 @@ MonoBehaviour:
   healthMax: 200
   scoreValue: 10000
   deathSound: {fileID: 11400000, guid: 5df130ac9e07d8f4daf77339d41c30e2, type: 2}
-  playerBulletLayerMask:
-    serializedVersion: 2
-    m_Bits: 256
   waitForAwake: 1
   phasePlaylist:
   - weapon: {fileID: 11400000, guid: 301e58f6fe510fa4f943ed2215633de6, type: 2}
@@ -143,10 +140,10 @@ MonoBehaviour:
   bulletLayerMask:
     serializedVersion: 2
     m_Bits: 256
-  checkRadius: 2
+  checkRadius: 1.5
   normalRadius: 0
   largeRadius: 0
-  invincible: 0
+  hitFlash: 1
   hitSound: {fileID: 0}
   hitFlashColor: {r: 1, g: 0.6273585, b: 0.6273585, a: 1}
   hitFlashDuration: 0.06

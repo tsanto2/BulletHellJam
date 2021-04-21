@@ -74,7 +74,8 @@ SpriteRenderer:
   m_SortingLayerID: 1592786015
   m_SortingLayer: 2
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 38c8dc54b8bfcae4d97294096913ac64, type: 3}
+  m_Sprite: {fileID: -2914093824073736971, guid: 1dfb038d9e202f24a9ecdb510629bc40,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -97,12 +98,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 084a574cfa15bb54eb4af23b07fa9d9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthMax: 100
+  healthMax: 80
   scoreValue: 10000
   deathSound: {fileID: 11400000, guid: 69505cebcd6158c4cb6d7e0b8d24bc64, type: 2}
-  playerBulletLayerMask:
-    serializedVersion: 2
-    m_Bits: 256
   waitForAwake: 1
   phasePlaylist:
   - weapon: {fileID: 11400000, guid: 1d0a1dd246422ad4eaa3536b8fad2079, type: 2}
@@ -149,10 +147,13 @@ MonoBehaviour:
   bulletLayerMask:
     serializedVersion: 2
     m_Bits: 256
-  checkRadius: 2
+  checkRadius: 1.5
   normalRadius: 0
   largeRadius: 0
+  hitFlash: 1
   hitSound: {fileID: 0}
+  hitFlashColor: {r: 1, g: 0.6273585, b: 0.6273585, a: 1}
+  hitFlashDuration: 0.06
 --- !u!114 &-3707578697455773167
 MonoBehaviour:
   m_ObjectHideFlags: 0

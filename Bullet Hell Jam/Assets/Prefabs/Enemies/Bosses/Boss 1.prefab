@@ -97,12 +97,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 084a574cfa15bb54eb4af23b07fa9d9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthMax: 200
+  healthMax: 100
   scoreValue: 10000
   deathSound: {fileID: 11400000, guid: 5df130ac9e07d8f4daf77339d41c30e2, type: 2}
-  playerBulletLayerMask:
-    serializedVersion: 2
-    m_Bits: 256
   waitForAwake: 1
   phasePlaylist:
   - weapon: {fileID: 11400000, guid: 301e58f6fe510fa4f943ed2215633de6, type: 2}
@@ -155,11 +152,13 @@ MonoBehaviour:
   bulletLayerMask:
     serializedVersion: 2
     m_Bits: 256
-  checkRadius: 2
+  checkRadius: 1.5
   normalRadius: 0
   largeRadius: 0
+  hitFlash: 1
   hitSound: {fileID: 0}
-  invincible: 0
+  hitFlashColor: {r: 1, g: 0.6273585, b: 0.6273585, a: 1}
+  hitFlashDuration: 0.06
 --- !u!114 &-3707578697455773167
 MonoBehaviour:
   m_ObjectHideFlags: 0

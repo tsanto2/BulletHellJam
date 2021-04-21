@@ -49,8 +49,9 @@ MonoBehaviour:
   scoreText: {fileID: 0}
   pauseTime: 0.2
   minPitch: 0.5
+  tickSound: {fileID: 11400000, guid: 17960e5444146334b92fb71fd444abe7, type: 2}
   bossSpawnDelay: 3.5
-  bossGameObject: {fileID: 6407241734672754609, guid: 46d58d5e17c9424488d2987eebb329da,
+  bossGameObject: {fileID: 6407241734672754609, guid: 9e7907fc1d6c89748a32f6615e1109d5,
     type: 3}
 --- !u!114 &8176372330591010298
 MonoBehaviour:
