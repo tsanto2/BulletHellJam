@@ -809,6 +809,11 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1204316914603261140, guid: 34b122f30ecc3b7428a66619c813b573,
+        type: 3}
+      propertyPath: isDeathFader
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2641870939980889910, guid: 34b122f30ecc3b7428a66619c813b573,
         type: 3}
       propertyPath: m_textInfo.characterCount
