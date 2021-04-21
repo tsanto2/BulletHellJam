@@ -9,7 +9,7 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI hpValue;
     [SerializeField]
-    private TextMeshProUGUI energyValue;
+    private List<GameObject> energyIcons;
     [SerializeField]
     private TextMeshProUGUI countdownValue;
 
@@ -19,13 +19,13 @@ public class UIManager : MonoBehaviour
     private void OnEnable()
     {
         PlayerController.OnPlayerHealthChange += UpdateHpText;
-        PlayerController.OnPlayerEnergyChange += UpdateEnergyText;
+        PlayerController.OnPlayerEnergyChange += UpdateEnergyIcons;
     }
 
     private void OnDisable()
     {
         PlayerController.OnPlayerHealthChange -= UpdateHpText;
-        PlayerController.OnPlayerEnergyChange -= UpdateEnergyText;
+        PlayerController.OnPlayerEnergyChange -= UpdateEnergyIcons;
     }
 
     private void Update()
@@ -38,9 +38,17 @@ public class UIManager : MonoBehaviour
         hpValue.text = hp.ToString();
     }
 
-    private void UpdateEnergyText(int energy)
+    private void UpdateEnergyIcons(int energy)
     {
-        energyValue.text = energy.ToString();
+        for (int i=0; i<energyIcons.Count; i++)
+        {
+            bool shouldBeActive = false;
+
+            if (i < energy)
+                shouldBeActive = true;
+
+            energyIcons[i].SetActive(shouldBeActive);
+        }
     }
 
     private void UpdateCountdownText()
