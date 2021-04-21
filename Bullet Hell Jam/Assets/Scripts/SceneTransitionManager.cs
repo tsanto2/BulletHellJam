@@ -22,6 +22,11 @@ public class SceneTransitionManager : MonoBehaviour
     private bool isStatsScene;
 
     private int nextScene = 1;
+
+    [SerializeField]
+    private string statsSceneName = "PostLevelStatsScene";
+    [SerializeField]
+    private string gameplaySceneBaseName = "Level";
     private void OnEnable()
     {
         BossController.OnBossDeath += BossBattleEnded;
@@ -41,6 +46,12 @@ public class SceneTransitionManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    private void Update()
+    {
+        if (isStatsScene)
+            CheckForNextSceneButtonPressed();
+    }
+
     void SceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
     {
         Debug.Log("Scene loaded: " + scene.name);
@@ -51,26 +62,27 @@ public class SceneTransitionManager : MonoBehaviour
 
         if (scene.name == "PostLevelStatsScene")
         {
-            StartCoroutine(StatSceneTransition(1f, false));
-
-            isStatsScene = true;
-
-            nextScene++;
-
-            FindObjectOfType<LevelStatsDisplay>().PopulateData(currentSceneName, score, maxCombo, newHiScore, newMaxCombo);
+            InitStatsScreen();
         }
         else
         {
             isStatsScene = false;
 
             currentSceneName = scene.name;
+
+            StartCoroutine(TimedSceneTransition(0.5f, false));
         }
     }
 
-    private void Update()
+    private void InitStatsScreen()
     {
-        if (isStatsScene)
-            CheckForNextSceneButtonPressed();
+        StartCoroutine(TimedSceneTransition(1f, false));
+
+        isStatsScene = true;
+
+        nextScene++;
+
+        FindObjectOfType<LevelStatsDisplay>().PopulateData(currentSceneName, score, maxCombo, newHiScore, newMaxCombo);
     }
 
     private void CheckForNextSceneButtonPressed()
@@ -82,41 +94,23 @@ public class SceneTransitionManager : MonoBehaviour
 
         if (nextSceneButtonPressed && isStatsScene)
         {
-            TransitionToNextGameplayLevel();
-        }
-    }
+            string nextGameplaySceneName = gameplaySceneBaseName + nextScene.ToString();
 
-    private void TransitionToNextGameplayLevel()
-    {
-        SceneManager.LoadScene("Level" + nextScene.ToString());
+            StartCoroutine(TimedSceneTransition(1f, true, nextGameplaySceneName));
+        }
     }
 
     private void BossBattleEnded()
     {
         SetLevelStats();
-        StartCoroutine(StatSceneTransition(4f, true));
+
+        StartCoroutine(TimedSceneTransition(4f, true, statsSceneName));
     }
 
-    IEnumerator StatSceneTransition(float delay, bool isGameplayScene)
+    private void TransitionToScene(string sceneName)
     {
-        Image faderImage = fader.FaderImage;
 
-        float elapsedTime = 0;
-        float startValue = faderImage.color.a;
-        float endValue = 1;
-
-        if (!isGameplayScene)
-            endValue = 0;
-
-        while (elapsedTime < delay)
-        {
-            elapsedTime += Time.deltaTime;
-            float newAlpha = Mathf.Lerp(startValue, endValue, elapsedTime / delay);
-            faderImage.color = new Color(faderImage.color.r, faderImage.color.g, faderImage.color.b, newAlpha);
-            yield return null;
-        }
-        if (isGameplayScene)
-            SceneManager.LoadScene("PostLevelStatsScene");
+        SceneManager.LoadScene(sceneName);
     }
 
     private void SetLevelStats()
@@ -135,5 +129,28 @@ public class SceneTransitionManager : MonoBehaviour
             newMaxCombo = true;
             PlayerPrefs.SetInt(currentSceneName + "MaxCombo", maxCombo);
         }
+    }
+
+    IEnumerator TimedSceneTransition(float delay, bool increaseAlpha, string sceneName=null)
+    {
+        Image faderImage = fader.FaderImage;
+
+        float elapsedTime = 0;
+        float startValue = faderImage.color.a;
+        float endValue = 1;
+
+        if (!increaseAlpha)
+            endValue = 0;
+
+        while (elapsedTime < delay)
+        {
+            elapsedTime += Time.deltaTime;
+            float newAlpha = Mathf.Lerp(startValue, endValue, elapsedTime / delay);
+            faderImage.color = new Color(faderImage.color.r, faderImage.color.g, faderImage.color.b, newAlpha);
+            yield return null;
+        }
+
+        if (increaseAlpha)
+            TransitionToScene(sceneName);
     }
 }
