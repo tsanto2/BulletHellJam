@@ -53,6 +53,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private float pauseTime = 0.03f;
     [SerializeField] private float minPitch = 0.3f;
+    [SerializeField] private Sound tickSound;
     private Coroutine pauseCoroutine;
     
     [Header("Boss")]
@@ -211,11 +212,17 @@ public class GameManager : MonoBehaviour
 
         countdown--;
 
-        if (countdown == 0)
+        if (countdown <= 3)
         {
-            countdown = 10;
-            OnTenSecondsPassed?.Invoke();
+            if (countdown == 0)
+            {
+                countdown = 10;
+                OnTenSecondsPassed?.Invoke();
+            }
+            else
+                AudioManager.PlaySFX(tickSound);
         }
+
         StartCoroutine(TenSecondTimer());
     }
 }

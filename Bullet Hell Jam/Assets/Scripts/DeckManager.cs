@@ -72,7 +72,7 @@ public class DeckManager : MonoBehaviour
     private bool isSlowMoTime = false;
 
     [SerializeField]
-    private Sound activateCardSound, drawHandSound;
+    private Sound activateCardSound, drawHandSound, activateNoEnergySound;
 
     #endregion
 
@@ -258,6 +258,8 @@ public class DeckManager : MonoBehaviour
 
             AudioManager.PlaySFX(activateCardSound);
         }
+        else
+            AudioManager.PlaySFX(activateNoEnergySound);
     }
 
     public void DiscardHand()

@@ -1894,6 +1894,12 @@ PrefabInstance:
       propertyPath: pc
       value: 
       objectReference: {fileID: 453608866}
+    - target: {fileID: 3898581944908485155, guid: c10e4a138b9283d4d9f543714bbeaeca,
+        type: 3}
+      propertyPath: activateNoEnergySound
+      value: 
+      objectReference: {fileID: 11400000, guid: 6631681fe8328324cbcc148d22a9a630,
+        type: 2}
     - target: {fileID: 3898581944908485154, guid: c10e4a138b9283d4d9f543714bbeaeca,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2280,6 +2286,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6407241734672754609, guid: 9e7907fc1d6c89748a32f6615e1109d5,
         type: 3}
+    - target: {fileID: 8176372330591010299, guid: 4828d6115ce0bc746b5c8f22231830d0,
+        type: 3}
+      propertyPath: tickSound
+      value: 
+      objectReference: {fileID: 11400000, guid: 17960e5444146334b92fb71fd444abe7,
+        type: 2}
     - target: {fileID: 8176372330591010300, guid: 4828d6115ce0bc746b5c8f22231830d0,
         type: 3}
       propertyPath: m_LocalPosition.x
