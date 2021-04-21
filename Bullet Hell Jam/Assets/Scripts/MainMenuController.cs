@@ -7,15 +7,14 @@ using TMPro;
 
 public class MainMenuController : MonoBehaviour
 {
+    private InputController ic;
+    private SceneTransitionFader fader;
+
+    [SerializeField]
+    private AudioSource wavesAudio;
 
     [SerializeField]
     private TextMeshProUGUI title;
-
-    [SerializeField]
-    private InputController ic;
-
-    [SerializeField]
-    private SceneTransitionFader fader;
 
     [SerializeField]
     private List<Image> buttonImages;
@@ -42,6 +41,8 @@ public class MainMenuController : MonoBehaviour
         ic = FindObjectOfType<InputController>();
 
         fader = FindObjectOfType<SceneTransitionFader>();
+
+        //wavesAudio.Play();
 
         StartCoroutine(TitleFadeIn());
     }
