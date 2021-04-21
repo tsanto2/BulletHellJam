@@ -8,6 +8,7 @@ public class SceneTransitionManager : MonoBehaviour
 {
     private GameManager gm;
     private InputController ic;
+    private UIController uic;
 
     private SceneTransitionFader fader;
 
@@ -59,6 +60,7 @@ public class SceneTransitionManager : MonoBehaviour
         gm = FindObjectOfType<GameManager>();
         ic = FindObjectOfType<InputController>();
         fader = FindObjectOfType<SceneTransitionFader>();
+        uic = FindObjectOfType<UIController>();
 
         if (scene.name == "PostLevelStatsScene")
         {
@@ -104,6 +106,8 @@ public class SceneTransitionManager : MonoBehaviour
     {
         SetLevelStats();
 
+        DisableUI();
+
         StartCoroutine(TimedSceneTransition(4f, true, statsSceneName));
     }
 
@@ -128,6 +132,15 @@ public class SceneTransitionManager : MonoBehaviour
         {
             newMaxCombo = true;
             PlayerPrefs.SetInt(currentSceneName + "MaxCombo", maxCombo);
+        }
+    }
+
+    private void DisableUI()
+    {
+        foreach(Transform child in uic.transform)
+        {
+            if (child.GetComponent<SceneTransitionFader>() == null)
+                child.gameObject.SetActive(false);
         }
     }
 
