@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
     public static event Action<int> OnPlayerEnergyChange;
     public static event Action<bool> OnPlayerActivateSlowmo;
     public static event Action OnPlayerTakeDamage;
+    public static event Action OnPlayerDied;
     #endregion   
 
     [Header("Stats")]
@@ -195,6 +196,8 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
     {
         // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         Debug.Log("Doug Dimmadome declares you dimma-dun-dead, son.");
+
+        OnPlayerDied?.Invoke();
     }
 
 }

@@ -33,14 +33,14 @@ public class SceneTransitionManager : MonoBehaviour
     private void OnEnable()
     {
         BossController.OnBossDeath += BossBattleEnded;
-
+        PlayerController.OnPlayerDied += PlayerDied;
         SceneManager.sceneLoaded += SceneLoaded;
     }
 
     private void OnDisable()
     {
         BossController.OnBossDeath -= BossBattleEnded;
-
+        PlayerController.OnPlayerDied -= PlayerDied;
         SceneManager.sceneLoaded -= SceneLoaded;
     }
 
@@ -58,6 +58,11 @@ public class SceneTransitionManager : MonoBehaviour
     void SceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
     {
         Debug.Log("Scene loaded: " + scene.name);
+
+        if (scene.name == "MainMenu")
+        {
+            Destroy(this);
+        }
 
         gm = FindObjectOfType<GameManager>();
         ic = FindObjectOfType<InputController>();
@@ -90,6 +95,11 @@ public class SceneTransitionManager : MonoBehaviour
         FindObjectOfType<LevelStatsDisplay>().PopulateData(currentSceneName, score, maxCombo, newHiScore, newMaxCombo);
     }
 
+    private void PlayerDied()
+    {
+        StartCoroutine(TimedSceneTransition(1f, true, "DeathScreen", true));
+    }
+
     private void CheckForNextSceneButtonPressed()
     {
         if (ic == null)
@@ -116,6 +126,7 @@ public class SceneTransitionManager : MonoBehaviour
 
     private void TransitionToScene(string sceneName)
     {
+        StopAllCoroutines();
 
         SceneManager.LoadScene(sceneName);
     }
@@ -147,11 +158,14 @@ public class SceneTransitionManager : MonoBehaviour
         }
     }
 
-    IEnumerator TimedSceneTransition(float delay, bool increaseAlpha, string sceneName=null)
+    IEnumerator TimedSceneTransition(float delay, bool increaseAlpha, string sceneName=null, bool playerDied = false)
     {
         transitioningToNextScene = true;
 
         Image faderImage = fader.FaderImage;
+
+        if (playerDied)
+            faderImage.color = new Color(Color.black.r, Color.black.g, Color.black.b, faderImage.color.a);
 
         float elapsedTime = 0;
         float startValue = faderImage.color.a;
