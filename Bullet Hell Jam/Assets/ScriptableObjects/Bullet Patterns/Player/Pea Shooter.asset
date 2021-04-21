@@ -23,8 +23,8 @@ MonoBehaviour:
     type: 3}
   bulletMinLifeTime: 4
   bulletMaxLifeTime: 4
-  bulletMinBaseSpeed: 8
-  bulletMaxBaseSpeed: 8
+  bulletMinBaseSpeed: 12
+  bulletMaxBaseSpeed: 12
   bulletRotationSpeed: 0
   shootDelay: 0.29
   bulletTotal: 1

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 138d6843368e4974f9f5080547ea8a1a, type: 3}
   m_Name: MineDeath
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: b8dc68e595fdab348834992ee705afd6, type: 3}
+  clip: {fileID: 8300000, guid: bd7da9014b7743845986118a47785640, type: 3}
   output: {fileID: 9061378762437853971, guid: b5dcec59dec494e48a360a24ca430ed7, type: 2}
-  volume: 0.12
+  volume: 0.25
   pitch: 1.2
   loop: 0

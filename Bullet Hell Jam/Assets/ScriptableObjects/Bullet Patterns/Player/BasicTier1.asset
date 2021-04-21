@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseDirection: 0
   baseSpread: 0
-  bulletMinSpawnDistance: 0.5
-  bulletMaxSpawnDistance: 0.5
+  bulletMinSpawnDistance: 1.4
+  bulletMaxSpawnDistance: 1.4
   baseOscillationType: 1
   baseOscillationSpeed: 0
   spawnRadius: 0
