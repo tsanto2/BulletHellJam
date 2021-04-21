@@ -12,6 +12,12 @@ public class HUDAbilityIconManager : MonoBehaviour
     [SerializeField]
     private Image weaponIconImage, absorbIconImage, blockIconImage;
 
+    [SerializeField]
+    private Image weaponIconDurationImage, absorbIconDurationImage, blockIconDurationImage;
+
+    private float weaponDurationRemaining, absorbDurationRemaining, blockDurationRemaining;
+    private float weaponDurationTotal, absorbDurationTotal, blockDurationTotal;
+
     /*[SerializeField]
     private Sprite weaponIcon, absorbIcon, blockIcon;*/
 
@@ -44,18 +50,29 @@ public class HUDAbilityIconManager : MonoBehaviour
         AbilityManager.OnBlockBulletsCardDeactivated -= BlockDeactivated;
     }
 
+    private void FixedUpdate()
+    {
+        UpdateIconDuration();
+    }
+
     private void WeaponActivated(BulletPattern bulletPattern, float duration)
     {
+        weaponDurationRemaining = duration;
+        weaponDurationTotal = duration;
         ManageIcons(TimedAbilityType.weapon, true);
     }
 
     private void AbsorbActivated(float duration)
     {
+        absorbDurationRemaining = duration;
+        absorbDurationTotal = duration;
         ManageIcons(TimedAbilityType.absorb, true);
     }
 
     private void BlockActivated(float duration)
     {
+        blockDurationRemaining = duration;
+        blockDurationTotal = duration;
         ManageIcons(TimedAbilityType.block, true);
     }
 
@@ -80,16 +97,40 @@ public class HUDAbilityIconManager : MonoBehaviour
         {
             case TimedAbilityType.weapon:
                 weaponIconImage.enabled = shouldActivateIcon;
+                weaponIconDurationImage.enabled = shouldActivateIcon;
                 break;
             case TimedAbilityType.absorb:
                 absorbIconImage.enabled = shouldActivateIcon;
+                absorbIconDurationImage.enabled = shouldActivateIcon;
                 break;
             case TimedAbilityType.block:
                 blockIconImage.enabled = shouldActivateIcon;
+                blockIconDurationImage.enabled = shouldActivateIcon;
                 break;
 
         }
+
+        UpdateIconDuration();
     }
 
+    private void UpdateIconDuration()
+    {
+        if (weaponIconDurationImage.enabled)
+        {
+            weaponIconDurationImage.fillAmount = weaponDurationRemaining / weaponDurationTotal;
+            weaponDurationRemaining -= Time.fixedDeltaTime;
+        }
 
+        if (absorbIconDurationImage.enabled)
+        {
+            absorbIconDurationImage.fillAmount = absorbDurationRemaining / absorbDurationTotal;
+            absorbDurationRemaining -= Time.fixedDeltaTime;
+        }
+
+        if (blockIconDurationImage.enabled)
+        {
+            blockIconDurationImage.fillAmount = blockDurationRemaining / blockDurationTotal;
+            blockDurationRemaining -= Time.fixedDeltaTime;
+        }
+    }
 }

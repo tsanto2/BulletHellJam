@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -3707578697455773167}
   - component: {fileID: 6355264790038296008}
   m_Layer: 0
-  m_Name: Boss 1
+  m_Name: TestBoss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -108,20 +108,8 @@ MonoBehaviour:
   - weapon: {fileID: 11400000, guid: 301e58f6fe510fa4f943ed2215633de6, type: 2}
     movement: 0
     phaseTimeLength: 2
-  - weapon: {fileID: 0}
-    movement: 0
-    phaseTimeLength: 0.6
-  - weapon: {fileID: 11400000, guid: 0ac6677e1248e6947a9cae6f87d1bffa, type: 2}
-    movement: 1
-    phaseTimeLength: 2
   - weapon: {fileID: 11400000, guid: 301e58f6fe510fa4f943ed2215633de6, type: 2}
     movement: 0
-    phaseTimeLength: 2
-  - weapon: {fileID: 0}
-    movement: 0
-    phaseTimeLength: 0.6
-  - weapon: {fileID: 11400000, guid: 0ac6677e1248e6947a9cae6f87d1bffa, type: 2}
-    movement: 2
     phaseTimeLength: 2
   loopPhases: 1
 --- !u!114 &1228610036

@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be56a3ed7cd2bc84b8ef5f8e18f93480, type: 3}
-  m_Name: Swirl
+  m_Name: Sticks
   m_EditorClassIdentifier: 
   baseDirection: 180
-  baseSpread: 100
+  baseSpread: 85
   bulletMinSpawnDistance: 1
   bulletMaxSpawnDistance: 1
   baseOscillationType: 1
   baseOscillationSpeed: 286
-  spawnRadius: 50
+  spawnRadius: 42.5
   bulletPrefab: {fileID: 1492540044211201988, guid: e15eeeb9d931da2478e3de2f13269a3a,
     type: 3}
   bulletMinLifeTime: 5
@@ -26,15 +26,15 @@ MonoBehaviour:
   bulletMinBaseSpeed: 1
   bulletMaxBaseSpeed: 1
   bulletRotationSpeed: 0
-  shootDelay: 0.59
-  bulletTotal: 20
-  bulletOffset: 234
-  wrapAngles: 1
-  mirrorShootAngles: 0
+  shootDelay: 0.91999996
+  bulletTotal: 30
+  bulletOffset: 187
+  wrapAngles: 0
+  mirrorShootAngles: 1
   spawnerOscillationSpeed: 0
-  incrementalSpeed: 0.1
+  incrementalSpeed: 0.12
   incrementalRotation: 0
-  bulletSpread: 4446
+  bulletSpread: 5423
   spawnRotation: 0
   currentBaseAngle: 0
   positions:
@@ -58,7 +58,27 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
   bullets:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

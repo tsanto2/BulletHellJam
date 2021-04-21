@@ -41,11 +41,6 @@ public class BulletSpawner : MonoBehaviour
         pool = ObjectPool.Instance;
     }
 
-    private void DisableControls()
-    {
-        
-    }
-
     public float GetBaseSpawnAngle()
     {
         if (pattern.baseSpread == 0f)

@@ -105,12 +105,15 @@ public class EnemyController : MonoBehaviour, IDamageable, IFireable
         {
             OnEnemyDeath?.Invoke(1);
             OnEnemyDeathScore?.Invoke(scoreValue);
-            AudioManager.PlaySFX(deathSound);
+            AudioManager.PlaySFX(deathSound, true);
         }
     }
 
     private void HandleShooting()
     {
+        if (Spawner.Pattern == null)
+            return;
+
         if (Time.time > shootCooldown)
             Shoot();
     }

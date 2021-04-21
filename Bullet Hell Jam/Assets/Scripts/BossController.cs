@@ -54,7 +54,10 @@ public class BossController : EnemyController
     private void ChangePhase(BossPhase phase)
     {
         Spawner.Pattern = phase.weapon;
-        ShootCooldown = phase.weapon.shootDelay;
+
+        if (phase.weapon != null)
+            ShootCooldown = phase.weapon.shootDelay;
+
         movement.movementBehaviour = phase.movement;
         nextPhaseTime = Time.time + phase.phaseTimeLength;
     }
