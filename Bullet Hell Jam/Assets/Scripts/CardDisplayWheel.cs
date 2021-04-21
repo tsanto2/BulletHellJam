@@ -65,7 +65,7 @@ public class CardDisplayWheel : MonoBehaviour
     {
         if (isDisplaying)
         {
-            energyDisplayValue.text = pc.Energy.ToString();
+            //energyDisplayValue.text = pc.Energy.ToString();
         }
     }
 
@@ -75,7 +75,7 @@ public class CardDisplayWheel : MonoBehaviour
 
         displayWheelBG.enabled = true;
 
-        energyDisplay.SetActive(true);
+        //energyDisplay.SetActive(true);
 
         UpdateCards();
     }
@@ -86,7 +86,7 @@ public class CardDisplayWheel : MonoBehaviour
 
         displayWheelBG.enabled = false;
 
-        energyDisplay.SetActive(false);
+        //energyDisplay.SetActive(false);
 
         HideAllCardDisplays();
     }
