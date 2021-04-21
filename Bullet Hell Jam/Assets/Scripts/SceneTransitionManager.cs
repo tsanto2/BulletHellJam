@@ -22,6 +22,8 @@ public class SceneTransitionManager : MonoBehaviour
 
     private bool isStatsScene;
 
+    private bool transitioningToNextScene = false;
+
     private int nextScene = 1;
 
     [SerializeField]
@@ -81,6 +83,7 @@ public class SceneTransitionManager : MonoBehaviour
         StartCoroutine(TimedSceneTransition(1f, false));
 
         isStatsScene = true;
+        transitioningToNextScene = false;
 
         nextScene++;
 
@@ -94,7 +97,7 @@ public class SceneTransitionManager : MonoBehaviour
 
         bool nextSceneButtonPressed = ic.keyInput.topFaceButtonPress;
 
-        if (nextSceneButtonPressed && isStatsScene)
+        if (nextSceneButtonPressed && isStatsScene && !transitioningToNextScene)
         {
             string nextGameplaySceneName = gameplaySceneBaseName + nextScene.ToString();
 
@@ -146,6 +149,8 @@ public class SceneTransitionManager : MonoBehaviour
 
     IEnumerator TimedSceneTransition(float delay, bool increaseAlpha, string sceneName=null)
     {
+        transitioningToNextScene = true;
+
         Image faderImage = fader.FaderImage;
 
         float elapsedTime = 0;

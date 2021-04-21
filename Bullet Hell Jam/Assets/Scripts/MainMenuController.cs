@@ -35,6 +35,8 @@ public class MainMenuController : MonoBehaviour
     [SerializeField]
     private float sceneTransitionFadeDuration = 2f;
 
+    private bool transitioningToNewScene = false;
+
     private void Start()
     {
         ic = FindObjectOfType<InputController>();
@@ -48,7 +50,8 @@ public class MainMenuController : MonoBehaviour
     {
         Debug.Log("Play button pressed.");
 
-        StartCoroutine(TimedSceneTransition("MatTest"));
+        if (!transitioningToNewScene)
+            StartCoroutine(TimedSceneTransition("MatTest"));
     }
 
     private void TransitionToScene(string sceneName)
@@ -113,6 +116,8 @@ public class MainMenuController : MonoBehaviour
 
     IEnumerator TimedSceneTransition(string sceneName = null)
     {
+        transitioningToNewScene = true;
+
         Image faderImage = fader.FaderImage;
 
         float elapsedTime = 0;
