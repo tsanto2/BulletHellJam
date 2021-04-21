@@ -2966,6 +2966,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardDisplayWheelEnergy
       objectReference: {fileID: 0}
+    - target: {fileID: 2411953299792353093, guid: 6525ce9b3aef5e542993bb6ffd924c3d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7476866367771624992, guid: 6525ce9b3aef5e542993bb6ffd924c3d,
         type: 3}
       propertyPath: m_LocalPosition.x
