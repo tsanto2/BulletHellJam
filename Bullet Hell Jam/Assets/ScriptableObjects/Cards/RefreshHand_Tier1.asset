@@ -16,5 +16,5 @@ MonoBehaviour:
   cardTier: 0
   energyCost: 1
   description: Draw a New Hand.
-  cardIcon: {fileID: 21300000, guid: 8e2284d981938f445be3325419a78645, type: 3}
+  cardIcon: {fileID: 21300000, guid: 28032060d7f37464aa2b5a443eb1c7fa, type: 3}
   cardBorder: {fileID: 21300000, guid: 85481c198aced1b449f68b8940cd4ecb, type: 3}

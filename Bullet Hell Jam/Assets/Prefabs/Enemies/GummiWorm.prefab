@@ -104,6 +104,7 @@ MonoBehaviour:
   playerBulletLayerMask:
     serializedVersion: 2
     m_Bits: 256
+  waitForAwake: 1
 --- !u!114 &1533623159307737031
 MonoBehaviour:
   m_ObjectHideFlags: 0

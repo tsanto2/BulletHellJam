@@ -27,14 +27,14 @@ MonoBehaviour:
   bulletMaxBaseSpeed: 4
   bulletRotationSpeed: 0
   shootDelay: 2.45
-  bulletTotal: 50
+  bulletTotal: 40
   bulletOffset: 74
   wrapAngles: 1
   mirrorShootAngles: 0
   spawnerOscillationSpeed: 0
   incrementalSpeed: -0.01
   incrementalRotation: 0
-  bulletSpread: 3626
+  bulletSpread: 2886
   spawnRotation: 0
   currentBaseAngle: 0
   positions:
@@ -78,27 +78,7 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
   bullets:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
