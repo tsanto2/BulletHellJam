@@ -17,7 +17,7 @@ MonoBehaviour:
   bulletMinSpawnDistance: 1
   bulletMaxSpawnDistance: 1
   baseOscillationType: 1
-  baseOscillationSpeed: 76
+  baseOscillationSpeed: 286
   spawnRadius: 50
   bulletPrefab: {fileID: 1492540044211201988, guid: e15eeeb9d931da2478e3de2f13269a3a,
     type: 3}

@@ -105,10 +105,13 @@ MonoBehaviour:
     m_Bits: 256
   waitForAwake: 1
   phasePlaylist:
-  - weapon: {fileID: 11400000, guid: 1d0a1dd246422ad4eaa3536b8fad2079, type: 2}
+  - weapon: {fileID: 11400000, guid: 0ac6677e1248e6947a9cae6f87d1bffa, type: 2}
     movement: 0
     phaseTimeLength: 1.5
-  loopPhases: 0
+  - weapon: {fileID: 11400000, guid: 0ac6677e1248e6947a9cae6f87d1bffa, type: 2}
+    movement: 0
+    phaseTimeLength: 1.5
+  loopPhases: 1
 --- !u!114 &1228610036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,6 +147,7 @@ MonoBehaviour:
   normalRadius: 0
   largeRadius: 0
   hitSound: {fileID: 0}
+  invincible: 0
 --- !u!114 &-3707578697455773167
 MonoBehaviour:
   m_ObjectHideFlags: 0
