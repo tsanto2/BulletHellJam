@@ -98,8 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 084a574cfa15bb54eb4af23b07fa9d9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthMax: 80
-  scoreValue: 10000
+  healthMax: 100
+  scoreValue: 5000
   deathSound: {fileID: 11400000, guid: 69505cebcd6158c4cb6d7e0b8d24bc64, type: 2}
   waitForAwake: 1
   phasePlaylist:

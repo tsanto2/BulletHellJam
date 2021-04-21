@@ -894,6 +894,12 @@ PrefabInstance:
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 1604691508}
+    - target: {fileID: 8176372330591010299, guid: 4828d6115ce0bc746b5c8f22231830d0,
+        type: 3}
+      propertyPath: bossGameObject
+      value: 
+      objectReference: {fileID: 6407241734672754609, guid: 46d58d5e17c9424488d2987eebb329da,
+        type: 3}
     - target: {fileID: 8176372330591010300, guid: 4828d6115ce0bc746b5c8f22231830d0,
         type: 3}
       propertyPath: m_LocalPosition.x

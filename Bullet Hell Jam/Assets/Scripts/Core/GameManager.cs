@@ -63,6 +63,7 @@ public class GameManager : MonoBehaviour
 
     private int countdown = 10;
     public int Countdown { get { return countdown;  } }
+    private bool stopCountdownSound;
 
     private InputController input;
     private Camera cam;
@@ -92,6 +93,7 @@ public class GameManager : MonoBehaviour
         EnemyController.OnEnemyDeath += DecreaseEnemyCount;
         EnemyMovement.OnEnemyDespawnOffscreen += DecreaseEnemyCount;
         PlayerController.OnPlayerTakeDamage += ResetCombo;
+        BossController.OnBossDeath += DisableCountdownSound;
 
         combo = 0;
         score = 0;
@@ -108,6 +110,7 @@ public class GameManager : MonoBehaviour
         EnemyController.OnEnemyDeath -= DecreaseEnemyCount;
         EnemyMovement.OnEnemyDespawnOffscreen -= DecreaseEnemyCount;
         PlayerController.OnPlayerTakeDamage -= ResetCombo;
+        BossController.OnBossDeath -= DisableCountdownSound;
     }
 
     private void Update()
@@ -206,20 +209,22 @@ public class GameManager : MonoBehaviour
     
     #endregion
 
+    private void DisableCountdownSound() => stopCountdownSound = true;
+
     IEnumerator TenSecondTimer()
     {
         yield return oneSecond;
 
         countdown--;
 
-        if (countdown <= 3)
+        if (countdown <= 3 && !stopCountdownSound)
         {
             if (countdown == 0)
             {
                 countdown = 10;
                 OnTenSecondsPassed?.Invoke();
             }
-            else
+            else 
                 AudioManager.PlaySFX(tickSound);
         }
 
