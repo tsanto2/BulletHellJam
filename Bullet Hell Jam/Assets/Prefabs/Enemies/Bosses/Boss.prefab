@@ -97,12 +97,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 084a574cfa15bb54eb4af23b07fa9d9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthMax: 120
+  healthMax: 100
   scoreValue: 10000
   deathSound: {fileID: 11400000, guid: 69505cebcd6158c4cb6d7e0b8d24bc64, type: 2}
   playerBulletLayerMask:
     serializedVersion: 2
     m_Bits: 256
+  waitForAwake: 1
   phasePlaylist:
   - weapon: {fileID: 11400000, guid: 1d0a1dd246422ad4eaa3536b8fad2079, type: 2}
     movement: 0

@@ -16,6 +16,6 @@ MonoBehaviour:
   cardTier: 1
   energyCost: 2
   description: Block All Bullets for 4 Seconds.
-  cardIcon: {fileID: 21300000, guid: bd6789e38033408478bfb46a4f1ea251, type: 3}
+  cardIcon: {fileID: 21300000, guid: 95e7b740dd200fc48aa6274e097c3bf6, type: 3}
   cardBorder: {fileID: 21300000, guid: 8520cb125d656de4d8c6e4ef68cf3f2a, type: 3}
   effectDuration: 4

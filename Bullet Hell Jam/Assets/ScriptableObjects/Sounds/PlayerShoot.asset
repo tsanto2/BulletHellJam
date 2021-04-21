@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 138d6843368e4974f9f5080547ea8a1a, type: 3}
   m_Name: PlayerShoot
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: b55695d25b386ac4988c62208b514a18, type: 3}
+  clip: {fileID: 8300000, guid: edda9d1ed70451a40b141bcd6b256b82, type: 3}
   output: {fileID: 9061378762437853971, guid: b5dcec59dec494e48a360a24ca430ed7, type: 2}
   volume: 0.06
   pitch: 2
