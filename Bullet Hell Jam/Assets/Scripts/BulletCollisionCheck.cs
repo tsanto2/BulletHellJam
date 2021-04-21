@@ -8,6 +8,7 @@ public class BulletCollisionCheck : MonoBehaviour
     [SerializeField] private float normalRadius;
     [SerializeField] private float largeRadius;
     [SerializeField] private Sound hitSound;
+    [SerializeField] private bool invincible;
 
     private IDamageable damageable;
     private Collider2D hit;
@@ -22,15 +23,20 @@ public class BulletCollisionCheck : MonoBehaviour
     public void ChangeToLargeRadius()
     {
         checkRadius = largeRadius;
+        invincible = true;
     }
 
     public void ChangeToNormalRadius()
     {
         checkRadius = normalRadius;
+        invincible = false;
     }
 
     private void CheckForEnemyBullets()
     {
+        if (invincible)
+            return;
+
         hit = Physics2D.OverlapCircle(transform.position, checkRadius, bulletLayerMask);
         if (hit)
         {
