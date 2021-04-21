@@ -149,7 +149,7 @@ public class BulletSpawner : MonoBehaviour
         shooter.ShootCooldown = pattern.shootDelay;
         
         if (shootSound != null)
-            AudioManager.PlaySFX(shootSound);
+            AudioManager.PlaySFX(shootSound, true);
 
         for (int i = 0; i < pattern.bulletTotal; i++)
         {

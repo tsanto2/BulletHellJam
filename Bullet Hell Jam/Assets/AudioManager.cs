@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using Random = UnityEngine.Random;
 
 public class AudioManager : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class AudioManager : MonoBehaviour
     [Space]
     [SerializeField] private Sound bgm;
     [SerializeField] private float minLowpassFrequency;
+    [SerializeField, Range(0f, 1f)] private float randomizePitchRange;
 
     private Queue<AudioSource> audioSources = new Queue<AudioSource>();
 
@@ -58,7 +60,7 @@ public class AudioManager : MonoBehaviour
         return audioSource;
     }
 
-    public static void PlaySFX(Sound sound)
+    public static void PlaySFX(Sound sound, bool randomizePitch = false)
     {
         if (sound == null)
             return;
@@ -69,7 +71,7 @@ public class AudioManager : MonoBehaviour
         else
             source = Instance.audioSources.Dequeue();
 
-        Instance.LoadSound(source, sound);
+        Instance.LoadSound(source, sound, randomizePitch);
 
         if (!sound.loop)
             Instance.StartCoroutine(Instance.Play(source));
@@ -79,11 +81,18 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    private void LoadSound(AudioSource source, Sound sound)
+    private void LoadSound(AudioSource source, Sound sound, bool randomizePitch = false)
     {
+        if (randomizePitch)
+        {
+            float pitchAdjustment = Random.Range(-randomizePitchRange, randomizePitchRange);
+            source.pitch = sound.pitch + pitchAdjustment;
+        }
+        else
+            source.pitch = sound.pitch;
+
         source.clip = sound.clip;
         source.volume = sound.volume;
-        source.pitch = sound.pitch;
         source.loop = sound.loop;
         source.outputAudioMixerGroup = sound.output;
     }
