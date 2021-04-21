@@ -67,6 +67,7 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
     private Collider2D hit;
 
     public bool debugWeapons = false;
+    public bool debugNeverDie = false;
 
     [SerializeField]
     private BulletPattern peaShooter;
@@ -197,7 +198,8 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
         // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         Debug.Log("Doug Dimmadome declares you dimma-dun-dead, son.");
 
-        OnPlayerDied?.Invoke();
+        if (!debugNeverDie)
+            OnPlayerDied?.Invoke();
     }
 
 }
