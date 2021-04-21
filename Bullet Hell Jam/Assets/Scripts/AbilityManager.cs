@@ -41,7 +41,7 @@ public class AbilityManager : MonoBehaviour
         PlayerWeapon.OnPlayerWeaponCardActivated -= ActivateWeapon;
         AbsorbBullets.OnAbsorbBulletsCardActivated -= ActivateAbsorbBullets;
         ClearBullets.OnClearBulletsCardActivated -= ActivateClearBullets;
-        BlockBullets.OnBlockBulletsCardActivated += ActivateBlockBullets;
+        BlockBullets.OnBlockBulletsCardActivated -= ActivateBlockBullets;
         RefreshHand.OnRefreshHandCardActivated -= ActivateRefreshHand;
         ScoreMultiplier.OnScoreMultiplierActivated -= ActivateScoreMultiplier;
     }

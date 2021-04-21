@@ -46,11 +46,11 @@ MonoBehaviour:
   baseDeckBasicHpCardCount: 1
   baseDeckIntermediateHpCardCount: 1
   baseDeckAdvancedHpCardCount: 1
-  baseDeckBasicEnergyCardCount: 1
-  baseDeckIntermediateEnergyCardCount: 1
+  baseDeckBasicEnergyCardCount: 0
+  baseDeckIntermediateEnergyCardCount: 2
   baseDeckAdvancedEnergyCardCount: 0
-  baseDeckBasicWeaponCardCount: 6
-  baseDeckIntermediateWeaponCardCount: 3
+  baseDeckBasicWeaponCardCount: 3
+  baseDeckIntermediateWeaponCardCount: 2
   baseDeckAdvancedWeaponCardCount: 1
   baseDeckBasicBlockCardCount: 0
   baseDeckIntermediateBlockCardCount: 1
