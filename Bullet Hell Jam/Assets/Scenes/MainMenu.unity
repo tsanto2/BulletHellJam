@@ -149,9 +149,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c242f99f880dcb4182675c57dcbd4c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wavesAudio: {fileID: 0}
   title: {fileID: 1331879574}
-  ic: {fileID: 0}
-  fader: {fileID: 0}
   buttonImages:
   - {fileID: 171139516}
   - {fileID: 192001363}

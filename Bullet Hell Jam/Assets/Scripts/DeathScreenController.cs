@@ -37,7 +37,6 @@ public class DeathScreenController : MonoBehaviour
     {
         if (ic.keyInput.topFaceButtonPress && !fadingIn)
         {
-            SceneManager.LoadScene("MainMenu");
         }
     }
 
@@ -64,6 +63,10 @@ public class DeathScreenController : MonoBehaviour
         }
 
         fadingIn = false;
+
+        yield return new WaitForSeconds(3.0f);
+
+        SceneManager.LoadScene("MainMenu");
     }
 
 }
