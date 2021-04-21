@@ -40,11 +40,6 @@ public class EnemyController : MonoBehaviour, IDamageable, IFireable
     [SerializeField] private Sound deathSound;
     
     public BulletSpawner Spawner { get; private set; }
-    
-    [SerializeField] private LayerMask playerBulletLayerMask;
-    private Collider2D hit;
-
-    private float scrollSpeed;
 
     [SerializeField] private bool waitForAwake = true;
     protected bool awake;
@@ -68,8 +63,6 @@ public class EnemyController : MonoBehaviour, IDamageable, IFireable
         if (!onScreen)
             return;
 
-        CheckForPlayerBullets();
-
         if (awake || !waitForAwake)
             HandleShooting();
     }
@@ -82,17 +75,6 @@ public class EnemyController : MonoBehaviour, IDamageable, IFireable
     public void WakeUp()
     {
         awake = true;
-    }
-
-    private void CheckForPlayerBullets()
-    {
-        hit = Physics2D.OverlapCircle(transform.position, 1f, playerBulletLayerMask);
-
-        if (hit)
-        {
-            ObjectPool.Instance.ReturnObject(hit.gameObject);
-            TakeDamage(1);
-        }
     }
 
     public virtual void Die(bool scorePoints = false)

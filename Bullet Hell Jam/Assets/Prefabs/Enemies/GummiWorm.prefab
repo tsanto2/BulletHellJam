@@ -74,8 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 1592786015
   m_SortingLayer: 2
   m_SortingOrder: 1
-  m_Sprite: {fileID: 6255108119499475202, guid: 60dc0a9386fceae4fbd1d64c671cf6db,
-    type: 3}
+  m_Sprite: {fileID: 821233778566247361, guid: 71236d5a89f52f045a570121c6d1b20f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -101,9 +100,6 @@ MonoBehaviour:
   healthMax: 8
   scoreValue: 150
   deathSound: {fileID: 11400000, guid: 5df130ac9e07d8f4daf77339d41c30e2, type: 2}
-  playerBulletLayerMask:
-    serializedVersion: 2
-    m_Bits: 256
   waitForAwake: 1
 --- !u!114 &1533623159307737031
 MonoBehaviour:
@@ -156,9 +152,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   checkRadius: 0.3
-  normalRadius: 0
+  normalRadius: 0.3
   largeRadius: 0
+  invincible: 0
   hitSound: {fileID: 0}
+  hitFlashColor: {r: 1, g: 0.427, b: 0.427, a: 1}
+  hitFlashDuration: 0.06
 --- !u!114 &7225182345000428548
 MonoBehaviour:
   m_ObjectHideFlags: 0
