@@ -1751,6 +1751,7 @@ GameObject:
   - component: {fileID: 6169534562751554155}
   - component: {fileID: 6169534562751554152}
   - component: {fileID: 6169534562751554153}
+  - component: {fileID: 3946240501078070939}
   m_Layer: 5
   m_Name: MockupUI
   m_TagString: Untagged
@@ -1847,6 +1848,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &3946240501078070939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6169534562751554158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49769a4777375f84492102111c658ca6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6169534562936962899
 GameObject:
   m_ObjectHideFlags: 0
