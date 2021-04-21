@@ -77,6 +77,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1533623159307737031, guid: 428be333308cad642819c5e938d1416f,
+        type: 3}
+      propertyPath: WakeUpDelay
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6654540015302613639, guid: 428be333308cad642819c5e938d1416f,
         type: 3}
       propertyPath: healthMax
@@ -93,16 +98,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 65f64211973b0514ea342b66887543fd,
         type: 2}
-    - target: {fileID: 1533623159307737031, guid: 428be333308cad642819c5e938d1416f,
+    - target: {fileID: 2297257048766246822, guid: 428be333308cad642819c5e938d1416f,
         type: 3}
-      propertyPath: WakeUpDelay
-      value: 0.5
+      propertyPath: checkRadius
+      value: 0.25
       objectReference: {fileID: 0}
+    - target: {fileID: 8239723498519947872, guid: 428be333308cad642819c5e938d1416f,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: ac755fa0a58180c4a804413e9d8efc0f, type: 2}
     - target: {fileID: 6654540015302613636, guid: 428be333308cad642819c5e938d1416f,
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 5598772166888400066, guid: 8c6bf2a7dcfc2ff4c9c31607be508fb9,
+      objectReference: {fileID: 133817294000935823, guid: d9c20515f78a2e04e8b1c64f9a78f155,
         type: 3}
     - target: {fileID: 6654540015302613636, guid: 428be333308cad642819c5e938d1416f,
         type: 3}
@@ -113,16 +123,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingLayer
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8239723498519947872, guid: 428be333308cad642819c5e938d1416f,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: ac755fa0a58180c4a804413e9d8efc0f, type: 2}
-    - target: {fileID: 2297257048766246822, guid: 428be333308cad642819c5e938d1416f,
-        type: 3}
-      propertyPath: checkRadius
-      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 428be333308cad642819c5e938d1416f, type: 3}

@@ -158,4 +158,7 @@ MonoBehaviour:
   checkRadius: 1
   normalRadius: 0
   largeRadius: 0
+  invincible: 0
   hitSound: {fileID: 0}
+  hitFlashColor: {r: 1, g: 1, b: 1, a: 1}
+  hitFlashDuration: 0
