@@ -64,7 +64,7 @@ public class BulletCollisionCheck : MonoBehaviour
                 StartCoroutine(HitFlash());
 
                 if (hitSound != null)
-                    AudioManager.PlaySFX(hitSound);
+                    AudioManager.PlaySFX(hitSound, true);
             }
 
             damageable.BulletHitBehaviour.Perform(hit.gameObject);
