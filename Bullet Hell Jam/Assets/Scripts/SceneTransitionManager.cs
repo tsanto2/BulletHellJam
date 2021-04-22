@@ -105,7 +105,7 @@ public class SceneTransitionManager : MonoBehaviour
         if (ic == null)
             return;
 
-        bool nextSceneButtonPressed = ic.keyInput.topFaceButtonPress;
+        bool nextSceneButtonPressed = Input.anyKeyDown;
 
         if (nextSceneButtonPressed && isStatsScene && !transitioningToNextScene)
         {

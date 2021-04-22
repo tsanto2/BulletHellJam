@@ -232,7 +232,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: (Press a/x/down arrow)
+  m_text: (Press any button.)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7b7a881c31c533547ab405575acda620, type: 2}
   m_sharedMaterial: {fileID: -6704374369606000259, guid: 7b7a881c31c533547ab405575acda620,
