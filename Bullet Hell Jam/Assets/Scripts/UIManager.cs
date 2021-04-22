@@ -16,6 +16,8 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private List<GameObject> cardDisplayEnergyIcons;
     [SerializeField]
+    private List<GameObject> cardDisplaySpentEnergyIcons;
+    [SerializeField]
     private TextMeshProUGUI countdownValue;
     [SerializeField]
     private Image countdownImage;
@@ -60,12 +62,22 @@ public class UIManager : MonoBehaviour
     {
         isSlowMo = true;
 
+        foreach (GameObject go in cardDisplaySpentEnergyIcons)
+        {
+            go.SetActive(true);
+        }
+
         UpdateEnergyIcons(pc.Energy);
     }
 
     private void SlowMoEnded()
     {
         isSlowMo = false;
+
+        foreach (GameObject go in cardDisplaySpentEnergyIcons)
+        {
+            go.SetActive(false);
+        }
 
         foreach (GameObject go in cardDisplayEnergyIcons)
         {
