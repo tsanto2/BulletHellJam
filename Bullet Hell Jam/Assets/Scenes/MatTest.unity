@@ -3565,10 +3565,15 @@ PrefabInstance:
         type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 2e81ed606a76df540a416d0b97a34b58, type: 3}
+      objectReference: {fileID: 8300000, guid: 272b12c1f44fe2a4e976a7931d35a2c1, type: 3}
     - target: {fileID: 3715718034142292159, guid: 2498b2135c7eff742893e9d463fb4d41,
         type: 3}
       propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3715718034142292159, guid: 2498b2135c7eff742893e9d463fb4d41,
+        type: 3}
+      propertyPath: BypassReverbZones
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
