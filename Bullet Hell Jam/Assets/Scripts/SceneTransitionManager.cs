@@ -111,7 +111,10 @@ public class SceneTransitionManager : MonoBehaviour
         {
             string nextGameplaySceneName = gameplaySceneBaseName + nextScene.ToString();
 
-            StartCoroutine(TimedSceneTransition(1f, true, nextGameplaySceneName));
+            if (nextScene < 3)
+                StartCoroutine(TimedSceneTransition(1f, true, nextGameplaySceneName));
+            else
+                StartCoroutine(TimedSceneTransition(1f, true, "MainMenu"));
         }
     }
 
