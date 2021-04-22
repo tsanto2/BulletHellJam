@@ -5212,7 +5212,7 @@ PrefabInstance:
     - target: {fileID: 1147709423280555804, guid: 973bad31c9720354ba6e7fb05f381682,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 25
+      value: -22
       objectReference: {fileID: 0}
     - target: {fileID: 1147709423280555804, guid: 973bad31c9720354ba6e7fb05f381682,
         type: 3}
@@ -5440,14 +5440,14 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 2543936169259156589, guid: bad07d61ec6a6db4cb5cd1f8a53e8649,
-        type: 3}
-      propertyPath: isDeathFader
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2495649877686530028, guid: bad07d61ec6a6db4cb5cd1f8a53e8649,
         type: 3}
       propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2543936169259156589, guid: bad07d61ec6a6db4cb5cd1f8a53e8649,
+        type: 3}
+      propertyPath: isDeathFader
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
