@@ -28,8 +28,19 @@ public class BulletCollisionCheck : MonoBehaviour
         hitFlashTimer = new WaitForSeconds(hitFlashDuration);
     }
 
+    private void OnEnable()
+    {
+        PlayerController.OnPlayerDied += StopChecks;
+    }
+
+    private void OnDisable()
+    {
+        PlayerController.OnPlayerDied -= StopChecks;
+    }
+
     private void FixedUpdate() => CheckForEnemyBullets();
 
+    public void StopChecks() => hitFlash = false;
     public void GainInvincibility(float time) => hitFlash = false;
     public void LoseInvincibility() => hitFlash = true;
 
@@ -55,7 +66,7 @@ public class BulletCollisionCheck : MonoBehaviour
                 if (hitSound != null)
                     AudioManager.PlaySFX(hitSound);
             }
-            
+
             damageable.BulletHitBehaviour.Perform(hit.gameObject);
         }
     }

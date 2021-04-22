@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Pea Shooter
   m_EditorClassIdentifier: 
   baseDirection: 0
-  baseSpread: 5
+  baseSpread: 10
   bulletMinSpawnDistance: 1.4
   bulletMaxSpawnDistance: 1.4
   baseOscillationType: 2
   baseOscillationSpeed: 1
-  spawnRadius: 2.5
+  spawnRadius: 5
   bulletPrefab: {fileID: 3004463604967225481, guid: aaf41af761b55c544a10b56a4e383a5b,
     type: 3}
   bulletMinLifeTime: 4
@@ -26,7 +26,7 @@ MonoBehaviour:
   bulletMinBaseSpeed: 12
   bulletMaxBaseSpeed: 12
   bulletRotationSpeed: 0
-  shootDelay: 0.29
+  shootDelay: 0.35
   bulletTotal: 1
   bulletOffset: 0
   wrapAngles: 0

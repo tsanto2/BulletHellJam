@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -3707578697455773167}
   - component: {fileID: 6355264790038296008}
   m_Layer: 0
-  m_Name: Boss 1
+  m_Name: Level2Boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,10 +76,10 @@ SpriteRenderer:
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: ae935f0fa8b73ca4397fcd3efa16d2e1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 4.125, y: 2.46875}
+  m_Size: {x: 0.2, y: 0.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -97,29 +97,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 084a574cfa15bb54eb4af23b07fa9d9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthMax: 100
-  scoreValue: 5000
-  deathSound: {fileID: 11400000, guid: 5df130ac9e07d8f4daf77339d41c30e2, type: 2}
+  healthMax: 130
+  scoreValue: 1000
+  deathSound: {fileID: 11400000, guid: 69505cebcd6158c4cb6d7e0b8d24bc64, type: 2}
   waitForAwake: 1
   phasePlaylist:
-  - weapon: {fileID: 11400000, guid: 301e58f6fe510fa4f943ed2215633de6, type: 2}
+  - weapon: {fileID: 11400000, guid: 1d0a1dd246422ad4eaa3536b8fad2079, type: 2}
     movement: 0
-    phaseTimeLength: 2
-  - weapon: {fileID: 0}
-    movement: 0
-    phaseTimeLength: 0.6
-  - weapon: {fileID: 11400000, guid: 0ac6677e1248e6947a9cae6f87d1bffa, type: 2}
+    phaseTimeLength: 7.5
+  - weapon: {fileID: 11400000, guid: a8ad87b2bde9ca14ab92e8717db6cbf4, type: 2}
     movement: 1
-    phaseTimeLength: 2
-  - weapon: {fileID: 11400000, guid: 301e58f6fe510fa4f943ed2215633de6, type: 2}
-    movement: 0
-    phaseTimeLength: 2
-  - weapon: {fileID: 0}
-    movement: 0
-    phaseTimeLength: 0.6
-  - weapon: {fileID: 11400000, guid: 0ac6677e1248e6947a9cae6f87d1bffa, type: 2}
+    phaseTimeLength: 1.5
+  - weapon: {fileID: 11400000, guid: a8ad87b2bde9ca14ab92e8717db6cbf4, type: 2}
     movement: 2
-    phaseTimeLength: 2
+    phaseTimeLength: 3
+  - weapon: {fileID: 11400000, guid: a8ad87b2bde9ca14ab92e8717db6cbf4, type: 2}
+    movement: 1
+    phaseTimeLength: 1.5
   loopPhases: 1
 --- !u!114 &1228610036
 MonoBehaviour:
@@ -133,9 +127,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14d7f49ee6e3b2e4bb95a99f574ae936, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementBehaviour: 0
+  movementBehaviour: 1
   WakeUpDelay: 2
-  moveSpeed: 1.5
+  moveSpeed: 2
   moveDelay: 0
 --- !u!114 &3126779852862963121
 MonoBehaviour:
@@ -171,7 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7668825eeff8ae84aabac4d727b74ee4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pattern: {fileID: 11400000, guid: 1d0a1dd246422ad4eaa3536b8fad2079, type: 2}
+  pattern: {fileID: 0}
   shootSound: {fileID: 0}
 --- !u!95 &6355264790038296008
 Animator:
@@ -181,7 +175,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6407241734672754609}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 97341dfa0aa0f534b928304d32db1da3, type: 2}
   m_CullingMode: 0
