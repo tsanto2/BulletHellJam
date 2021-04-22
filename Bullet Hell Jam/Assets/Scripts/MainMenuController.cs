@@ -37,6 +37,8 @@ public class MainMenuController : MonoBehaviour
     private bool transitioningToNewScene = false;
 
     public bool debugControlsScene = false;
+    
+    [SerializeField] private Button playButton;
 
     private void Start()
     {
@@ -47,6 +49,11 @@ public class MainMenuController : MonoBehaviour
         //wavesAudio.Play();
 
         StartCoroutine(TitleFadeIn());
+    }
+
+    private void OnEnable()
+    {
+        
     }
 
     public void PlayButtonPressed()

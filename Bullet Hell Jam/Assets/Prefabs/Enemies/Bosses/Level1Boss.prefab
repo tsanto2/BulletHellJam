@@ -99,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthMax: 100
   scoreValue: 1000
-  deathSound: {fileID: 11400000, guid: 5df130ac9e07d8f4daf77339d41c30e2, type: 2}
+  deathSound: {fileID: 11400000, guid: e0a4174cfa37a1b44911b9d40cf22e8e, type: 2}
   waitForAwake: 1
   phasePlaylist:
   - weapon: {fileID: 11400000, guid: 301e58f6fe510fa4f943ed2215633de6, type: 2}
@@ -128,7 +128,7 @@ MonoBehaviour:
     phaseTimeLength: 0.6
   - weapon: {fileID: 11400000, guid: 0ac6677e1248e6947a9cae6f87d1bffa, type: 2}
     movement: 1
-    phaseTimeLength: 2
+    phaseTimeLength: 1.5
   loopPhases: 1
 --- !u!114 &1228610036
 MonoBehaviour:
@@ -165,7 +165,7 @@ MonoBehaviour:
   normalRadius: 0
   largeRadius: 0
   hitFlash: 1
-  hitSound: {fileID: 0}
+  hitSound: {fileID: 11400000, guid: f02065bb620bbcf459c065a78580ad34, type: 2}
   hitFlashColor: {r: 1, g: 0.6273585, b: 0.6273585, a: 1}
   hitFlashDuration: 0.06
 --- !u!114 &-3707578697455773167

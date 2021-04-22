@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 138d6843368e4974f9f5080547ea8a1a, type: 3}
   m_Name: DrawHand
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: 804b44369d19bd04282e9d2ddff2e7ae, type: 3}
+  clip: {fileID: 8300000, guid: 8c12b5cd0af07f543b417608635d1bb5, type: 3}
   output: {fileID: 9061378762437853971, guid: b5dcec59dec494e48a360a24ca430ed7, type: 2}
-  volume: 0.15
+  volume: 0.5
   pitch: 1
   loop: 0

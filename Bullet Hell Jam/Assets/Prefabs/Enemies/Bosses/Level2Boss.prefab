@@ -74,7 +74,8 @@ SpriteRenderer:
   m_SortingLayerID: 1592786015
   m_SortingLayer: 2
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: ae935f0fa8b73ca4397fcd3efa16d2e1, type: 3}
+  m_Sprite: {fileID: 4003863462380474025, guid: 7a84b9347a41bf34c90631b827f8629c,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,7 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthMax: 130
   scoreValue: 1000
-  deathSound: {fileID: 11400000, guid: 69505cebcd6158c4cb6d7e0b8d24bc64, type: 2}
+  deathSound: {fileID: 11400000, guid: e0a4174cfa37a1b44911b9d40cf22e8e, type: 2}
   waitForAwake: 1
   phasePlaylist:
   - weapon: {fileID: 11400000, guid: 1d0a1dd246422ad4eaa3536b8fad2079, type: 2}
@@ -150,7 +151,7 @@ MonoBehaviour:
   normalRadius: 0
   largeRadius: 0
   hitFlash: 1
-  hitSound: {fileID: 0}
+  hitSound: {fileID: 11400000, guid: f02065bb620bbcf459c065a78580ad34, type: 2}
   hitFlashColor: {r: 1, g: 0.6273585, b: 0.6273585, a: 1}
   hitFlashDuration: 0.06
 --- !u!114 &-3707578697455773167
@@ -177,7 +178,7 @@ Animator:
   m_GameObject: {fileID: 6407241734672754609}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 97341dfa0aa0f534b928304d32db1da3, type: 2}
+  m_Controller: {fileID: 9100000, guid: ab805078920453242857cd306b9087bf, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

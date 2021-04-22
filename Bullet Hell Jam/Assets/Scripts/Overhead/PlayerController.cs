@@ -26,6 +26,10 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
         {
             health = Mathf.Clamp(value, 0, healthMax);
             OnPlayerHealthChange?.Invoke(health);
+
+            if (health <= 3)
+                lowHealthSound.Play();
+            else lowHealthSound.Stop();
         }
     }
 
@@ -73,6 +77,8 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
     private BulletPattern peaShooter;
     [SerializeField]
     private SpriteRenderer bubbleSprite;
+    [SerializeField]
+    private AudioSource lowHealthSound;
 
     private bool canShoot = false;
 
@@ -95,6 +101,7 @@ public class PlayerController : MonoBehaviour, IDamageable, IFireable
         input = GetComponent<InputController>();
         Spawner = GetComponent<BulletSpawner>();
         collisionCheck = GetComponent<BulletCollisionCheck>();
+        lowHealthSound = GetComponent<AudioSource>();
     }
 
     private void OnEnable()
