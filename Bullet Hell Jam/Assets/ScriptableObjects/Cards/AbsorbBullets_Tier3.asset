@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 14
   cardTier: 2
-  energyCost: 3
+  energyCost: 4
   description: Absorb Bullets for 4 seconds.
   cardIcon: {fileID: 21300000, guid: d69fcfffddd6b7c4095d82c9be04b0e1, type: 3}
   cardBorder: {fileID: 21300000, guid: bcd4f2a0330772146a3f6a5cd9dbaf9b, type: 3}
