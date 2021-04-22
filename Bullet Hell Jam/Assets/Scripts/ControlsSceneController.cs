@@ -31,7 +31,7 @@ public class ControlsSceneController : MonoBehaviour
 
     private void Update()
     {
-        if (ic.keyInput.topFaceButtonPress && hasCountdownFinished)
+        if (Input.anyKeyDown && hasCountdownFinished)
         {
             if (isMainMenuControlsScene)
             {
