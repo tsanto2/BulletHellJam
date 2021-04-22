@@ -36,6 +36,8 @@ public class MainMenuController : MonoBehaviour
 
     private bool transitioningToNewScene = false;
 
+    public bool debugControlsScene = false;
+
     private void Start()
     {
         ic = FindObjectOfType<InputController>();
@@ -51,8 +53,18 @@ public class MainMenuController : MonoBehaviour
     {
         Debug.Log("Play button pressed.");
 
-        if (!transitioningToNewScene)
+        if (!PlayerPrefs.HasKey("HasPlayedBefore") || (PlayerPrefs.GetInt("HasPlayedBefore") != 1) || debugControlsScene)
+        {
+            PlayerPrefs.SetInt("HasPlayedBefore", 1);
+            StartCoroutine(TimedSceneTransition("GameplayControlsScene"));
+        }
+        else if (!transitioningToNewScene)
             StartCoroutine(TimedSceneTransition("MatTest"));
+    }
+
+    public void ControlsSceneButtonPressed()
+    {
+        TransitionToScene("MainMenuControlsScene");
     }
 
     private void TransitionToScene(string sceneName)
