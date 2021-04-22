@@ -3941,7 +3941,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   centerTextPopUp: {fileID: 6151976410846413514}
   cardSelectionPopUpTimerMax: 15
-  cardSelectionPopUpText: Press RB to View Available Power-Ups!
+  cardSelectionPopUpText: Press RB/L Ctrl to View Available Power-Ups!
 --- !u!1 &6927264986665094266
 GameObject:
   m_ObjectHideFlags: 0
