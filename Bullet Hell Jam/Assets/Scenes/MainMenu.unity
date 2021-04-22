@@ -847,6 +847,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fader
       objectReference: {fileID: 0}
+    - target: {fileID: 5841295701127004330, guid: bad07d61ec6a6db4cb5cd1f8a53e8649,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 739907576503626518, guid: bad07d61ec6a6db4cb5cd1f8a53e8649,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -951,6 +956,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2495649877686530028, guid: bad07d61ec6a6db4cb5cd1f8a53e8649,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bad07d61ec6a6db4cb5cd1f8a53e8649, type: 3}
