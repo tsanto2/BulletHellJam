@@ -14,6 +14,8 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private List<GameObject> energyIcons;
     [SerializeField]
+    private List<GameObject> cardDisplayEnergyIcons;
+    [SerializeField]
     private TextMeshProUGUI countdownValue;
     [SerializeField]
     private Image countdownImage;
@@ -21,16 +23,26 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private GameManager gm;
 
+    private PlayerController pc;
+
+    private bool isSlowMo = false;
+
     private void OnEnable()
     {
         PlayerController.OnPlayerHealthChange += UpdateHpText;
         PlayerController.OnPlayerEnergyChange += UpdateEnergyIcons;
+        GameManager.OnSlowMoStarted += SlowMoStarted;
+        GameManager.OnSlowMoEnded += SlowMoEnded;
+
+        pc = FindObjectOfType<PlayerController>();
     }
 
     private void OnDisable()
     {
         PlayerController.OnPlayerHealthChange -= UpdateHpText;
         PlayerController.OnPlayerEnergyChange -= UpdateEnergyIcons;
+        GameManager.OnSlowMoStarted -= SlowMoStarted;
+        GameManager.OnSlowMoEnded -= SlowMoEnded;
     }
 
     private void Update()
@@ -44,6 +56,23 @@ public class UIManager : MonoBehaviour
         healthbarImage.fillAmount = (float)hp / 9;
     }
 
+    private void SlowMoStarted()
+    {
+        isSlowMo = true;
+
+        UpdateEnergyIcons(pc.Energy);
+    }
+
+    private void SlowMoEnded()
+    {
+        isSlowMo = false;
+
+        foreach (GameObject go in cardDisplayEnergyIcons)
+        {
+            go.SetActive(false);
+        }
+    }
+
     private void UpdateEnergyIcons(int energy)
     {
         for (int i=0; i<energyIcons.Count; i++)
@@ -54,6 +83,8 @@ public class UIManager : MonoBehaviour
                 shouldBeActive = true;
 
             energyIcons[i].SetActive(shouldBeActive);
+            if (isSlowMo)
+                cardDisplayEnergyIcons[i].SetActive(shouldBeActive);
         }
     }
 
