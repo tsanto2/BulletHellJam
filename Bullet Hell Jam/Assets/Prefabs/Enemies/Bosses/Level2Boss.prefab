@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -3707578697455773167}
   - component: {fileID: 6355264790038296008}
   m_Layer: 0
-  m_Name: Boss
+  m_Name: Level2Boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,8 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 1592786015
   m_SortingLayer: 2
   m_SortingOrder: 1
-  m_Sprite: {fileID: -2914093824073736971, guid: 1dfb038d9e202f24a9ecdb510629bc40,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: ae935f0fa8b73ca4397fcd3efa16d2e1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,8 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 084a574cfa15bb54eb4af23b07fa9d9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthMax: 80
-  scoreValue: 10000
+  healthMax: 130
+  scoreValue: 1000
   deathSound: {fileID: 11400000, guid: 69505cebcd6158c4cb6d7e0b8d24bc64, type: 2}
   waitForAwake: 1
   phasePlaylist:

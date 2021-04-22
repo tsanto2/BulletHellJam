@@ -9,11 +9,13 @@ public class InputController : MonoBehaviour
     {
         controlsEnabled = true;
         BossController.OnBossDeath += DisableControls;
+        PlayerController.OnPlayerDied += DisableControls;
     }
 
     private void OnDisable()
     {
         BossController.OnBossDeath -= DisableControls;
+        PlayerController.OnPlayerDied -= DisableControls;
     }
 
     private void Update()

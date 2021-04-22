@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: ae935f0fa8b73ca4397fcd3efa16d2e1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 4.125, y: 2.46875}
@@ -102,10 +102,10 @@ MonoBehaviour:
   deathSound: {fileID: 11400000, guid: 5df130ac9e07d8f4daf77339d41c30e2, type: 2}
   waitForAwake: 1
   phasePlaylist:
-  - weapon: {fileID: 11400000, guid: 301e58f6fe510fa4f943ed2215633de6, type: 2}
+  - weapon: {fileID: 11400000, guid: 605a5d8e4c8698d43a7ec3a65e633972, type: 2}
     movement: 0
     phaseTimeLength: 2
-  - weapon: {fileID: 11400000, guid: 301e58f6fe510fa4f943ed2215633de6, type: 2}
+  - weapon: {fileID: 11400000, guid: 605a5d8e4c8698d43a7ec3a65e633972, type: 2}
     movement: 0
     phaseTimeLength: 2
   loopPhases: 1

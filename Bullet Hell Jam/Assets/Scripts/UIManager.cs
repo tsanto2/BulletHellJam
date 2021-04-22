@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class UIManager : MonoBehaviour
@@ -9,9 +10,13 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI hpValue;
     [SerializeField]
+    private Image healthbarImage;
+    [SerializeField]
     private List<GameObject> energyIcons;
     [SerializeField]
     private TextMeshProUGUI countdownValue;
+    [SerializeField]
+    private Image countdownImage;
 
     [SerializeField]
     private GameManager gm;
@@ -35,7 +40,8 @@ public class UIManager : MonoBehaviour
 
     private void UpdateHpText(int hp)
     {
-        hpValue.text = hp.ToString();
+        //hpValue.text = hp.ToString();
+        healthbarImage.fillAmount = (float)hp / 9;
     }
 
     private void UpdateEnergyIcons(int energy)
@@ -54,6 +60,7 @@ public class UIManager : MonoBehaviour
     private void UpdateCountdownText()
     {
         countdownValue.text = gm.Countdown.ToString();
+        countdownImage.fillAmount = (float)gm.Countdown / (float)10;
     }
 
 }

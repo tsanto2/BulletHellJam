@@ -28,13 +28,13 @@ MonoBehaviour:
   bulletRotationSpeed: 0
   shootDelay: 0.91999996
   bulletTotal: 30
-  bulletOffset: 187
+  bulletOffset: 197
   wrapAngles: 0
   mirrorShootAngles: 1
   spawnerOscillationSpeed: 0
   incrementalSpeed: 0.12
   incrementalRotation: 0
-  bulletSpread: 5423
+  bulletSpread: 5713
   spawnRotation: 0
   currentBaseAngle: 0
   positions:
