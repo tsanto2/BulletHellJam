@@ -13,8 +13,11 @@ public class MainMenuController : MonoBehaviour
     [SerializeField]
     private AudioSource wavesAudio;
 
+    //[SerializeField]
+    //private TextMeshProUGUI title;
+
     [SerializeField]
-    private TextMeshProUGUI title;
+    private Image title;
 
     [SerializeField]
     private List<Image> buttonImages;

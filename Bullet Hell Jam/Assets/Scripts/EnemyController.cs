@@ -55,7 +55,8 @@ public class EnemyController : MonoBehaviour, IDamageable, IFireable
     {
         health = healthMax;
         awake = false;
-        onScreen = false;  
+        onScreen = false;
+        GetComponent<BulletCollisionCheck>().enabled = false;
     }
 
     protected virtual void FixedUpdate()
@@ -70,11 +71,17 @@ public class EnemyController : MonoBehaviour, IDamageable, IFireable
     private void OnBecameVisible()
     {
         onScreen = true;
+        Invoke("StartDamage", 0.3f);
     }
 
     public void WakeUp()
     {
         awake = true;
+    }
+
+    private void StartDamage()
+    {
+        GetComponent<BulletCollisionCheck>().enabled = true;
     }
 
     public virtual void Die(bool scorePoints = false)
